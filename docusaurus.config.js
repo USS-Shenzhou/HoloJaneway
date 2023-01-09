@@ -72,7 +72,7 @@ const config = {
           },*/
           //{to: '/blog', label: 'Blog', position: 'left'},
           {
-            href: 'https://github.com/facebook/docusaurus',
+            href: 'https://github.com/USS-Shenzhou/HoloJaneway',
             label: 'GitHub',
             position: 'right',
           },
@@ -83,11 +83,15 @@ const config = {
         links: [
           {
             label: 'KOOK',
-            href:'https://kook.uss-shenzhou.cn/'
+            href:'https://kook.top/Bu1WLb'
           },
           {
             label: 'Bilibili',
             href:'https://space.bilibili.com/266675750'
+          },
+          {
+            label: 'GitHub',
+            href:'https://github.com/USS-Shenzhou'
           }
           /*{
             title: 'Docs',
