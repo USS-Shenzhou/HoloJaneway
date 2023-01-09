@@ -58,7 +58,7 @@ repositories {
 }
 
 dependencies {
-    implementation "curse.maven:[lib-mod名称]-[ProjectID]:[jar的fileID]-sources-[source-jar的fileID]"
+    implementation fg.deobf("curse.maven:[lib-mod名称]-[ProjectID]:[jar的fileID]-sources-[source-jar的fileID]")
 }
 ```
 
