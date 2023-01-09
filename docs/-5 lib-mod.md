@@ -48,7 +48,7 @@ java {
 
 打开你需要使用lib-mod的mod，在`build.gradle`中增加：
 
-```java
+```gradle
 //注意，这里不是在buildscript之下，而是build.gradle接近末尾处有单独的一块。
 repositories {
     maven {
@@ -58,7 +58,7 @@ repositories {
 }
 
 dependencies {
-    implementation fg.deobf("curse.maven:[lib-mod名称]-[ProjectID]:[jar的fileID]-sources-[source-jar的fileID]")
+    implementation "curse.maven:[lib-mod名称]-[ProjectID]:[jar的fileID]-sources-[source-jar的fileID]"
 }
 ```
 
