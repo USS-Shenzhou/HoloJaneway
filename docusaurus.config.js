@@ -134,7 +134,7 @@ const config = {
           },*/
         ],
         //copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
-        copyright: `CC BY-NC 4.0 HoloJaneway, USS_Shenzhou. Built with Docusaurus.`,
+        copyright: `CC BY-NC 4.0 Holo Janeway, USS_Shenzhou. Built with Docusaurus. | <a href="https://beian.miit.gov.cn" target="_blank">蜀ICP备2023001090号-1</a>`,
       },
       prism: {
         theme: lightCodeTheme,
