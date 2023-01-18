@@ -184,8 +184,6 @@ public abstract class MixinBlockLightEngine extends LayerLightEngine<FakeBlockLi
 
 ### 在MadParticle中，我们需要访问ParticleEngine的字段，并执行私有方法
 
-GPLv3：
-
 ```java
 @Mixin(ParticleEngine.class)
 public interface ParticleEngineAccessor {
