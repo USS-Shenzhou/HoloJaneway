@@ -64,12 +64,18 @@ const config = {
           src: 'img/logo.png',
         },
         items: [
-          /*{
+          {
             type: 'doc',
-            docId: 'intro',
+            docId: 'holojaneway/0',
             position: 'left',
-            label: 'Tutorial',
-          },*/
+            label: 'Mod开发',
+          },
+          {
+            type: 'doc',
+            docId: 'madparticle/home',
+            position: 'left',
+            label: 'MadParticle',
+          },
           //{to: '/blog', label: 'Blog', position: 'left'},
           {
             href: 'https://github.com/USS-Shenzhou/HoloJaneway',
