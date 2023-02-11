@@ -4,6 +4,7 @@ title: -3 Mixin与AT
 description: Mixin与AT
 hide_table_of_contents: false
 sidebar_position: 60
+toc_max_heading_level: 4
 ---
 
 # Mixin与AT
@@ -76,6 +77,8 @@ mixin包中也不应该包含普通类，比如你的方块或者实体什么的
 
 :::
 
+### 一些例子
+
 下面，我们将以一些场景为例，向你讲述如何使用Mixin。
 
 :::tip
@@ -84,9 +87,9 @@ mixin包中也不应该包含普通类，比如你的方块或者实体什么的
 
 :::
 
-### 在Brighter中，我们需要修改方块光衰减的方式，以达到减少衰减增加扩散的目的
+#### 在Brighter中修改方块光衰减的方式
 
-Brighter, GPLv3：
+这样就可以减少衰减而增加扩散了。Brighter, GPLv3：
 
 ```java
 @Mixin(BlockLightEngine.class)
@@ -171,7 +174,7 @@ public abstract class MixinBlockLightEngine extends LayerLightEngine<FakeBlockLi
 
 在编写你的Mixin方法时，你可以在方法名前后加上mod id或者其他什么东西，以便于在发生错误时进行定位。
 
-如果你不确定方法参数应该怎样填写，`alt+enter`让`Minecraft Development`插件来完成就好了。
+如果你不确定方法参数应该怎样填写，`alt+enter`让`Minecraft Development插件`来完成就好了。
 
 :::
 
@@ -183,7 +186,9 @@ public abstract class MixinBlockLightEngine extends LayerLightEngine<FakeBlockLi
 
 :::
 
-### 在MadParticle中，我们需要访问ParticleEngine的字段，并执行私有方法
+---
+
+#### 在MadParticle中访问并执行私有字段和方法
 
 ```java
 @Mixin(ParticleEngine.class)
@@ -215,6 +220,17 @@ Particle particle = ((ParticleEngineAccessor) Minecraft.getInstance().particleEn
 在使用`@Accessor`和`@Invoker`时，如果你没有改变默认生成的方法名，则不需要在其后指定具体的作用对象。比如在这个例子中，`("spriteSets")`是不必要的。
 
 :::
+
+---
+
+#### TODO 为目标类添加一个方法
+
+### 错误排查
+
+mixin在注入过程中或者注入之后很有可能产生错误或不符合预期的表现。
+
+
+
 
 ---
 
