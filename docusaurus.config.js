@@ -141,7 +141,7 @@ const config = {
         ],
         //copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
         copyright: `<font size="2">
-        Copyright © ${new Date().getFullYear()} Holo Janeway, USS_Shenzhou. Built with Docusaurus.
+        Copyright © ${new Date().getFullYear()} Holo Janeway, USS_Shenzhou. Built with <a href="https://docusaurus.io/" target="_blank">Docusaurus</a>.
          | <a href="https://beian.miit.gov.cn" target="_blank">蜀ICP备2023001090号-1</a>
         </br>Holo Janeway网站使用<a href="https://github.com/USS-Shenzhou/HoloJaneway/blob/main/LICENSE" target="_blank">MIT协议</a>授权。
          | The Holo Janeway website is licensed under <a href="https://github.com/USS-Shenzhou/HoloJaneway/blob/main/LICENSE" target="_blank">MIT License</a>.

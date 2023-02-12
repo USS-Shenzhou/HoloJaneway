@@ -25,7 +25,7 @@ madparticle minecraft:crit RANDOM 30 FALSE 1 ~ ~1 ~ 0.0 0.0 0.0 0.0 0.45 0.0 0.0
 
 其效果如下图：
 
-![image](./assets/2023-01-26_19.01.26.png)
+![image](./assets/2023-01-26_19.01.26.jpg)
 
 80个循环型命令方块工作引起的额外mspt消耗约为13ms，平均每个循环型命令方块的mspt消耗为0.1625ms。
 
