@@ -8,6 +8,14 @@ hide_table_of_contents: false
 
 ---
 
+:::caution
+
+错误的命令参数可能会导致客户端来不及处理大量的粒子而导致卡顿，或是在少数情况下引起客户端崩溃，以至于需要卸载mod并移除对应的命令方块。
+
+Incorrect command parameters may make your client very laggy to handle the large number of particles, even causing the client to crash to the point of uninstalling the mod and removing the corresponding Command Block.
+
+:::
+
 :::caution 注意
 
 `/madparticle`和`/mp`指令在理论效果上是几乎相同的，除了以下内容：

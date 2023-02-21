@@ -76,6 +76,12 @@ const config = {
             position: 'left',
             label: 'MadParticle',
           },
+          {
+            type: 'doc',
+            docId: 'r6ms/home',
+            position: 'left',
+            label: 'R6MS',
+          },
           //{to: '/blog', label: 'Blog', position: 'left'},
           {
             href: 'https://github.com/USS-Shenzhou/HoloJaneway',

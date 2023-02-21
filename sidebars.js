@@ -41,17 +41,22 @@ const sidebars = {
     'madparticle/fabric',
     'madparticle/server',
   ],
-  /*
-  tutorialSidebar: [
-    'intro',
-    'hello',
+  r6ms:[
+    'r6ms/home',
+    'r6ms/player',
+    'r6ms/map',
+    'r6ms/op',
+    'r6ms/cross_server',
+    'r6ms/data_collect',
     {
       type: 'category',
-      label: 'Tutorial',
-      items: ['tutorial-basics/create-a-document'],
-    },
-  ],
-   */
+      label: '更新日志',
+      collapsed: true,
+      items: [
+        'r6ms/update_log/1.0.0'
+      ],
+    }
+  ]
 };
 
 module.exports = sidebars;
