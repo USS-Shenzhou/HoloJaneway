@@ -22,6 +22,8 @@ As the most important part, you should check the `/madParticle Command Guideline
 
 `/madparticle`命令是这个模组中最重要的部分。作为最基础的内容，你应该先完整阅读`/madparticle 命令指南`，随后在`Designer GUI指南`中学习对辅助设计工具的使用。
 
+如果你需要在Fabric中使用MadParticle，请查看[完全自定义粒子](madparticle/custom)一章中的内容。
+
 指南内容随着模组开发而更新，故请注意其中可能含有未发布的模组内容。
 
 :::info
