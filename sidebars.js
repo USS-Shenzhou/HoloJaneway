@@ -38,8 +38,7 @@ const sidebars = {
     'madparticle/home',
     'madparticle/command',
     'madparticle/designer',
-    'madparticle/custom',
-    'madparticle/server',
+    'madparticle/misc'
   ],
   r6ms:[
     'r6ms/home',
