@@ -45,7 +45,13 @@ java {
 
 在你的lib-mod首页，即`Description`一栏，你可以在右侧找到你的`ProjectID`。
 
-你的lib-mod在CurseForge上审核通过后，在`Files`一栏，分别点击对应的jar和source-jar，你就可以在其URL中查看它们的`fileID`了。
+你的lib-mod在上传CurseForge，在`Files`一栏，分别点击对应的jar和source-jar，将鼠标悬停于`Install`旁的下拉菜单中的`Download file`，你就可以在浏览器下方显示的URL中查看它们的`fileID`了。
+
+:::tip
+
+即使你的mod jar暂时没有审核通过，你也可以照常查看并使用`fileID`。
+
+:::
 
 打开你需要使用lib-mod的mod，在`build.gradle`中增加：
 
