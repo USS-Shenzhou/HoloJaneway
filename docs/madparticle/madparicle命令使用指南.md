@@ -6,6 +6,8 @@ hide_table_of_contents: false
 
 # /madparticle 命令指南
 
+这一章包含与`/madparticle` 指令相关的所有重要内容。
+
 ---
 
 :::caution
@@ -103,7 +105,7 @@ expireThen (madParticle command)//粒子消失时产生新粒子
 
 :::
 
-`alwaysRender`决定粒子是否无视最大生成距离。MC原版的最大生成距离为32格。在[Extinguish](https://www.curseforge.com/minecraft/mc-mods/extinguish-by-uss_shenzhou)中，此值被改为了64格。
+`alwaysRender`决定粒子是否无视最大生成距离和游戏选项中的粒子等级。MC原版的最大生成距离为32格。在[Extinguish](https://www.curseforge.com/minecraft/mc-mods/extinguish-by-uss_shenzhou)中，此值被改为了64格。更多信息请查看[粒子最大生成距离](config#最大粒子生成距离)。
 
 :::info 作为参考
 

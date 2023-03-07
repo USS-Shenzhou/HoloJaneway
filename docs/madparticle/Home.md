@@ -20,7 +20,7 @@ As the most important part, you should check the `/madParticle Command Guideline
 
 疯狂粒子受[Extinguish](https://www.curseforge.com/minecraft/mc-mods/extinguish-by-uss_shenzhou)在[Teacon 2022](https://www.teacon.cn/2022/index)中的表现启发，是一个主要适用于多人游戏和数据包的模组。依靠粒子贴图的再利用而不是新增加，有几乎无穷多的粒子可供您营造各种场景。
 
-`/madparticle`命令是这个模组中最重要的部分。作为最基础的内容，你应该先完整阅读`/madparticle 命令指南`，随后在`Designer GUI指南`中学习对辅助设计工具的使用。
+`/madparticle`命令是这个模组中最重要的部分。作为最基础的内容，你应该先完整阅读`/madparticle 命令指南`，随后在`Designer GUI指南`中学习对辅助设计工具的使用，并阅读剩下的章节。
 
 :::info
 
