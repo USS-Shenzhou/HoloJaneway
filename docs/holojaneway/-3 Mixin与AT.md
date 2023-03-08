@@ -19,7 +19,7 @@ Mixin是一个非常强大的工具，它基于[ASM](https://asm.ow2.io/)，帮�
 
 :::tip
 
-你应该尽量避免使用Mixin。请确认已经没有其他方法，或是替代方法非常不划算后再使用Mixin。Mixin的加入可能会极大地提高错误出现的可能性和诊断错误的难度。
+你应该尽量避免使用Mixin。请确认已经没有其他方法（例如监听事件），或是替代方法非常不划算后再使用Mixin。Mixin的加入可能会极大地提高错误出现的可能性和诊断错误的难度。
 
 :::
 
@@ -33,9 +33,9 @@ Mixin的作用范围仅限于MC本身和其他mod，不能对其他依赖进行�
 
 :::tip
 
-所有的Mixin类应该放且仅放在mixin包中。当然，你也可以分好几个包，但多数情况下这没有必要，以后不再讨论。
+所有的Mixin类应该放且仅放在mixin包中。mixin包中也不应该包含普通类，比如你的方块或者实体什么的。
 
-mixin包中也不应该包含普通类，比如你的方块或者实体什么的。
+当然，你也可以分好几个包，但多数情况下这没有必要，以后不再讨论。
 
 :::
 
@@ -77,19 +77,21 @@ mixin包中也不应该包含普通类，比如你的方块或者实体什么的
 
 :::
 
-### 一些例子
+### 修改
 
-下面，我们将以一些场景为例，向你讲述如何使用Mixin。
+下面，我们将以一些场景为例，向你讲述如何使用Mixin修改原版内容。你可以不必看具体的修改内容。
 
 :::tip
 
 如果你的目标类/方法是在生产环境中不会被混淆的类/方法，比如其他mod中的内容，你需要在`@Mixin`或`@Inject`中加入`remap = false`来告诉Mixin不要进行混淆。
 
+你进行修改的方法应当在方法名前加上你的modid，或者以其他方式明显地标示这个方法属于哪个mod。
+
 :::
 
-#### 在Brighter中修改方块光衰减的方式
+#### Inject - 在Brighter中修改方块光衰减的方式
 
-这样就可以减少衰减而增加扩散了。Brighter, GPLv3：
+这样就可以减少衰减而增加扩散了。Brighter, MixinBlockLightEngine, GPLv3：
 
 ```java
 @Mixin(BlockLightEngine.class)
@@ -156,7 +158,7 @@ public abstract class MixinBlockLightEngine extends LayerLightEngine<FakeBlockLi
 
 :::
 
-在需要使用目标类的方法时，你可以使用`@Shadow`来标记一个Mixin类中的同名方法，这样Mixin在运行时就会去调用目标类中的方法。
+在需要使用目标类的方法时，你可以使用`@Shadow`来标记一个Mixin类中的同名方法，这样Mixin就会知道去调用目标类中的对应方法。
 
 :::tip
 
@@ -168,11 +170,9 @@ public abstract class MixinBlockLightEngine extends LayerLightEngine<FakeBlockLi
 
 :::
 
-关于不同的注入位置如何指定，请参照上文提到的Fabric Wiki中的[示例](https://fabricmc.net/wiki/zh_cn:tutorial:mixin_examples) 。
+关于其他不同的注入位置如何指定，请参照上文提到的Fabric Wiki中的[示例](https://fabricmc.net/wiki/zh_cn:tutorial:mixin_examples) 。
 
 :::tip
-
-在编写你的Mixin方法时，你可以在方法名前后加上mod id或者其他什么东西，以便于在发生错误时进行定位。
 
 如果你不确定方法参数应该怎样填写，`alt+enter`让`Minecraft Development插件`来完成就好了。
 
@@ -188,7 +188,7 @@ public abstract class MixinBlockLightEngine extends LayerLightEngine<FakeBlockLi
 
 ---
 
-#### 在MadParticle中访问并执行私有字段和方法
+#### Accessor/Invoker - 在MadParticle中访问并执行私有字段和方法
 
 ```java
 @Mixin(ParticleEngine.class)
@@ -213,23 +213,112 @@ Particle particle = ((ParticleEngineAccessor) Minecraft.getInstance().particleEn
 
 `Minecraft Development`插件也可以帮你自动地生成访问器和调用器：将光标放到目标字段或方法，`alt+insert`或右键选择`生成`，`Generate Accessor/Invoker`即可。
 
-:::
-
-:::tip
-
 在使用`@Accessor`和`@Invoker`时，如果你没有改变默认生成的方法名，则不需要在其后指定具体的作用对象。比如在这个例子中，`("spriteSets")`是不必要的。
 
 :::
 
 ---
 
-#### TODO 为目标类添加一个方法
+### 增加
+
+#### 在R6MS中，我们需要在适当的时候将摄像机改为正交视图
+
+R6MS, LevelRendererMixin, GPLv3:
+
+ ```java
+ @Mixin(LevelRenderer.class)
+ public class LevelRendererMixin implements LevelRendererProxy {
+     private float r6msCameraZoomFactor;
+     private boolean r6msEnableOrthographic = false;
+     private boolean r6msClipRoof = false;
+ 
+     @Override
+     public LevelRendererProxy r6msEnableOrthographic(float cameraZoomFactor1) {
+         r6msCameraZoomFactor = cameraZoomFactor1;
+         r6msEnableOrthographic = true;
+         r6msClipRoof = false;
+         return this;
+     }
+ 
+     @Override
+     public void setR6msClipRoof(boolean r6msClipRoof) {
+         this.r6msClipRoof = r6msClipRoof;
+     }
+ 
+     @Override
+     public void r6msDisableOrthographic() {
+         r6msEnableOrthographic = false;
+     }
+ 
+     @ModifyVariable(method = "renderLevel", at = @At("HEAD"), argsOnly = true)
+     private Matrix4f r6msModifyMatrix4fForRender(Matrix4f m) {
+         if (r6msEnableOrthographic) {
+             Window window = Minecraft.getInstance().getWindow();
+             float width = r6msCameraZoomFactor * window.getWidth() / window.getHeight();
+             float height = r6msCameraZoomFactor;
+             //80 - 108
+             //40 - 216
+             //20 - 432
+             // x * y = 8640
+             Matrix4f matrix4f = Matrix4f.orthographic(-width, width, height, -height, r6msClipRoof ? 0 : -9999, 9999);
+             RenderSystem.setProjectionMatrix(matrix4f);
+             return matrix4f;
+         } else {
+             return m;
+         }
+     }
+ 
+     @ModifyVariable(method = "prepareCullFrustum", at = @At("HEAD"), argsOnly = true)
+     private Matrix4f R6msModifyMatrix4fForCull(Matrix4f m) {
+         if (r6msEnableOrthographic) {
+             Window window = Minecraft.getInstance().getWindow();
+             float width = r6msCameraZoomFactor * window.getWidth() / window.getHeight();
+             float height = r6msCameraZoomFactor;
+             return Matrix4f.orthographic(-width, width, height, -height, r6msClipRoof ? 0 : -9999, 9999);
+         } else {
+             return m;
+         }
+     }
+ }
+ ```
+
+R6MS, LevelRendererProxy, GPLv3:
+
+```java
+public interface LevelRendererProxy {
+    default LevelRendererProxy r6msEnableOrthographic(float cameraDistance1){
+        return this;
+    }
+
+    default void r6msDisableOrthographic(){}
+
+    default void setR6msClipRoof(boolean r6msClipRoof) {}
+}
+```
+
+要为目标类添加方法和字段很简单：直接写进Mixin类即可，Mixin会自动地为你处理后面的事情。
+
+:::danger
+
+你增添的字段或方法应当在方法名前加上你的modid，如果你喜欢，可以使用`$`分隔；或者以其他方式明显地标示这个字段或方法属于哪个mod。总之要避免与原版或者其他mod出现潜在的重名可能。你也可以使用`@Unique`注解，但我的习惯是加上modid就足够了。
+
+:::
+
+你不能直接在外部其他什么类中调用Mixin类的新增方法（你任何时候都不应该这么做）。想要使用新方法，你需要让你的Mixin类实现一个中转接口，在这里是`LevelRendererProxy`。在实际使用时，像这样来调用新方法：
+
+```java
+((LevelRendererProxy) minecraft.levelRenderer).r6msEnableOrthographic(cameraZoomFactor).setR6msClipRoof(clipRoof);
+```
+
+
+
+---
 
 ### 错误排查
 
 mixin在注入过程中或者注入之后很有可能产生错误或不符合预期的表现。
 
-
+TODO
 
 
 ---

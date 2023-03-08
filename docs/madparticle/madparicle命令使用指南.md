@@ -12,9 +12,9 @@ hide_table_of_contents: false
 
 :::caution
 
-错误的命令参数可能会导致客户端来不及处理大量的粒子而导致卡顿，或是在少数情况下引起客户端崩溃，以至于需要卸载mod并移除对应的命令方块。
+错误的命令参数可能会导致客户端来不及处理大量的粒子而导致卡顿，或是在少数情况下引起客户端崩溃，以至于需要卸载mod并移除对应的命令方块。在更坏的情况下，你的存档可能会变得无法游玩。
 
-Incorrect command parameters may make your client very laggy to handle the large number of particles, even causing the client to crash to the point of uninstalling the mod and removing the corresponding Command Block.
+Incorrect command parameters may make your client very laggy to handle the large number of particles, even causing the client to crash to the point of uninstalling the mod and removing the corresponding Command Block. In some severer condition, your world may  became unplayable.
 
 :::
 
