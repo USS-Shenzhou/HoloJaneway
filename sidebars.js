@@ -50,6 +50,7 @@ const sidebars = {
     'r6ms/op',
     'r6ms/cross_server',
     'r6ms/data_collect',
+    'r6ms/anti_cheat',
     {
       type: 'category',
       label: '更新日志',

@@ -11,7 +11,9 @@ slug: /r6ms
 
 欢迎查看R6MS指南！
 
-Welcome to the R6MS Guidelines! I'm sorry, it is currently only available in Chinese. You can use browser translation instead.
+Welcome to the R6MS Guidelines! 
+
+I'm sorry, it is currently only available in Chinese. You can use browser translation instead.If you can't read Chinese, please contact the developers. Translation will not begin until the first foreigner's message is received.
 
 ---
 
@@ -30,6 +32,7 @@ Rainbow6: Minesiege（简称R6MS）受2020年偶然观看的一次直播启发�
 - 如果你是一名玩家，你需要阅读[玩家游玩指南](r6ms/player)、[跨服务器数据服务](r6ms/cross_server)和[统计数据收集说明](r6ms/data_collect)。
 - 如果你是服务器管理员或服主，你还需要阅读[服务器管理员指南](r6ms/op)。
     - 如果你还想为你的服务器增加可供对战的地图，请阅读[地图制作指南](r6ms/map)。
+- 有关反作弊的内容已被统一移至[反作弊](r6ms/anti_cheat)。
 
 **指南内容随着模组开发而更新，故请注意其中可能含有未发布的模组内容。**
 
