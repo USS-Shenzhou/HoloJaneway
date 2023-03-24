@@ -9,6 +9,32 @@ slug: /r6ms
 
 # Rainbow6: Minesiege 指南
 
+export const Banner = ({text}) => (
+  <div style={{
+    backgroundColor: 'transparent',
+    border: '3px solid #bd4000',
+    borderRadius: '12px',
+    padding: '22px',
+    textAlign: 'center',
+    color: '#bd4000',
+    fontWeight: 'bold',
+    fontSize: '32px',
+  }}>
+          {text.split('\\n').map((line, index) => {
+        return (
+          <React.Fragment key={index}>
+            {line}
+            <br />
+          </React.Fragment>
+        );
+      })}
+  </div>
+);
+
+<Banner text="准备好在TeaCon 2023中游玩预览版本，\n并获得L85A2 TeaCon2023独特涂装！" />
+
+<p></p>
+
 欢迎查看R6MS指南！
 
 Welcome to the R6MS Guidelines! 
