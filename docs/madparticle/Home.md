@@ -35,7 +35,7 @@ As the most important part, you should check the `/madParticle Command Guideline
 
 :::
 
-指南内容随着模组开发而更新，故请注意其中可能含有未发布的模组内容。
+**指南内容随着模组规划与开发而更新，故请注意其中可能含有未发布的模组内容。**
 
 :::info
 

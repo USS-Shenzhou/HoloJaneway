@@ -12,11 +12,11 @@ slug: /r6ms
 export const Banner = ({text}) => (
   <div style={{
     backgroundColor: 'transparent',
-    border: '3px solid #bd4000',
+    border: '3px solid #f07020',
     borderRadius: '12px',
     padding: '22px',
     textAlign: 'center',
-    color: '#bd4000',
+    color: '#f07020',
     fontWeight: 'bold',
     fontSize: '32px',
   }}>
@@ -31,9 +31,7 @@ export const Banner = ({text}) => (
   </div>
 );
 
-<Banner text="准备好在TeaCon 2023中游玩预览版本，\n并获得L85A2 TeaCon2023独特涂装！" />
-
-<p></p>
+<Banner text="准备好在TeaCon 2023中游玩预览版本，\n并获得L85A2 TeaCon2023独特涂装！" /><p></p>
 
 欢迎查看R6MS指南！
 
@@ -60,7 +58,7 @@ Rainbow6: Minesiege（简称R6MS）受2020年偶然观看的一次直播启发�
     - 如果你还想为你的服务器增加可供对战的地图，请阅读[地图制作指南](r6ms/map)。
 - 有关反作弊的内容已被统一移至[反作弊](r6ms/anti_cheat)。
 
-**指南内容随着模组开发而更新，故请注意其中可能含有未发布的模组内容。**
+**指南内容随着模组规划与开发而更新，故请注意其中可能含有未发布的模组内容。**
 
 ---
 
