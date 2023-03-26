@@ -51,6 +51,7 @@ const sidebars = {
     'r6ms/cross_server',
     'r6ms/data_collect',
     'r6ms/anti_cheat',
+    'r6ms/faq',
     {
       type: 'category',
       label: '更新日志',
