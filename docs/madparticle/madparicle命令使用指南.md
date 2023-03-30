@@ -324,6 +324,8 @@ MP的renderType有一些特殊的改动，以在一些情况下允许更广的�
 
 类似地，r，g，b的系数上限为1。填写超过1的值无效。这意味着您可能不能任意地对贴图颜色进行想要的变化。
 
+Shimmer暂时没有1.19.4版本。
+
 :::
 
 ## beginAlpha, endAlpha, alphaMode
