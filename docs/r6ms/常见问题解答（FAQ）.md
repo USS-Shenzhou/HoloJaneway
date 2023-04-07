@@ -26,6 +26,19 @@ hide_table_of_contents: false
     - 游戏将自动继续，但推荐你重新启动游戏。缺失的配置文件可能会导致意外的行为。
     - 如果重新启动游戏后仍异常，请检查对应的配置文件是否被占用或出现错误。
 
+
+
+- &#8203;<font color="ff5555">Cannot find id for skin ... . If this is a development environment, assign it. This should not happen in product environments.</font> 未能找到为皮肤预先设定的id值。
+    - 在发行版本中不应该发生这样的情况。请联系mod开发者。
+    - 有另一个与此相似的错误，不过不是skin而是item，不再赘述。
+
+
+
+- &#8203;<font color="ff5555">Failed to find skin ... for item ... . This should not happen.</font> 未能找到物品标签所指的皮肤。
+    - 在发行版本中不应该发生这样的情况。请联系mod开发者。
+
+
+
 ### 服务器端
 
 如果提供内容不够详细，或是你需要进一步地支持，请联系模组开发者。

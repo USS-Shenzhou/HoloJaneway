@@ -60,6 +60,8 @@ Rainbow6: Minesiege（简称R6MS）受2020年偶然观看的一次直播启发�
 
 **指南内容随着模组规划与开发而更新，故请注意其中可能含有未发布的模组内容。**
 
+R6MS在客户端和服务端都需要[T88](https://www.curseforge.com/minecraft/mc-mods/t88)作为前置。你通常可以直接下载最新版，也可以在各版本更新日志中找到推荐的T88版本。
+
 ---
 
 R6MS模组[使用GPLv3协议进行许可](https://github.com/USS-Shenzhou/MC-R6mod)。对本指南保留所有权利。
