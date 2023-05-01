@@ -164,6 +164,10 @@ const config = {
         additionalLanguages: ['java','toml','gradle'],
       },
     }),
+    markdown:{
+      mermaid:true,
+    },
+    themes:['@docusaurus/theme-mermaid'],
 };
 
 module.exports = config;
