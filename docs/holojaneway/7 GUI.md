@@ -272,15 +272,17 @@ public abstract class TTitledComponent<T extends TWidget> extends TPanel {
 
 :::info
 
-如果你需要执行一些循环逻辑，重写`tickT`即可。记得把`super.tickT();`放在最后一行。
+- 如果你需要执行一些循环逻辑，重写`tickT`即可。记得把`super.tickT();`放在最后一行。
 
-如果子组件出了什么问题，不响应或者不渲染，检查检查你是不是在重写某个方法的时候忘了super方法。
+- 如果子组件出了什么问题，不响应或者不渲染，检查检查你是不是在重写某个方法的时候忘了super方法。
 
-随着你编写的GUI越来越多，你可能会遇到这种尴尬的写法：`((GrandFatherClass)((FatherClass)this.getParent()).getParent()).something()`。你可以使用`TWidget#getParentInstanceOf`来取代之。
+- 随着你编写的GUI越来越多，你可能会遇到这种尴尬的写法：`((GrandFatherClass)((FatherClass)this.getParent()).getParent()).something()`。你可以使用`TWidget#getParentInstanceOf`来取代之。
 
-如果你的组件在滚动时有什么问题，检查你是不是忘记在某个与坐标相关的地方加上`TWidget#getParentScrollAmountIfExist`。
+- 如果你的组件在滚动时有什么问题，检查你是不是忘记在某个与什么坐标相关的地方加上`TWidget#getParentScrollAmountIfExist`。
 
-与Swing不同，子组件的位置并没有严格限制——因此你可以越界渲染。
+- 与Swing不同，子组件的位置并没有严格限制——因此你可以越界渲染。
+
+- 你并不需要对每个略有改动的组件都单独建个类，我个人的推荐是：如果只是某些简单行为上的更改，使用匿名内部类就可以了；如果只是一些组装以便布局，内部类也是可以的；当修改较多时再使用外部独立类。
 
 :::
 
