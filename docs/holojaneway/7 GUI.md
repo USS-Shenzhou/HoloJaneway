@@ -7,6 +7,9 @@ sidebar_position: 170
 
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # GUI
 
 当你想要用户不只是对着方块左键右键就完成互动的时候，就会需要游戏内用户界面。与其他教程可能略有不同，我们将使用T88的GUI部分来完成GUI编写。
@@ -42,6 +45,26 @@ sidebar_position: 170
 T88的有关内容随版本可能有变化但未及时在此处更新，请自行注意。
 
 :::
+
+<div style={{
+    backgroundColor: 'transparent',
+    border: '2px solid #3c91ff',
+    borderRadius: '0.5em',
+    padding: '1em',
+  }}>
+<Tabs groupId="mc-version">
+<TabItem value="120" label="1.20">
+
+在1.20之后，GUI代码中的绝大多数使用`PoseStack`的地方都被包装成为了`GuiGraphics`，而原来的`GuiComponent`中的一堆画图相关的方法也被移到了`GuiGraphics`中，`TComponent`也不再继承`GuiComponent`。
+
+`TComponent`现在提供几个静态的`blitById`方法，以此能够继续方便地使用ID而不是ResourceLocation来绑定绘图。
+</TabItem>
+</Tabs>
+
+<p></p>
+</div>
+
+<p></p>
 
 ## non-container-GUI
 
@@ -181,7 +204,31 @@ public class DesignerScreen extends TScreen {
 }
 ```
 
-重写`renderBackGround`来设置一个经典的半透明黑色背景。
+<div style={{
+    backgroundColor: 'transparent',
+    border: '2px solid #3c91ff',
+    borderRadius: '0.5em',
+    padding: '1em',
+  }}>
+<Tabs groupId="mc-version">
+<TabItem value="120" label="1.20">
+
+这是一个简单的版本变换后的例子：
+```java
+    @Override
+    protected void renderBackGround(GuiGraphics graphics, int pMouseX, int pMouseY, float pPartialTick) {
+        graphics.fill(0, 0, width, height, 0x80000000);
+    }
+```
+</TabItem>
+</Tabs>
+
+<p></p>
+</div>
+
+<p></p>
+
+如上重写`renderBackGround`来设置一个经典的半透明黑色背景。
 
 Screen写好了！要想打开这个Screen，你有三种途径：
 

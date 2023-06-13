@@ -31,7 +31,7 @@ export const Banner = ({text}) => (
   </div>
 );
 
-<Banner text="准备好在TeaCon 2023中游玩预览版本，\n并获得L85A2 TeaCon2023独特涂装！" /><p></p>
+<Banner text="准备好在TeaCon 2024中游玩预览版本，\n并获得L85A2 TeaCon2024独特涂装！" /><p></p>
 
 欢迎查看R6MS指南！
 

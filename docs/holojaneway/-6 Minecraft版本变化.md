@@ -28,3 +28,12 @@ sidebar_position: 40
 - `object.getRegistryName`→`ForgeRegistries.[注册类型].getKey(object)`。
 
 - `Component`（GUI）的各种子类被取消。`Component`现在提供对应的静态工厂方法。
+
+## 1.19.4→1.20
+
+- 这是一些第三方参考：
+    - https://gist.github.com/ChampionAsh5357/cf818acc53ffea6f4387fe28c2977d56
+
+- `PoseStack`（GUI）包装为 → `GuiGraphics`。
+
+- `GuiComponent`被取消。包含的方法并入`GuiGraphics`。
