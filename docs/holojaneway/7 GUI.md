@@ -12,7 +12,7 @@ import TabItem from '@theme/TabItem';
 
 # GUI
 
-当你想要用户不只是对着方块左键右键就完成互动的时候，就会需要游戏内用户界面。与其他教程可能略有不同，我们将使用T88的GUI部分来完成GUI编写。
+当你想要用户不只是对着方块左键右键就完成互动的时候，就会需要游戏内用户界面。**与其他教程可能略有不同，我们将使用T88的GUI部分来完成GUI编写。**
 
 :::info
 
@@ -213,7 +213,7 @@ public class DesignerScreen extends TScreen {
 <Tabs groupId="mc-version">
 <TabItem value="120" label="1.20">
 
-这是一个简单的版本变换后的例子：
+这是一个最简单的版本变换后的例子：
 ```java
     @Override
     protected void renderBackGround(GuiGraphics graphics, int pMouseX, int pMouseY, float pPartialTick) {
