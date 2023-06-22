@@ -8,6 +8,32 @@ hide_table_of_contents: false
 
 这一章包含与`/madparticle` 指令相关的所有重要内容。
 
+<div style={{
+    backgroundColor: 'transparent',
+    border: '3px solid #f07020',
+    borderRadius: '1rem',
+    padding: '1rem',
+    color: '#f07020'
+  }}>
+<div>
+
+在**TeaCon 2023**中，参观者可以使用`/mp_demo`指令来在特定区域执行一条MadParticle指令。出于服务器安全和游览流畅考虑，`/mp_demo`的各个参数可能受到额外限制。以下是详细的限制列表：
+
+- `liftTime`最大为100；
+- `amount`最大为10；
+- `spawnSpeed`与`speedDiffuse`范围为-1~+1；另请注意，当这两项参数超过限定值时，指令执行将被直接中断，不会有标红提示；
+- `bounceTime`最大为3；
+- `horizontalRelativeCollisionDiffuse`和`verticalRelativeCollisionBounce`范围为-2~+2；
+- `friction`和`afterCollisionFriction`范围为0~1；
+- `gravity`和`afterCollisionGravity`、`xDeflection`和`xDeflectionAfterCollision`、`zDeflection`和`zDeflectionAfterCollision`范围为-0.5~+0.5；
+- `rollSpeed`范围为-0.5~+0.5；
+- `horizontalInteractFactor`和`verticalInteractFactor`范围为-2~2；
+- `r`、`g`、`b`范围为0~10；
+- `beginScale`和`endScale`范围为0~5；
+
+</div>
+</div>
+
 ---
 
 :::caution

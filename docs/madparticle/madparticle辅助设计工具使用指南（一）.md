@@ -8,6 +8,27 @@ hide_table_of_contents: false
 
 在这里，我将向您介绍`MadParticle Designer GUI辅助设计工具`（以下简称辅助工具）的第一部分，也是最为基础的模式：参数辅助模式。此模式旨在帮助您更直观清晰地（相对于一串五颜六色的字符来说）编写MP命令。
 
+:::info
+
+为保障GUI界面紧凑，英文界面使用了大量的缩写。为此，当在英文设定下打开`Designer GUI`时，一些输入框会有特定的Tooltip提示，而中文环境则不存在。
+
+To ensure a compact GUI, the English version of the interface uses a large number of abbreviations. Therefore, when the `Designer GUI` is opened under the English setting, certain widgets will have tooltips, which do not exist under the Chinese setting.
+
+:::
+
+<div style={{
+    backgroundColor: 'transparent',
+    border: '3px solid #f07020',
+    borderRadius: '1rem',
+    padding: '1rem',
+    color: '#f07020'
+  }}>
+<div>
+
+在**TeaCon 2023**中，为配合`/mp_demo`指令，Designer GUI中增加了一个名为`TeaCon`的选项，你可以在其中设计受限的指令以供体验。
+</div>
+</div>
+
 ---
 
 ## 基础概念与操作
@@ -16,9 +37,9 @@ hide_table_of_contents: false
 
 :::tip
 
-如果你需要重新编写一条MP命令，而又懒得一个一个删掉`命令串`选择栏里面的`子命令`；或者遇到了一些意料之外的辅助工具错误：你可以按`esc`退出辅助工具、回到游戏中之后，默认按下`crtl+m`来彻底清除已经存在的辅助工具并新建一个。
-
-辅助工具默认使用`/mp`（即简化后的`快速mp指令执行`）。如果您需要使用`/madparticle`（即原版指令执行），请手动替换之。
+- 如果你需要重新编写一条MP命令，而又懒得一个一个删掉`命令串`选择栏里面的`子命令`；或者遇到了一些意料之外的辅助工具错误：
+    - 你可以按`esc`退出辅助工具、回到游戏世界中之后，默认按下`crtl+m`来初始化辅助工具。
+- 辅助工具默认使用`/mp`（即简化后的`快速mp指令执行`）。如果您需要使用`/madparticle`（即原版指令执行），请手动替换之。
 
 :::
 
@@ -62,7 +83,7 @@ hide_table_of_contents: false
 
 ## 再次编辑
 
-辅助工具本身是不会持久化的，这意味着你在此界面看到的所有内容都会在退出存档之后消失。不过你只需要复制`总输入框`中的内容到其他什么地方（比如命令方块或者一个txt），下次打开游戏时复制回来，你会看到`复制`按钮短暂地变为了`解析`——抓紧点它！程序可能会有一段时间的卡顿，辅助工具将尝试把您复制进来的命令还原为各个填写好了的子命令。
+辅助工具本身是不会持久化的，这意味着你在此界面看到的所有内容都会在退出存档之后消失。不过你只需要复制`总输入框`中的内容到其他什么地方（比如命令方块或者一个txt），下次打开游戏时复制回来，你会看到`复制`按钮短暂地变为了`解析`——抓紧点它！程序可能会有短暂的卡顿，辅助工具将尝试把您复制进来的命令还原为各个填写好了的子命令。
 
 > 这个解析过程并不特别智能，有可能会出现错误，所以您最好人工检查一遍。
 

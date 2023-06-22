@@ -12,11 +12,11 @@ slug: /r6ms
 export const Banner = ({text}) => (
   <div style={{
     backgroundColor: 'transparent',
-    border: '3px solid #f07020',
+    border: '3px solid #3399ff',
     borderRadius: '12px',
     padding: '22px',
     textAlign: 'center',
-    color: '#f07020',
+    color: '#3399ff',
     fontWeight: 'bold',
     fontSize: '32px',
   }}>
