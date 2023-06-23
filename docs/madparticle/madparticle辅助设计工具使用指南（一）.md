@@ -130,7 +130,7 @@ To ensure a compact GUI, the English version of the interface uses a large numbe
 
 你可以把参数模式编写的指令复制到此处进行解析并制作喷花筒。
 
-值得注意的是，在粘贴并解析之后，你需要清击任意一个参数输入框来手动更新，以使程序为指令添加上`"tada":1`的标签。
+值得注意的是，在粘贴并解析之后，你需要轻击任意一个参数输入框来手动更新，以使程序为指令添加上`"tada":1`的标签。
 
 :::info
 
