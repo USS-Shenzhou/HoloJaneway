@@ -91,6 +91,7 @@ beginScale, endScale (float) //初始/结束缩放
 scaleMode (MadParticle.ChangeMode) //缩放变化模式（线性|指数|正弦）
 //附加内容
 whoCanSee (entity) //能够看到此粒子的玩家
+mata (CompoundTag) //元指令区域
 expireThen (madParticle command)//粒子消失时产生新粒子
 ```
 
@@ -411,6 +412,20 @@ Shimmer暂时没有1.19.4版本。
 > 感谢`@MalayP`的建议。
 
 `whoCanSee`决定粒子数据会被发往哪些玩家。像原版指令一样，使用实体目标选择器。不填写时默认粒子被发往维度内的所有玩家。
+
+## meta
+
+这是一个元指令区域，以`CompoundTag`的形式呈现。你可以根据需要填写对应的键值对。
+
+元指令区域设计用来保障未来更新时的兼容性和扩展性。
+
+:::info
+
+目前可用的键值对及功能有：
+
+- `"tada":1`标记这是一条喷花筒指令，生成粒子时需计算玩家手部位置。
+
+:::
 
 ## expireThen
 
