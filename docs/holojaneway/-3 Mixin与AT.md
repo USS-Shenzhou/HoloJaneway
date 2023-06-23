@@ -27,9 +27,9 @@ Mixin是一个非常强大的工具，它基于[ASM](https://asm.ow2.io/)，帮�
 
 :::caution
 
-Mixin的作用范围仅限于MC本身和其他mod，不能对其他依赖进行修改。比如说，`net.minecraft.commands.arguments.coordinates.Vec3Argument`是一个有效的Mixin目标，而`com.mojang.brigadier.arguments.DoubleArgumentType`则不是。
+Mixin的作用范围仅限于MC本身和其他mod，不能对其他依赖进行修改。比如说，`net.minecraft.commands.arguments.coordinates.Vec3Argument`是一个有效的Mixin目标，而`com.mojang.brigadier.arguments.DoubleArgumentType`则不行。
 
-如果你确实需要对第三方依赖进行修改，那不妨考虑继承后再@Override等其他方法。
+如果你确实需要对`DoubleArgumentType`这样的第三方类进行修改，那不妨考虑继承后再@Override等其他方法。
 
 :::
 
@@ -37,11 +37,11 @@ Mixin的作用范围仅限于MC本身和其他mod，不能对其他依赖进行�
 
 所有的Mixin类应该放且仅放在mixin包中。mixin包中也不应该包含普通类，比如你的方块或者实体什么的。
 
-当然，你也可以分好几个包，但多数情况下这没有必要，以后不再讨论。
+当然，你也可以分好几个包，但多数情况下这没有必要。
 
 :::
 
-一般情况下，你需要通过各种各样的注解来完成多数的工作。以下是一些常用或者常见的注解说明。
+Mixin通过各式各样的注解和背后的注解处理器来完成大多数工作。以下先介绍一些常用或者常见的注解说明。
 
 - `@Mixin`标记这是一个Mixin类，并指定会被Mixin的类（即目标类）是什么。
 
@@ -69,17 +69,15 @@ Mixin的作用范围仅限于MC本身和其他mod，不能对其他依赖进行�
 
 :::info
 
-你可以在[Mixin的JavaDoc](https://jenkins.liteloader.com/view/Other/job/Mixin/javadoc/index.html)找到更详细的说明。
-
-[Mixin的GitHub wiki](https://github.com/SpongePowered/Mixin/wiki)对Mixin的工作原理有详细的解释，[mouse0w0的博客](https://mouse0w0.github.io/tags/Mixin/)有翻译版本。
+你可以在[Mixin的JavaDoc](https://jenkins.liteloader.com/view/Other/job/Mixin/javadoc/index.html)找到更详细的说明，[Mixin的GitHub wiki](https://github.com/SpongePowered/Mixin/wiki)对Mixin的工作原理有详细的解释，[mouse0w0的博客](https://mouse0w0.github.io/tags/Mixin/)有翻译版本。
 
 > 为什么Forge开发者常常要看Fabric Wiki？好怪！
 
-[Fabric Wiki](https://fabricmc.net/wiki/zh_cn:tutorial:mixin_introduction)对Mixin的使用有详细的介绍。显然Mixin并不是Forge或者Fabric的一部分，故与Mixin有关的内容在大多数情况下可以通用。
+[Fabric Wiki](https://fabricmc.net/wiki/zh_cn:tutorial:mixin_introduction)对Mixin的使用有详细的介绍。Mixin并不是Forge或者Fabric的一部分，故与Mixin有关的内容在大多数情况下可以通用。
 
 :::
 
-### 修改
+### 示例-修改
 
 下面，我们将以一些场景为例，向你讲述如何使用Mixin修改原版内容。你可以不必看具体的修改内容。
 
@@ -93,7 +91,7 @@ Mixin的作用范围仅限于MC本身和其他mod，不能对其他依赖进行�
 
 #### Inject - 在Brighter中修改方块光衰减的方式
 
-这样就可以减少衰减而增加扩散了。Brighter, MixinBlockLightEngine, GPLv3：
+这样就可以减少衰减而增加扩散了。Brighter（1.20以前）, MixinBlockLightEngine, GPLv3：
 
 ```java
 @Mixin(BlockLightEngine.class)
@@ -152,17 +150,13 @@ public abstract class MixinBlockLightEngine extends LayerLightEngine<FakeBlockLi
 
 ```
 
-如上所示，在需要使用父类的方法时，你可以让Mixin类（即你看到的这一大坨`MixinBlockLightEngine`）继承目标类（即`BlockLightEngine`）的父类（即`LayerLightEngine`）。
+如上所示，在需要使用目标类的方法时，你可以使用`@Shadow`来标记一个Mixin类中的同名方法，这样Mixin就会知道去调用目标类中的对应方法；
+
+在需要使用父类的方法时，你可以让Mixin类（即你看到的这一大坨`MixinBlockLightEngine`）继承目标类（即`BlockLightEngine`）的父类（即`LayerLightEngine`）。
 
 :::tip
 
-继承父类后可能会要求创建匹配的构造方法，直接`alt+enter`就可以，此处的构造方法仅起到保证语法的作用。也可能会要求实现某些抽象方法，你可以将Mixin类标记为抽象类来省去这个麻烦。
-
-:::
-
-在需要使用目标类的方法时，你可以使用`@Shadow`来标记一个Mixin类中的同名方法，这样Mixin就会知道去调用目标类中的对应方法。
-
-:::tip
+继承父类后可能会要求创建匹配的构造方法，直接`alt+enter`就可以，此处的构造方法仅起到保证语法的作用。也可能会要求实现某些抽象方法，你可以将Mixin类标记为抽象类来省去这个麻烦，这样做也是只为了起到保证语法的作用。
 
 相似地，你可以把这个方法标记为抽象方法，来省去一对大括号。
 
@@ -180,11 +174,11 @@ public abstract class MixinBlockLightEngine extends LayerLightEngine<FakeBlockLi
 
 :::
 
-对于有返回值的目标方法，你可以使用`cir.setReturnValue(...)`来指定返回值并返回。如果方法没有返回值，你可以使用`ci.cancel()`来结束目标方法。如果你以上两个都不做，目标方法就会在执行完你的注入内容后继续执行剩下的内容；如果你使用的是`return`，那只代表结束目前的注入方法，目标方法剩下的内容会继续执行。
+对于有返回值的目标方法，你可以使用`cir.setReturnValue(...)`来指定返回值并返回；如果方法没有返回值，你可以使用`ci.cancel()`来结束目标方法。如果你以上两个都不做，目标方法就会在执行完你的注入内容后继续执行剩下的内容；如果你使用的是`return`，那只代表结束目前的注入方法，目标方法剩下的内容会继续执行。
 
 :::tip
 
-如果你要如上使目标方法返回的话，记得在`@Inject`中写上`cancellable = true`。
+如果你要如上使目标方法返回的话，记得在`@Inject`中加上`cancellable = true`。
 
 :::
 
@@ -221,7 +215,7 @@ Particle particle = ((ParticleEngineAccessor) Minecraft.getInstance().particleEn
 
 ---
 
-### 增加
+###  示例-增加
 
 #### 在R6MS中，我们需要在适当的时候将摄像机改为正交视图
 
@@ -298,9 +292,9 @@ public interface LevelRendererProxy {
 }
 ```
 
-要为目标类添加方法和字段很简单：直接写进Mixin类即可，Mixin会自动地为你处理后面的事情。
+要为目标类添加方法和字段很简单：直接写进Mixin类即可，Mixin会自动地为你处理后面的事情，帮你把新的方法和字段在编译时加进目标类中。
 
-:::danger
+:::danger 注意
 
 你增添的字段或方法应当在方法名前加上你的modid（如果你喜欢，可以使用`$`分隔）；或者以其他方式明显地标示这个字段或方法属于哪个mod。总之要避免与原版或者其他mod出现潜在的重名可能。你也可以使用`@Unique`注解，但我的习惯是加上modid就足够了。
 
@@ -312,13 +306,109 @@ public interface LevelRendererProxy {
 ((LevelRendererProxy) minecraft.levelRenderer).r6msEnableOrthographic(cameraZoomFactor).setR6msClipRoof(clipRoof);
 ```
 
+---
 
+### 示例-捕获局部变量
+
+#### 在T88中，我们需要传递局部变量guigraphics
+
+在这种情况下，我们需要暂时忽略MCDev插件给出的提示。
+
+我们希望在渲染快要结束之前（`render`方法的`posestack.popPose();`执行前），广播我们自定义的`GameRendererRenderedEvent`事件；而这个事件需要传入`render`方法中的局部变量`guigraphics`来构造。
+
+```java
+@Inject(method = "render", at = @At(value = "INVOKE", target = "Lcom/mojang/blaze3d/vertex/PoseStack;popPose()V"), locals = LocalCapture.CAPTURE_FAILSOFT)
+private void afterGameRendererRenderedT88(float pPartialTicks, long pNanoTime, boolean pRenderLevel, CallbackInfo ci,
+    int i, int j, Window window, Matrix4f matrix4f, PoseStack posestack, GuiGraphics guigraphics) {
+        MinecraftForge.EVENT_BUS.post(new GameRendererRenderedEvent(pPartialTicks, guigraphics));
+        guigraphics.flush();
+}
+```
+
+如上所示，在`@Inject`中添加`locals = LocalCapture.CAPTURE_FAILSOFT`就可以让Mixin知道你想要捕获的局部变量。
+
+你可能注意到了，我将这个Mixin方法的形参分为了两行展示——在`CallbackInfo`之前的是目标方法`render`的形参，之后是需要捕获的局部变量。
+
+> 但是我们只需要`guigraphics`，前面为什么还有这么多参数？
+
+通常情况下，Mixin方法形参的局部变量必须按照它们在目标方法中出现的顺序出现——这意味着我们如果想要某个在中间的局部变量，我们必须把它前面的一大家子也写上去。
+
+一种可行的办法是仔细观察目标方法体，一个一个地把局部变量写上形参。但这种方法显然很容易漏掉某一个或者某几个，还得回过头来找；
+
+另一种更加推荐的办法如下：
+
+- 先直接写上需要的形参，就像`afterGameRendererRenderedT88(..., CallbackInfo ci, GuiGraphics guigraphics)`，然后启动游戏；
+- 你会在日志里看见这样一段：
+
+```java {4}
+[23:17:30] [Render thread/WARN] [mixin/]: Injection warning: LVT in net/minecraft/client/renderer/GameRenderer::render(FJZ)V has incompatible changes at opcode 569 in callback t88.mixins.json:GameRendererMixin->@Inject::afterGameRendererRenderedT88(FJZLorg/spongepowered/asm/mixin/injection/callback/CallbackInfo;Lnet/minecraft/client/gui/GuiGraphics;)V.
+ Expected: [Lnet/minecraft/client/gui/GuiGraphics;]
+    Found: [I]
+Available: [I, I, Lcom/mojang/blaze3d/platform/Window;, Lorg/joml/Matrix4f;, Lcom/mojang/blaze3d/vertex/PoseStack;, Lnet/minecraft/client/gui/GuiGraphics;, Ljava/lang/Throwable;, Lnet/minecraft/CrashReport;, Lnet/minecraft/CrashReportCategory;]
+[23:17:30] [Render thread/FATAL] [mixin/]: Mixin apply failed t88.mixins.json:GameRendererMixin -> net.minecraft.client.renderer.GameRenderer: org.spongepowered.asm.mixin.injection.throwables.InvalidInjectionException Injection validation failed: Callback method afterGameRendererRenderedT88(FJZLorg/spongepowered/asm/mixin/injection/callback/CallbackInfo;Lnet/minecraft/client/gui/GuiGraphics;)V in t88.mixins.json:GameRendererMixin expected 1 invocation(s) but 0 succeeded. Scanned 1 target(s). No refMap loaded. [INJECT Applicator Phase -> t88.mixins.json:GameRendererMixin -> Apply Injections ->  -> PostInject -> t88.mixins.json:GameRendererMixin->@Inject::afterGameRendererRenderedT88(FJZLorg/spongepowered/asm/mixin/injection/callback/CallbackInfo;Lnet/minecraft/client/gui/GuiGraphics;)V]
+org.spongepowered.asm.mixin.injection.throwables.InvalidInjectionException: Injection validation failed: Callback method afterGameRendererRenderedT88(FJZLorg/spongepowered/asm/mixin/injection/callback/CallbackInfo;Lnet/minecraft/client/gui/GuiGraphics;)V in t88.mixins.json:GameRendererMixin expected 1 invocation(s) but 0 succeeded. Scanned 1 target(s). No refMap loaded. [INJECT Applicator Phase -> t88.mixins.json:GameRendererMixin -> Apply Injections ->  -> PostInject -> t88.mixins.json:GameRendererMixin->@Inject::afterGameRendererRenderedT88(FJZLorg/spongepowered/asm/mixin/injection/callback/CallbackInfo;Lnet/minecraft/client/gui/GuiGraphics;)V]
+	at...
+```
+
+- 你可能已经发现了，`Available`这一行完整地列出了所有可用的形参类型——现在你只需要按顺序找到它们的含义或参数名（要是你确实不需要前面这些参数，写abcd也不是不行），填进Mixin方法的形参中即可。
 
 ---
 
 ### 错误排查
 
-mixin在注入过程中或者注入之后很有可能产生错误或不符合预期的表现。
+mixin在注入过程中或者注入之后很有可能产生错误或不符合预期的表现，此时你可能需要知道执行注入之后那些目标类到底成了什么乱七八糟的样子。
+
+要查看注入结果，你只需要`右键RunClint`或`在RunClient右侧找到三点按钮`>`编辑`>`第一个长输入框"VM选项"`>`在末尾另起一行并加上` `-Dmixin.debug=true`，这将启用Mixin的所有debug选项。
+
+重新运行一下游戏，你就能在项目目录的`/run/.mixin.out/`文件夹下找到所有被修改的类。
+
+另一方面，你可能注意到日志中多出了一些关于Mixin的内容——这对你的错误排查可能也会有帮助。
+
+---
+
+### 与Optifine的兼容
+
+如果你Mixin了一些与渲染相关的东西，其他玩家在安装了Optifine时再加载你的模组就有可能出现冲突，导致游戏加载失败。
+
+这里有几种你可能会遇到的冲突形式：
+
+#### 混淆冲突
+
+TODO
+
+#### 局部变量更改
+
+Optifine对目标方法进行了修改，使得原有的局部变量顺序或存在被影响。
+
+这是上面`示例-捕获局部变量：在T88中，我们需要传递局部变量guigraphics`一节中所写的Mixin在Optifine环境下启动的结果：
+
+```java
+[22:28:44] [main/WARN]: Injection warning: LVT in net/minecraft/client/renderer/GameRenderer::m_109093_(FJZ)V has incompatible changes at opcode 773 in callback t88.mixins.json:GameRendererMixin->@Inject::afterGameRendererRenderedT88(FJZLorg/spongepowered/asm/mixin/injection/callback/CallbackInfo;IILcom/mojang/blaze3d/platform/Window;Lorg/joml/Matrix4f;Lcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/gui/GuiGraphics;)V.
+ Expected: [I, I, Lcom/mojang/blaze3d/platform/Window;, Lorg/joml/Matrix4f;, Lcom/mojang/blaze3d/vertex/PoseStack;, Lnet/minecraft/client/gui/GuiGraphics;]
+    Found: [I, I, Lcom/mojang/blaze3d/platform/Window;, F, Lorg/joml/Matrix4f;, Lcom/mojang/blaze3d/vertex/PoseStack;]
+Available: [I, I, Lcom/mojang/blaze3d/platform/Window;, F, Lorg/joml/Matrix4f;, Lcom/mojang/blaze3d/vertex/PoseStack;, F, Lnet/minecraft/client/gui/GuiGraphics;, Ljava/lang/Throwable;, Lnet/minecraft/CrashReport;, Lnet/minecraft/CrashReportCategory;]
+
+```
+
+如上所示，多出了两个`float`，为此我们需要重新填写`afterGameRendererRenderedT88`方法的形参。
+
+:::tip
+
+日志里已经提供了类型，我们又不需要那个参数做什么事——那就不去翻Optifine在做什么，随便命个名就好了。
+
+:::
+
+> 等等，要是按这些问题改了写法，那玩家没装Optifine的时候又要怎么办？这样岂不是原版需要一套Mixin，Optifine安装后需要另一套Mixin？
+
+通常有两种方式来解决这个问题：
+
+- 第一种方式是借助各个注解中的`require`字段。
+
+`require`的含义是规定注入点的最低次数，要是没达到就崩游戏。默认为-1，即指所有注入都必须要成功。
+
+我们可以为Vanilla/OPtifine分别写出两个方法，`mixinMethod`和`mixinMethodForOptifine`，然后在注解中写上`require = 0`，表示失败了也无所谓——总是有且只有一个方法被成功注入。
+
+- 第二种方式是借助`IMixinConfigPlugin`来控制。
 
 TODO
 
