@@ -43,7 +43,7 @@ Mixin的作用范围仅限于MC本身和其他mod，不能对其他依赖进行�
 
 Mixin通过各式各样的注解和背后的注解处理器来完成大多数工作。以下先介绍一些常用或者常见的注解说明。
 
-- `@Mixin`标记这是一个Mixin类，并指定会被Mixin的类（即目标类）是什么。
+- `@Mixin`标记这是一个Mixin类，并在参数中指定会被Mixin的类（即目标类）是什么。
 
 - `@Inject`标记这是一个回调方法，这个方法所含的内容将会被注入指定的位置。一般而言这是最常用的注解。
 
@@ -69,7 +69,7 @@ Mixin通过各式各样的注解和背后的注解处理器来完成大多数工
 
 :::info
 
-你可以在[Mixin的JavaDoc](https://jenkins.liteloader.com/view/Other/job/Mixin/javadoc/index.html)找到更详细的说明，[Mixin的GitHub wiki](https://github.com/SpongePowered/Mixin/wiki)对Mixin的工作原理有详细的解释，[mouse0w0的博客](https://mouse0w0.github.io/tags/Mixin/)有翻译版本。
+你可以在[Mixin的JavaDoc](https://jenkins.liteloader.com/view/Other/job/Mixin/javadoc/index.html)找到更详细的说明，[Mixin的GitHub wiki](https://github.com/SpongePowered/Mixin/wiki)对Mixin的工作原理和使用有详细的解释，[mouse0w0的博客](https://mouse0w0.github.io/tags/Mixin/)有翻译版本。
 
 > 为什么Forge开发者常常要看Fabric Wiki？好怪！
 
@@ -77,15 +77,23 @@ Mixin通过各式各样的注解和背后的注解处理器来完成大多数工
 
 :::
 
+---
+
 ### 示例-修改
 
-下面，我们将以一些场景为例，向你讲述如何使用Mixin修改原版内容。你可以不必看具体的修改内容。
+下面，我们将以一些场景为例，向你讲述如何使用Mixin修改原版内容。你可以只看你需要用到的情况所对应的例子，也不必看具体的修改内容，只关注文字提到的有关内容。
+
+:::info
+
+如果你想要先看看这一堆注解的参数解释而不是使用例，你可以先查看下文`注入点`一节。
+
+:::
 
 :::tip
 
 如果你的目标类/方法是在生产环境中不会被混淆的类/方法，比如其他mod中的内容，你需要在`@Mixin`或`@Inject`中加入`remap = false`来告诉Mixin不要进行混淆。
 
-**你进行修改的方法应当在方法名前加上你的modid，或者以其他方式明显地标示这个方法属于哪个mod。**
+**你所有的方法都应当在方法名前加上你的modid，或者以其他方式明显地标示这个方法属于哪个mod。**
 
 :::
 
@@ -354,6 +362,34 @@ org.spongepowered.asm.mixin.injection.throwables.InvalidInjectionException: Inje
 
 ---
 
+### 注入点
+
+你可能已经注意到了，不论是`@Inject`还是`@Modifyxxxxx`，亦或者下文将提到的`@Redirect`，其参数都有着`method`和`at`的基本结构，`at`的`@At`中有时又包含`target`。
+
+在已经有`@Mixin`指定了目标类的情况下，`method`参数被用于指定这个Mixin注解将会被用于目标类中具体哪个方法，其值通常情况下可以由你填写方法名后使用MCDev插件补齐。需要注意的是，如果你的目标方法是构造方法，你需要填入`"<init>"`。
+
+`at`则需要填写一个`@At`注解，通常有几种情况：
+
+- 如果你想要注入在目标方法开头，一个`"HEAD"`就足够了。
+- 如果你想要注入在目标方法结尾，`"RETURN"`用于在目标方法返回前，在不附加其他条件的情况下，只要目标方法要返回了，那Mixin方法中的内容就会被执行。
+- 如果你想要注入在目标方法中间的某个位置，则会稍微麻烦一些。一般来说，你需要注入的位置可以选择在某处调用之前，这样你就不仅需要在`@At`内写上`value = "INVOKE"`，还需要指定`target = "foo()V"`。这里你通常只需要打出`foo`，随后就可以使用MCDev插件为你补齐形参和返回值。这样你就将注入点指定在了`.foo()`调用之前。
+
+要是目标方法内有好几个`.foo()`调用，但是我又只想在某一处执行注入怎么办？你可以使用`ordinal`来限定具体的第几个`.foo()`。你也可以使用`slice`，借助另外两个方法来限定注入的区域。
+
+:::info
+
+这里只是一个非常简单的介绍。`ordinal`和`slice`的用法可以参考[Fabric Wiki的Mixin页面](https://fabricmc.net/wiki/zh_cn:tutorial:mixin_introduction)。更多可选的值及其含义请参考[Mixin的GitHub wiki](https://github.com/SpongePowered/Mixin/wiki)或[mouse0w0的翻译](https://mouse0w0.github.io/tags/Mixin/)。
+
+:::
+
+#### 通过查看字节码寻找注入点
+
+要是你想要注入的位置在一个λ表达式或者什么更奇怪的地方，你可能会发现`method`并不能填成外面那个方法名。
+
+你可以点到那个λ表达式，然后在IDE上方`视图`>`显示字节码`，找到那个λ的签名——它通常是`<类名>.lambda$<外面那层方法名>$编号(形参)返回类型`的样子，你就可以把一整行复制下来，填到`method`中。记得删掉最后那个逗号。
+
+---
+
 ### 错误排查
 
 mixin在注入过程中或者注入之后很有可能产生错误或不符合预期的表现，此时你可能需要知道执行注入之后那些目标类到底成了什么乱七八糟的样子。
@@ -361,6 +397,8 @@ mixin在注入过程中或者注入之后很有可能产生错误或不符合预
 要查看注入结果，你只需要`右键RunClint`或`在RunClient右侧找到三点按钮`>`编辑`>`第一个长输入框"VM选项"`>`在末尾另起一行并加上` `-Dmixin.debug=true`，这将启用Mixin的所有debug选项。
 
 重新运行一下游戏，你就能在项目目录的`/run/.mixin.out/`文件夹下找到所有被修改的类。
+
+> 为什么在上文中我们使用了“注入”一词？简单翻阅这里面的目标类，你就明白了。
 
 另一方面，你可能注意到日志中多出了一些关于Mixin的内容——这对你的错误排查可能也会有帮助。
 
