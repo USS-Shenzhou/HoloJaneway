@@ -1,0 +1,26 @@
+{
+  "title": {
+    "message": "Holo Janeway",
+    "description": "The title in the navbar"
+  },
+  "logo.alt": {
+    "message": "My Site Logo",
+    "description": "The alt text of navbar logo"
+  },
+  "item.label.Mod开发": {
+    "message": "Mod Dev",
+    "description": "Navbar item with label Mod开发"
+  },
+  "item.label.MadParticle": {
+    "message": "MadParticle",
+    "description": "Navbar item with label MadParticle"
+  },
+  "item.label.R6MS": {
+    "message": "R6MS",
+    "description": "Navbar item with label R6MS"
+  },
+  "item.label.GitHub": {
+    "message": "GitHub",
+    "description": "Navbar item with label GitHub"
+  }
+}

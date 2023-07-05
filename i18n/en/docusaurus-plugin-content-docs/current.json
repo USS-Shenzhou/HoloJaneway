@@ -1,0 +1,18 @@
+{
+  "version.label": {
+    "message": "Next",
+    "description": "The label for version current"
+  },
+  "sidebar.holojaneway.category.-1 附件": {
+    "message": "-1 附件",
+    "description": "The label for category -1 附件 in sidebar holojaneway"
+  },
+  "sidebar.holojaneway.category.0 绪论": {
+    "message": "0 绪论",
+    "description": "The label for category 0 绪论 in sidebar holojaneway"
+  },
+  "sidebar.r6ms.category.更新日志": {
+    "message": "更新日志",
+    "description": "The label for category 更新日志 in sidebar r6ms"
+  }
+}
