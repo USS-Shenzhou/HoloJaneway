@@ -12,9 +12,7 @@ slug: /madparticle
 
 欢迎来到MadParticle指南!
 
-Welcome to the MadParticle Guidelines!
 
-As the most important part, you should check the `/madParticle Command Guideline` first, then learn using auxiliary design tool in `Designer GUI Guidline` . I'm sorry, it is currently only available in Chinese. You can use browser translation instead.
 
 <div style={{
     backgroundColor: 'transparent',

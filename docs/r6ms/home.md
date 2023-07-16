@@ -9,6 +9,9 @@ slug: /r6ms
 
 # Rainbow6: Minesiege 指南
 
+
+欢迎查看R6MS指南！
+
 export const Banner = ({text}) => (
   <div style={{
     backgroundColor: 'transparent',
@@ -33,17 +36,11 @@ export const Banner = ({text}) => (
 
 <Banner text="准备好在TeaCon 2024中游玩预览版本，\n并获得L85A2 TeaCon2024独特涂装！" /><p></p>
 
-欢迎查看R6MS指南！
-
-Welcome to the R6MS Guidelines! 
-
-I'm sorry, it is currently only available in Chinese. You can use browser translation instead.If you can't read Chinese, please contact the developers. Translation will not begin until the first foreigner's message is received.
-
 ---
 
-Rainbow6: Minesiege（简称R6MS）受2020年偶然观看的一次直播启发，最初是希望探索出一种合理而有趣的方式来解决《彩虹六号：围攻》在中国大陆境内不允许直播的问题。
+Rainbow6: Minesiege（简称R6MS）模组是受2020年偶然观看的一次直播启发，目的是希望探索出一种合理而有趣的方式来解决《彩虹六号：围攻》在中国大陆境内不允许直播的问题。
 
-现在，经过两次重制，R6MS来到了第三个版本。我们希望在这个版本能够使玩家取得较为完整的体验，同时在设计上于原版Minecraft风格和《彩虹六号：围攻》风格之中取得平衡。
+现在，经过两次重写，R6MS来到了第三个版本。我们希望在这个版本能够使玩家取得较为完整的体验，同时在设计上于原版Minecraft风格和《彩虹六号：围攻》风格之中取得平衡。
 
 :::info
 
@@ -64,14 +61,14 @@ R6MS在客户端和服务端都需要[T88](https://www.curseforge.com/minecraft/
 
 ---
 
-R6MS模组[使用GPLv3协议进行许可](https://github.com/USS-Shenzhou/MC-R6mod)。对本指南保留所有权利。
+R6MS模组使用GPLv3协议进行许可，你可以在[这里](https://github.com/USS-Shenzhou/MC-R6mod)查看附加条款和其他版权信息。*USS_Shenzhou*对本指南保留所有权利。
 
 *R6MS模组是一个粉丝项目，非《彩虹六号：围攻》官方产品。未获育碧许可，亦与育碧无任何关联。*
 
 *《彩虹六号：围攻》商标及其内容的所有权及版权属于育碧。*
 
-The R6MS mod is [licensed under the The GNU General Public License v3.0](https://github.com/USS-Shenzhou/MC-R6mod). All rights reserved for this R6MS Guidelines.
+The R6MS mod is licensed under the The GNU General Public License v3.0, you can check addtional terms and other copyright information [here](https://github.com/USS-Shenzhou/MC-R6mod). All rights reserved for this R6MS Guidelines.
 
-*THE RAINBOW6:MINESIEGE MOD IS A FAN-MADE PROJECT. NOT OFFICIAL RAINBOW SIX SIEGE PRODUCT. NOT APPROVED BY OR ASSOCIATED WITH UBISOFT.*
+*THE R6MS MOD IS A FAN-MADE PROJECT, NOT OFFICIAL RAINBOW SIX SIEGE PRODUCT. NOT APPROVED BY OR ASSOCIATED WITH UBISOFT.*
 
 *TOM CLANCY'S RAINBOW SIX SIEGE TRADEMARK AND ITS CONTENTS ARE OWNED AND COPYRIGHTED BY UBISOFT ENTERTAINMENT.*
