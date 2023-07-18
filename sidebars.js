@@ -42,6 +42,8 @@ const sidebars = {
     'holojaneway/5',
     'holojaneway/6',
     'holojaneway/7',
+    'holojaneway/8',
+    'holojaneway/9',
     'holojaneway/∞',
   ],
   madparticle:[
