@@ -48,7 +48,12 @@ const sidebars = {
   ],
   madparticle:[
     'madparticle/home',
-    'madparticle/command',
+    {
+      type: 'category',
+      label: '/madparticle 命令指南',
+      link: {type: 'doc', id: 'madparticle/command'},
+      items: ['madparticle/meta',],
+    },
     'madparticle/designer',
     'madparticle/config',
     'madparticle/misc',
