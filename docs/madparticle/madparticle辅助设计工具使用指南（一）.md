@@ -10,9 +10,9 @@ hide_table_of_contents: false
 
 :::info
 
-为保障GUI界面紧凑，英文界面使用了大量的缩写。为此，当在英文设定下打开Designer GUI时，一些输入框会有特定的Tooltip提示，而中文环境则不存在。
+为保障GUI界面紧凑，以及防止字符显示重叠，英文界面使用了大量的缩写。为此，当在英文设定下打开Designer GUI时，一些输入框会有特定的Tooltip提示，而中文环境则不存在。
 
-To ensure a compact GUI, the English version of the interface uses a large number of abbreviations. Therefore, when the Designer GUI is opened under the English setting, certain widgets will have tooltips, which do not exist under the Chinese setting.
+`MadParticle Designer GUI`与[Modern UI](https://www.curseforge.com/minecraft/mc-mods/modern-ui)兼容良好。你可以借助其来改进使用体验。
 
 :::
 
