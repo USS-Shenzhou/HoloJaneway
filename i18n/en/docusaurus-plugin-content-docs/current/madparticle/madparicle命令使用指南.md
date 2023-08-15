@@ -414,15 +414,7 @@ Determines which players will receive the particle data. Like the original comma
 
 This is a meta-command area presented as a `CompoundTag`. You can fill in the corresponding key-value pairs as needed.
 
-The meta-command area is designed to ensure compatibility and expandability for future updates.
-
-:::info
-
-The currently available key-value pairs and their functions are:
-
-- `"tada": 1` marks this as a Tada command, thus the player's hand position needs to be calculated when generating particles.
-
-:::
+Please refer to the separate page on [Meta-Parameter Guideline](meta) to understand all available features.
 
 ## expireThen
 

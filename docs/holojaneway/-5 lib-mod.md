@@ -85,3 +85,39 @@ side = "BOTH"
 ```
 
 更多内容可以参考CurseMaven的官方网站，https://www.cursemaven.com/ 。
+
+---
+
+## 奇奇怪怪的注意事项
+
+### 更灵活的使用方式
+
+你可能会遇到这种情况：某个mod需要作一些修改，与此同时本地也需要修改另一个联动mod或者前置mod。
+
+将前置mod不停地上传CurseFouge显然会很低效——但local maven什么的似乎又没有那个必要...你可以直接把前置mod的构建输出文件夹作为后置mod的依赖仓库，这样就能直接读取本地构建出来的jar了。
+
+```gradle {4-6,12}
+repositories {
+	...
+	
+    flatDir {
+        dir 'D:/develop/t88/build/libs'
+    }
+}
+
+dependencies {
+    minecraft ...
+
+    implementation fg.deobf("blank:t88:0.4.+")
+
+	...
+}
+```
+
+如上所示，通过指定前置mod的绝对路径，就可以方便地把对应的jar作为项目依赖了。
+
+:::tip
+
+你可以像上面一样，使用`+`号来绕过前置mod的版本号有后缀的情况。
+
+:::

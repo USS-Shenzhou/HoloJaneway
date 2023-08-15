@@ -14,5 +14,9 @@
   "sidebar.r6ms.category.更新日志": {
     "message": "更新日志",
     "description": "The label for category 更新日志 in sidebar r6ms"
+  },
+  "sidebar.madparticle.category./madparticle 命令指南": {
+    "message": "Command Guideline",
+    "description": "The label for category Command Guideline in sidebar madparticle"
   }
 }
