@@ -1,16 +1,26 @@
 ---
 id: faq
-title: 常见问题解答（FAQ）
+title: 常见问题解答
 hide_table_of_contents: false
 
 ---
 
-# 常见问题解答（FAQ）
+# 常见问题解答
 
 ---
 
-- Q：
-- A：
+- Q：我没有正版账号，我可以游玩R6MS吗？
+- A：当然可以！只要选择没有在线验证的服务器即可。
+
+
+
+- Q：我没有正版账号，我可以获取和使用武器涂装（皮肤）吗？
+- A：很遗憾，武器涂装系统和正版账号是强绑定的。
+
+
+
+- Q：我是服主或管理员，我想要在我的服务器上玩R6MS？
+- A：R6MS的最简安装过程相当简单——就像其他mod一样，下载最新版本的jar，放进mods文件夹即可。如果想要探索其他功能，请阅读指南的其余内容。
 
 
 
@@ -57,6 +67,7 @@ hide_table_of_contents: false
 
 - &#8203;<font color="eedd00">Player ... sent a RoundPrepareTopView pacbket and wants to teleport to ... , but it looks like this pos is not in the range of designated map.</font> 玩家向服务端发送了用于请求将其传送至地图俯视图位置的网络包，但请求的位置不在对战地图范围内。可能是因为玩家的Minecraft窗口有不寻常的长宽比；也可能是恶意发包。
     - 玩家的请求将会被忽略。
+
 
 
 - &#8203;<font color="eedd00">[ServerMatchController]: Failed to find world ... .</font> 在对战结束尝试恢复玩家状态时失败，找不到玩家之前所在的世界。可能是整个世界被卸载，或是世界已经不存在，或是配置文件中的世界名被不正确地修改。

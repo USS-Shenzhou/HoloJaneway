@@ -61,7 +61,15 @@ const sidebars = {
   ],
   r6ms:[
     'r6ms/home',
-    'r6ms/player',
+    {
+      type: 'category',
+      label: '玩家游玩指南',
+      link: {type: 'doc', id: 'r6ms/player'},
+      items: [
+        'r6ms/player_match',
+        'r6ms/player_option'
+      ],
+    },
     'r6ms/map',
     'r6ms/op',
     'r6ms/cross_server',
