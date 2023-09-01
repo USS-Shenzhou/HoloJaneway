@@ -124,4 +124,4 @@ Copyright 2023 USS_Shenzhou
 
 ## 版权（本指南）
 
-本网站的框架及代码使用MIT许可证。*USS_Shenzhou*对本指南的文本内容保留所有权利。
+*USS_Shenzhou*对本指南的文本内容保留所有权利。本网站的框架及代码使用MIT许可证。
