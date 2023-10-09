@@ -73,20 +73,20 @@ const config = {
             type: 'doc',
             docId: 'holojaneway/0',
             position: 'left',
-            label: 'Mod开发',
+            label: 'Mod开发教程',
           },
           {
             type: 'doc',
             docId: 'madparticle/home',
             position: 'left',
-            label: 'MadParticle',
+            label: 'Mod使用指南',
           },
-          {
+          /*{
             type: 'doc',
             docId: 'r6ms/home',
             position: 'left',
-            label: 'R6MS',
-          },
+            label: 'R6MS指南',
+          },*/
           //{to: '/blog', label: 'Blog', position: 'left'},
           {
             href: 'https://github.com/USS-Shenzhou/HoloJaneway',
@@ -98,6 +98,11 @@ const config = {
             position: 'right',
           },
         ],
+      },
+      docs: {
+        sidebar: {
+          autoCollapseCategories: true,
+        },
       },
       footer: {
         style: 'dark',

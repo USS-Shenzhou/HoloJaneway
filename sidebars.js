@@ -19,7 +19,6 @@ const sidebars = {
   holojaneway:[
     'holojaneway/-6',
     'holojaneway/-5',
-    'holojaneway/-4',
     'holojaneway/-3',
     'holojaneway/-2',
     {
@@ -45,21 +44,75 @@ const sidebars = {
     'holojaneway/8',
     'holojaneway/9',
     'holojaneway/∞',
-  ],
-  madparticle:[
-    'madparticle/home',
     {
       type: 'category',
-      label: '/madparticle 命令指南',
-      link: {type: 'doc', id: 'madparticle/command'},
-      items: ['madparticle/meta',],
-    },
-    'madparticle/designer',
-    'madparticle/config',
-    'madparticle/misc',
-    'madparticle/faq'
+      label: 'i T88使用文档',
+      link: {type: 'doc', id: 'holojaneway/i'},
+      items: [
+        'holojaneway/1.1i',
+        'holojaneway/1.2i',
+        'holojaneway/1.3i',
+        'holojaneway/1.4i',
+        'holojaneway/1.5i',
+        'holojaneway/1.6i'
+        ],
+    }
   ],
-  r6ms:[
+  madparticle:[
+    {
+      type: 'category',
+      label: 'Mad Particle指南',
+      link: {type: 'doc', id: 'madparticle/home'},
+      items: [
+        'madparticle/command',
+        'madparticle/meta',
+        'madparticle/designer',
+        'madparticle/config',
+        'madparticle/misc',
+        'madparticle/misc',
+        'madparticle/faq',
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Rawinbow6 Minesiege指南',
+      link: {type: 'doc', id: 'r6ms/home'},
+      items: [
+        {
+          type: 'category',
+          label: '玩家游玩指南',
+          link: {type: 'doc', id: 'r6ms/player'},
+          items: [
+            'r6ms/player_match',
+            'r6ms/player_option'
+          ],
+        },
+        'r6ms/map',
+        'r6ms/op',
+        'r6ms/cross_server',
+        'r6ms/data_collect',
+        'r6ms/anti_cheat',
+        'r6ms/faq',
+        {
+          type: 'category',
+          label: '更新日志',
+          collapsed: true,
+          items: [
+            'r6ms/update_log/1.0.0'
+          ],
+        }
+        ],
+    },
+    {
+      type: 'category',
+      label: 'Tell Me Where指南',
+      link: {type: 'doc', id: 'tellmewhere/home'},
+      items: [
+        
+        ],
+    },
+  ],
+  /*r6ms:[
     'r6ms/home',
     {
       type: 'category',
@@ -84,7 +137,7 @@ const sidebars = {
         'r6ms/update_log/1.0.0'
       ],
     }
-  ]
+  ]*/
 };
 
 module.exports = sidebars;

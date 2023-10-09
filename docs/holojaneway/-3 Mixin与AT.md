@@ -225,7 +225,7 @@ Particle particle = ((ParticleEngineAccessor) Minecraft.getInstance().particleEn
 
 ###  示例-增加
 
-#### 在R6MS中，我们需要在适当的时候将摄像机改为正交视图
+#### 为原版类添加新方法 - 在R6MS中，我们需要在适当的时候将摄像机改为正交视图
 
 R6MS, LevelRendererMixin, GPLv3:
 
@@ -341,6 +341,12 @@ private void afterGameRendererRenderedT88(float pPartialTicks, long pNanoTime, b
 
 通常情况下，Mixin方法形参的局部变量必须按照它们在目标方法中出现的顺序出现——这意味着我们如果想要某个在中间的局部变量，我们必须把它前面的一大家子也写上去。
 
+:::tip
+
+新版本的MCDev插件已经可以比较好地捕获局部变量了。你可以先试试看自动填充，或许不需要用到下面的方法。
+
+:::
+
 一种可行的办法是仔细观察目标方法体，一个一个地把局部变量写上形参。但这种方法显然很容易漏掉某一个或者某几个，还得回过头来找；
 
 另一种更加推荐的办法如下：
@@ -366,7 +372,7 @@ org.spongepowered.asm.mixin.injection.throwables.InvalidInjectionException: Inje
 
 你可能已经注意到了，不论是`@Inject`还是`@Modifyxxxxx`，亦或者下文将提到的`@Redirect`，其参数都有着`method`和`at`的基本结构，`at`的`@At`中有时又包含`target`。
 
-在已经有`@Mixin`指定了目标类的情况下，`method`参数被用于指定这个Mixin注解将会被用于目标类中具体哪个方法，其值通常情况下可以由你填写方法名后使用MCDev插件补齐。需要注意的是，如果你的目标方法是构造方法，你需要填入`"<init>"`。
+在已经有`@Mixin`指定了目标类的情况下，`method`参数被用于指定这个Mixin注解将会被用于目标类中具体哪个方法，其值通常情况下可以由你填写方法名后使用MCDev插件补齐。需要注意的是，如果你的目标方法是构造方法，你需要填入`"<init>"`，如果目标方法是静态构造块，则填入`"<clinit>"`。
 
 `at`则需要填写一个`@At`注解，通常有几种情况：
 
@@ -485,6 +491,12 @@ public net.minecraft.client.gui.components.EditBox
 public net.minecraft.client.gui.components.EditBox m_94135_(IIII)V # renderHighlight
 ```
 
+:::tip
+
+在修改`accesstransformer.cfg`后，总是需要刷新Gradle项目。
+
+:::
+
 然后刷新gradle项目，等到完成后你就会发现`renderHighlight`前面的访问修饰符变成了`public`。
 
 :::info
@@ -495,8 +507,19 @@ public net.minecraft.client.gui.components.EditBox m_94135_(IIII)V # renderHighl
 
 :::
 
+---
+
+## 奇奇怪怪的注意事项
+
+### 获取Mixin method、SRG、AT、AW名
+
+你可以在[Linkie](https://linkie.shedaniel.dev/)查询类名、字段、方法的各种名称，以及它们在不同映射表中的名称。
+
 :::tip
 
-在修改`accesstransformer.cfg`后，总是需要刷新Gradle项目。
+除了自动生成Accessor/Invoker之外，MCDev也可以帮你获取这些名称。只需要把光标放在对应类名、字段、方法处：
+
+- 对于SRG名：`右键 > Get SRG Name`
+- 对于其他名称：`右键 > 复制/粘贴特殊`
 
 :::
