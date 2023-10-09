@@ -8,14 +8,13 @@ hide_table_of_contents: false
 
 # Tell Me Where使用指南
 
-
 <div style={{
     backgroundColor: 'transparent',
-    border: '0.5rem solid #cccccc',
+    border: '5px solid #cccccc',
     padding: '0rem',
     'padding-top':'0rem',
     color: '#fffffff',
-    fontSize: '36px',
+    fontSize: '28px',
     textAlign: 'center',
     'background-color':'#000000',
     'white-space': 'nowrap',
@@ -24,8 +23,8 @@ hide_table_of_contents: false
     float:'left',
     textAlign: 'left',
   }}>
-<img src={require('./assets/left_up.png').default} alt="madparticle" style={{zoom:0.5, 'vertical-align':'middle'}} />
-<img src={require('./assets/exit.png').default} alt="madparticle" style={{zoom:0.5, 'vertical-align':'middle'}} />
+<img src={require('./assets/std_left_up.png').default} alt="madparticle" style={{zoom:0.4, 'vertical-align':'middle'}} />
+<img src={require('./assets/exit.png').default} alt="madparticle" style={{zoom:0.4, 'vertical-align':'middle'}} />
 </div>
 <div style={{
     textAlign: 'right',
@@ -34,7 +33,7 @@ hide_table_of_contents: false
 <text style={{'vertical-align':'middle',color: '#ffffff'}}>&nbsp;2号线&nbsp;</text>
 <text style={{'vertical-align':'middle',color: '#3399ff',fontWeight: 1000,}}>|</text>
 <text style={{'vertical-align':'middle',color: '#ffffff'}}>&nbsp;4号线&nbsp;</text>
-<img src={require('./assets/up.png').default} alt="madparticle" style={{zoom:0.5, 'vertical-align':'middle'}} />
+<img src={require('./assets/std_right.png').default} alt="madparticle" style={{zoom:0.4, 'vertical-align':'middle'}} />
 </div>
 </div>
 <p></p>
@@ -51,13 +50,73 @@ Tell Me Where提供形态各异的指示牌方块，你可以在其中编写你�
 
 需要时在同一块指示牌上表表示不同方向的内容时，内容排列应遵循以下原则：
 
-1. 指示方向的标志应当放置在实际方向的对应处：
-2. 指示方向的标志应当放置在对应内容的外侧：
-3. 不同方向的对应内容相邻排列时，应当在两组内容之间以双空格`  `、分隔线` | `或其他适当方式分开。
+1. 指示方向的标志应当放置在实际方向的对应处。以左侧为例，各方向的优先级为：
+
+<div style={{
+    backgroundColor: 'transparent',
+    border: '5px solid #cccccc',
+    padding: '0rem',
+    'padding-top':'0rem',
+    color: '#fffffff',
+    fontSize: '28px',
+    textAlign: 'center',
+    'background-color':'#000000',
+    'white-space': 'nowrap',
+  }}>
+<div style={{
+    textAlign: 'center',
+  }}>
+	<img src={require('./assets/left_down.png').default} alt="madparticle" style={{zoom:0.4, 'vertical-align':'middle'}} />
+	<img src={require('./assets/left_up.png').default} alt="madparticle" style={{zoom:0.4, 'vertical-align':'middle'}} />
+    <img src={require('./assets/left.png').default} alt="madparticle" style={{zoom:0.4, 'vertical-align':'middle'}} />
+    <img src={require('./assets/up_then_left.png').default} alt="madparticle" style={{zoom:0.4, 'vertical-align':'middle'}} />
+    <img src={require('./assets/back_left.png').default} alt="madparticle" style={{zoom:0.4, 'vertical-align':'middle'}} />
+    <img src={require('./assets/down.png').default} alt="madparticle" style={{zoom:0.4, 'vertical-align':'middle'}} />
+    <img src={require('./assets/bypass_left.png').default} alt="madparticle" style={{zoom:0.4, 'vertical-align':'middle'}} />
+    <img src={require('./assets/up.png').default} alt="madparticle" style={{zoom:0.4, 'vertical-align':'middle'}} />
+</div>
+</div>
+<p></p>
+
+2. 指示方向的标志应当放置在对应内容的外侧，如指南开头所示。
+3. 提示标志应放在文字左侧：
+
+<div style={{
+    backgroundColor: 'transparent',
+    border: '5px solid #cccccc',
+    padding: '0rem',
+    'padding-top':'0rem',
+    color: '#fffffff',
+    fontSize: '28px',
+    textAlign: 'center',
+    'background-color':'#000000',
+    'white-space': 'nowrap',
+  }}>
+<div style={{
+	float:'left',
+    textAlign: 'left',
+  }}>
+    <img src={require('./assets/left_up.png').default} alt="madparticle" style={{zoom:0.4, 'vertical-align':'middle'}} />
+    <img src={require('./assets/takeoff.png').default} alt="madparticle" style={{zoom:0.4, 'vertical-align':'middle'}} />
+    <text style={{'vertical-align':'middle',color: '#ffffff'}}>国内出发</text>
+</div>
+<div style={{
+    textAlign: 'right',
+  }}>
+    <img src={require('./assets/land.png').default} alt="madparticle" style={{zoom:0.4, 'vertical-align':'middle'}} />
+    <text style={{'vertical-align':'middle',color: '#ffffff'}}>国内到达</text>
+    <img src={require('./assets/right.png').default} alt="madparticle" style={{zoom:0.4, 'vertical-align':'middle'}} />
+</div>
+</div>
+
+
+<p></p>
+
+4. 不同方向的对应内容相邻排列时，应当在两组内容之间以（多个）空格、分隔线或其他适当方式分开。
 
 
 
-指示牌内容不支持换行。
+为保证可读性，指示牌内容不支持换行。
 
 ### 彩色文字
 
@@ -90,7 +149,7 @@ Tell Me Where默认提供两套标志合集：
 - “标准”：标准、清晰、准确的标志。主要参考来源有：
   - 北京地铁导向标志；
   - `GB/T 10001` 标志用公共信息图形符号。
-- “Google”：现代、轻量的标志。来自[Google Material Symbols](https://fonts.google.com/icons)，使用[Apache-2.0](https://spdx.org/licenses/Apache-2.0.html)许可。
+- “Google”：更加现代、轻量的标志，可读性可能略差一些。来自[Google Material Symbols](https://fonts.google.com/icons)，使用[Apache-2.0](https://spdx.org/licenses/Apache-2.0.html)许可。
 
 这些标志的颜色按照下文的规定进行标准化。
 
