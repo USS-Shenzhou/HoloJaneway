@@ -108,6 +108,14 @@ const config = {
         style: 'dark',
         links: [
           {
+            label: 'CurseForge',
+            href: 'https://legacy.curseforge.com/members/uss_shenzhou/projects'
+          },
+          {
+            label: 'Modrinth',
+            href: 'https://modrinth.com/user/USS-Shenzhou'
+          },
+          {
             label: 'KOOK',
             href:'https://kook.top/Bu1WLb'
           },

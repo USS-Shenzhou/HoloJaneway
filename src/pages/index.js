@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import clsx from 'clsx';
-import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 //import HomepageFeatures from '@site/src/components/HomepageFeatures';
+import CurseForgeMods from "@site/src/components/CurseForgeMods/CurseForgeMods";
 
 import styles from './index.module.css';
 
@@ -13,7 +13,11 @@ function HomepageHeader() {
         <header className={clsx('hero hero--primary', styles.heroBanner)}>
             <div className="container">
                 <h1 className="hero__title">HoloJaneway</h1>
-                <p className="hero__subtitle"><br/>在上方导航栏选择想要查看的项目。</p>
+                <text style={{
+                    "font-size": "1.5rem"
+                }}>
+                    <br/>在上方导航栏选择想要查看的项目。
+                </text>
             </div>
         </header>
     );
@@ -28,21 +32,20 @@ export default function Home() {
         >
             <HomepageHeader/>
             <main>
-                <div
-                    className={styles.uss_shenzhou_info}
-                >
+                <div className={styles.uss_shenzhou_info}>
                     <img
                         src={require("@site/static/img/head.png").default}
                         alt="USS_Shenzhou head"
                     />
-                    <p className={styles.text}>
-                        你好，我是<strong>USS_Shenzhou</strong>，也可以叫我神舟。
+                    <text className={styles.text}>
+                        你好！我是<strong>USS_Shenzhou</strong>，你也可以叫我神舟。
                         <br/>
                         我主要使用Forge/NeoForge为Minecraft Java Edition编写模组。
                         <br/>
                         你可以在页面底端找到我的其他赛博刷新点。
-                    </p>
+                    </text>
                 </div>
+                <CurseForgeMods></CurseForgeMods>
             </main>
         </Layout>
     );

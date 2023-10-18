@@ -1,0 +1,24 @@
+.container {
+    margin-top: -1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.modWidgetContainer {
+    width: 60%;
+    margin: 0 auto 2rem;
+}
+
+@media screen and (max-width: 996px) {
+    .modWidgetContainer {
+        width: 100%;
+    }
+
+    .container {
+        margin-top: 1rem;
+    }
+}
+
+
