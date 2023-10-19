@@ -36,7 +36,12 @@ const sidebars = {
     },
     'holojaneway/1',
     'holojaneway/2',
-    'holojaneway/3',
+    {
+      type: 'category',
+      label: '3 方块实体',
+      link: {type: 'doc', id: 'holojaneway/3'},
+      items: ['holojaneway/3.1',],
+    },
     'holojaneway/4',
     'holojaneway/5',
     'holojaneway/6',
