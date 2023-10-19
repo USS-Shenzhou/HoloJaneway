@@ -90,7 +90,7 @@ const config = {
           //{to: '/blog', label: 'Blog', position: 'left'},
           {
             href: 'https://github.com/USS-Shenzhou/HoloJaneway',
-            label: 'GitHub',
+            label: '点个Star吧！',
             position: 'right',
           },
           {
