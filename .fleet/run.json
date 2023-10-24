@@ -1,0 +1,18 @@
+{
+    "configurations": [
+        {
+            "type": "npm",
+            "name": "npm configuration",
+            "command": "run",
+            "scripts": "start",
+        },
+        {
+            "type": "command",
+            "name": "Command configuration",
+            "program": "npm",
+            "args": ["run","start"],
+        },
+        
+        
+    ]
+}

@@ -4,6 +4,7 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 //import HomepageFeatures from '@site/src/components/HomepageFeatures';
 import CurseForgeMods from "@site/src/components/CurseForgeMods/CurseForgeMods";
+import NewMods from "@site/src/components/NewMods/NewMods";
 
 import styles from './index.module.css';
 
@@ -45,7 +46,7 @@ export default function Home() {
                         你可以在页面底端找到我的其他赛博刷新点。
                     </text>
                 </div>
-                <CurseForgeMods></CurseForgeMods>
+                <NewMods></NewMods>
             </main>
         </Layout>
     );
