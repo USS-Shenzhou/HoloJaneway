@@ -63,7 +63,7 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       navbar: {
-        title: 'Holo Janeway',
+        title: 'HoloJaneway',
         logo: {
           alt: 'My Site Logo',
           src: 'img/logo.png',
@@ -169,14 +169,14 @@ const config = {
         ],
         //copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
         copyright: `<font size="2">
-        Copyright © ${new Date().getFullYear()} Holo Janeway, USS_Shenzhou. Built with <a href="https://docusaurus.io/" target="_blank">Docusaurus</a>.
+        Copyright © ${new Date().getFullYear()} HoloJaneway, USS_Shenzhou. Built with <a href="https://docusaurus.io/" target="_blank">Docusaurus</a>.
          | <a href="https://beian.miit.gov.cn" target="_blank">蜀ICP备2023001090号-1</a>
-        </br>Holo Janeway网站使用<a href="https://github.com/USS-Shenzhou/HoloJaneway/blob/main/LICENSE" target="_blank">MIT协议</a>授权。
-         | The Holo Janeway website is licensed under <a href="https://github.com/USS-Shenzhou/HoloJaneway/blob/main/LICENSE" target="_blank">MIT License</a>.
-        </br>《Holo Janeway mod开发教程》使用<a href="https://holojaneway.uss-shenzhou.cn/holojaneway/0.1" target="_self">CC BY-NC 4.0协议，BSD-3-Clause协议和GPLv3协议</a>授权。
-         | The Holo Janeway Mod Developing Tutorial is licensed under <a href="https://holojaneway.uss-shenzhou.cn/holojaneway/0.1" target="_self">CC BY-NC 4.0，BSD-3-Clause and GPLv3 License</a>.
-        </br>USS_Shenzhou 对《MadParticle 指南》和《R6MS 指南》保留所有权利。
-         | All rights reserved for the MadParticle Guidelines and the R6MS Guidelines.
+        </br>HoloJaneway网站使用<a href="https://github.com/USS-Shenzhou/HoloJaneway/blob/main/LICENSE" target="_blank">MIT</a>许可证。
+         | The HoloJaneway website is licensed under <a href="https://github.com/USS-Shenzhou/HoloJaneway/blob/main/LICENSE" target="_blank">MIT License</a>.
+        </br>《HoloJaneway Mod开发教程》使用<a href="https://holojaneway.uss-shenzhou.cn/holojaneway/0.1" target="_self">CC BY-NC 4.0，BSD-3-Clause和GPLv3</a>许可证。
+         | The HoloJaneway Mod Developing Tutorial is licensed under <a href="https://holojaneway.uss-shenzhou.cn/holojaneway/0.1" target="_self">CC BY-NC 4.0，BSD-3-Clause and GPLv3 License</a>.
+        </br>USS_Shenzhou 对《Mod使用指南》中的所有内容保留所有权利。
+         | All rights reserved for the Mod Usage Guidelines.
          </font>
         `,
       },

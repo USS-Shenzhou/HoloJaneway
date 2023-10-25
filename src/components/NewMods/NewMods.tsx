@@ -91,10 +91,10 @@ const NewMods: React.FC = () => {
             ]}/>
             <h2>制作中</h2>
             <Mod modUrl={baseAPIUrl + r6} buttons={[
-                {text: 'All downloads', url: baseCFUrl + r6 + '/files'},
-                {text: 'MCMod', url: 'https://www.mcmod.cn/class/4799.html'},
+                //{text: 'All downloads', url: baseCFUrl + r6 + '/files'},
+                //{text: 'MCMod', url: 'https://www.mcmod.cn/class/4799.html'},
             ]}/>
-            <h2>停更</h2>
+            <h2>停止更新</h2>
             <Mod modUrl={baseAPIUrl + extinguish} buttons={[
                 {text: 'All downloads', url: baseCFUrl + extinguish + '/files'},
                 {text: 'Demo', url: 'https://www.bilibili.com/video/BV1aG411H7kQ'},

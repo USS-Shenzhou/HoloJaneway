@@ -8,7 +8,7 @@
         },
         {
             "type": "command",
-            "name": "Command configuration",
+            "name": "Command Run",
             "program": "npm",
             "args": ["run","start"],
         },
