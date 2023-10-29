@@ -25,7 +25,7 @@ const Mod = ({modUrl, buttons}) => {
                     />
                     <div className={styles.modInfo}>
                         <h2 className={styles.title}>
-                            <a href={modUrl} target="_blank" rel="noopener noreferrer">
+                            <a href={modData.urls.curseforge} target="_blank" rel="noopener noreferrer">
                                 {modData.title}
                             </a>
                         </h2>
