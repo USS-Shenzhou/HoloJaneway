@@ -74,7 +74,6 @@ const sidebars = {
         'madparticle/designer',
         'madparticle/config',
         'madparticle/misc',
-        'madparticle/misc',
         'madparticle/faq',
       ],
     },
@@ -117,32 +116,6 @@ const sidebars = {
         ],
     },
   ],
-  /*r6ms:[
-    'r6ms/home',
-    {
-      type: 'category',
-      label: '玩家游玩指南',
-      link: {type: 'doc', id: 'r6ms/player'},
-      items: [
-        'r6ms/player_match',
-        'r6ms/player_option'
-      ],
-    },
-    'r6ms/map',
-    'r6ms/op',
-    'r6ms/cross_server',
-    'r6ms/data_collect',
-    'r6ms/anti_cheat',
-    'r6ms/faq',
-    {
-      type: 'category',
-      label: '更新日志',
-      collapsed: true,
-      items: [
-        'r6ms/update_log/1.0.0'
-      ],
-    }
-  ]*/
 };
 
 module.exports = sidebars;

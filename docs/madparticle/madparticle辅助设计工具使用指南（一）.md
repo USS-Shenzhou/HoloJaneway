@@ -16,19 +16,6 @@ hide_table_of_contents: false
 
 :::
 
-<div style={{
-    backgroundColor: 'transparent',
-    border: '3px solid #f07020',
-    borderRadius: '1rem',
-    padding: '1rem',
-    color: '#f07020'
-  }}>
-<div>
-
-在**TeaCon 2023**中，，Designer GUI中临时增加了一个名为`TeaCon`的模式。此模式中的输入框受到和`/mp_demo`指令相同的限制，生成的指令也以`/mp_demo`开头。你可以在其中设计你自己的`/mp_demo`指令以供体验。
-</div>
-</div>
-
 ---
 
 ## 参数
@@ -93,6 +80,8 @@ hide_table_of_contents: false
 
 随后，您就可以正常地修改各个子命令了。
 
+---
+
 ## 元指令区
 
 自`0.4`版本起，你可能会注意到在参数面板的底部增加了一个元指令区。你可以利用`+`和对应的`-`按钮，增加或删去相应的键值对。
@@ -120,19 +109,6 @@ hide_table_of_contents: false
 ### 制作喷花筒
 
 在完成编辑后，你只需要点击`制作喷花筒`，服务器会发放一个对应的喷花筒到你的物品栏中。请注意，制作喷花筒需要2级权限。
-
-<div style={{
-    backgroundColor: 'transparent',
-    border: '3px solid #f07020',
-    borderRadius: '1rem',
-    padding: '1rem',
-    color: '#f07020'
-  }}>
-<div>
-
-在**TeaCon 2023**中，你可以在编写完指令后，手动地将上方输入框内指令前缀从`mp`改为`mp_demo`。这样可以使得制作喷花筒不再需要2级权限，但也使得参数会受到相应的限制。
-</div>
-</div>
 
 ### 再次编辑
 

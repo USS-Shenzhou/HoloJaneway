@@ -6,6 +6,7 @@ sidebar_position: 100
 slug: /r6ms
 
 ---
+import React from 'react';
 
 # Rainbow6: Minesiege 指南
 

@@ -12,28 +12,6 @@ slug: /madparticle
 
 欢迎来到MadParticle指南!
 
-
-
-<div style={{
-    backgroundColor: 'transparent',
-    border: '3px solid #f07020',
-    borderRadius: '1rem',
-    padding: '1rem',
-    color: '#f07020',
-    fontWeight: 'bold',
-    fontSize: '28px',
-    textAlign: 'center',
-  }}>
-<div>
-
-
-查看各个页面的橙色圆角框
-
-了解MadParticle在TeaCon 2023期间提供的独特内容！
-
-</div>
-</div>
-
 ---
 
 疯狂粒子受[Extinguish](https://www.curseforge.com/minecraft/mc-mods/extinguish-by-uss_shenzhou)在[Teacon 2022](https://www.teacon.cn/2022/index)中的表现启发，是一个主要适用于多人游戏和数据包的模组。依靠粒子贴图的再利用而不是新增加，有几乎无穷多的粒子可供您营造各种场景。
