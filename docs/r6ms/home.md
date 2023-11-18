@@ -13,29 +13,28 @@ import React from 'react';
 
 欢迎查看R6MS指南！
 
-export const Banner = ({text}) => (
+export const Banner = ({children}) => (
   <div style={{
     backgroundColor: 'transparent',
     border: '3px solid #3399ff',
     borderRadius: '12px',
-    padding: '22px',
+    'padding-top': '1rem',
     textAlign: 'center',
     color: '#3399ff',
     fontWeight: 'bold',
     fontSize: '32px',
   }}>
-          {text.split('\\n').map((line, index) => {
-        return (
-          <React.Fragment key={index}>
-            {line}
-            <br />
-          </React.Fragment>
-        );
-      })}
+	{children}
   </div>
 );
 
-<Banner text="准备好在TeaCon 2024中游玩预览版本，\n并获得L85A2 TeaCon2024独特涂装！" /><p></p>
+<Banner>
+准备好在TeaCon 2024中游玩预览版本，<br/>
+并获得L85A2 TeaCon2024独特涂装！
+
+</Banner>
+
+<p></p>
 
 ---
 
@@ -49,6 +48,16 @@ export const Banner = ({text}) => (
 
 我们希望在这个版本能够使玩家取得较为完整的体验，同时在设计上于原版MC风格和R6S风格之中取得平衡。
 
+<span style={{
+    backgroundColor: 'transparent',
+    border: '2px solid #3399ff',
+    borderRadius: '0.5rem',
+    padding: '3px',
+    color: '#3399ff',
+    fontWeight: 'bold',
+    fontSize: '22px',
+  }}>小心诈骗！我们不会主动要求您为游戏内容支付任何费用。</span>
+
 ### 关于本指南
 
 :::info
@@ -59,7 +68,7 @@ export const Banner = ({text}) => (
 
 :::
 
-你可以选择先查看[常见问题解答](r6ms/faq)，也可以先查看下列具体内容。
+你需要先查看[常见问题解答](r6ms/faq)，然后查看下列具体内容。
 
 - 所有使用本mod的玩家或服主都需要阅读[跨服务器数据服务](r6ms/cross_server)和[统计数据收集说明](r6ms/data_collect)。
 - 如果你是一名玩家，你需要阅读[玩家游玩指南](r6ms/player)及其子章节。
@@ -75,7 +84,9 @@ R6MS在客户端和服务端都需要[T88](https://www.curseforge.com/minecraft/
 
 ## 版权和许可信息（《我的六号》）
 
-关于《我的六号》模组版权的完整及最新文本可以在[GitHub仓库](https://github.com/USS-Shenzhou/MC-R6mod)找到。以下仅是为方便起见的复制版本，以项目README文件为准。
+关于《我的六号》模组版权的完整及最新文本可以在[GitHub仓库](https://github.com/USS-Shenzhou/MC-R6mod)找到。
+
+**以下仅是为方便起见的复制版本，以项目README文件为准。**
 
 ### 本模组许可证
 
