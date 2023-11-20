@@ -16,7 +16,7 @@ import React from 'react';
 export const Banner = ({children}) => (
   <div style={{
     backgroundColor: 'transparent',
-    border: '3px solid #3399ff',
+    border: '4px solid #3399ff',
     borderRadius: '12px',
     'padding-top': '1rem',
     textAlign: 'center',
@@ -31,10 +31,26 @@ export const Banner = ({children}) => (
 <Banner>
 准备好在TeaCon 2024中游玩预览版本，<br/>
 并获得L85A2 TeaCon2024独特涂装！
-
 </Banner>
 
 <p></p>
+
+<div style={{
+    backgroundColor: 'transparent',
+    border: '2px solid #3399ff',
+    borderRadius: '0.5rem',
+    padding: '0.5rem',
+    'padding-bottom': '0rem',
+    color: '#3399ff',
+    fontSize: '22px',
+    textAlign: 'center',
+  }}>
+
+注意安全！<br/>
+我们不会主动要求您为游戏内容支付任何费用。<br/>
+我们不会主动要求您提供Minecraft账户的密码。
+
+</div>
 
 ---
 
@@ -44,7 +60,7 @@ export const Banner = ({children}) => (
 
 *Rainbow6: Minesiege*（简称*R6MS*，中文名*《我的六号》*）模组受2020年偶然观看的一次游戏直播启发，目的是希望探索出一种合理而有趣的方式来解决《彩虹六号：围攻》在中国大陆境内不允许直播的问题。
 
-现在，经过两次重写，R6MS来到了第三个版本。在这三到四年的时间里，我们极大地提高了模组开发的有关技能，结合对*Rainbow6:siege*以及*Minercaft*的热爱，这将是我们达成预期目标的有力保障。
+现在，经过两次重写，R6MS来到了第三个版本。在这四年的时间里，我们极大地提高了模组开发的有关技能，结合对*Rainbow6: siege *以及*Minercaft* 的热爱，我们有相当良好的预期来完成预定的目标。
 
 我们希望在这个版本能够使玩家取得较为完整的体验，同时在设计上于原版MC风格和R6S风格之中取得平衡。
 
@@ -52,25 +68,24 @@ export const Banner = ({children}) => (
     backgroundColor: 'transparent',
     border: '2px solid #3399ff',
     borderRadius: '0.5rem',
-    padding: '3px',
-    color: '#3399ff',
-    fontWeight: 'bold',
-    fontSize: '22px',
-  }}>小心诈骗！我们不会主动要求您为游戏内容支付任何费用。</span>
+    padding: '2px',
+  }}>Voyager是一个与R6MS配套的全新数据同步系统。我们强烈建议你阅读[Voyager的有关介绍](r6ms/voyager_home)。</span>
+<p></p>
+
+R6MS在客户端和服务端都需要[T88](https://www.curseforge.com/minecraft/mc-mods/t88)作为前置。你通常可以直接下载最新版，也可以在各版本更新日志中找到推荐的T88版本。
+
 
 ### 关于本指南
 
 :::info
 
-你可以在左侧侧边栏查看你感兴趣的内容。如果有任何疑问或建议，你可以在页面最下方找到我们的KOOK服务器地址。
+你可以在左侧侧边栏查看你感兴趣的内容，在各个页面右侧查看分节。
 
 由于指南按面向的阅读对象分节，某些内容可能需要跳转以获取完整信息。
 
 :::
 
 **你需要先查看[常见问题解答](r6ms/faq)，然后了解[跨服务器数据服务](r6ms/cross_server)。**
-
-**你还需要阅读[Voyager的有关介绍](r6ms/voyager_home)。**
 
 - 如果你是一名玩家，你需要阅读[玩家游玩指南](r6ms/player)及其子章节。
 - 如果你是服务器管理员或服主，你还需要阅读[服务器管理员指南](r6ms/op)。
@@ -79,7 +94,7 @@ export const Banner = ({children}) => (
 
 **指南内容随着模组规划与开发而更新，故请注意其中可能含有未发布的模组内容。**
 
-R6MS在客户端和服务端都需要[T88](https://www.curseforge.com/minecraft/mc-mods/t88)作为前置。你通常可以直接下载最新版，也可以在各版本更新日志中找到推荐的T88版本。
+如果有任何疑问或建议，你可以在页面最下方找到我们的KOOK服务器地址。
 
 ---
 
@@ -88,6 +103,13 @@ R6MS在客户端和服务端都需要[T88](https://www.curseforge.com/minecraft/
 关于《我的六号》模组版权的完整及最新文本可以在[GitHub仓库](https://github.com/USS-Shenzhou/MC-R6mod)找到。
 
 **以下仅是为方便起见的复制版本，以项目README文件为准。**
+
+<div style={{
+    backgroundColor: 'transparent',
+    border: '2px solid #3399ff',
+    borderRadius: '12px',
+    'padding': '1rem',
+  }}>
 
 ### 本模组许可证
 
@@ -133,6 +155,10 @@ Copyright 2023 USS_Shenzhou
 ***这是一个粉丝项目，非《彩虹六号：围攻》官方产品。未获育碧许可，亦与育碧无任何关联。***
 
 ***《彩虹六号：围攻》商标及其内容的所有权及版权属于育碧。***
+
+</div>
+
+
 
 ---
 
