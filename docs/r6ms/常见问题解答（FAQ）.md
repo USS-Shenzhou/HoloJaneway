@@ -1,6 +1,6 @@
 ---
 id: faq
-title: 常见问题解答（FAQ）
+title: 常见问题解答
 hide_table_of_contents: false
 toc_max_heading_level: 4
 ---

@@ -82,6 +82,7 @@ const sidebars = {
       label: 'Rawinbow6 Minesiege指南',
       link: {type: 'doc', id: 'r6ms/home'},
       items: [
+        'r6ms/faq',
         {
           type: 'category',
           label: '玩家游玩指南',
@@ -91,12 +92,18 @@ const sidebars = {
             'r6ms/player_option'
           ],
         },
-        'r6ms/map',
         'r6ms/op',
+        'r6ms/map',
         'r6ms/cross_server',
-        'r6ms/data_collect',
         'r6ms/anti_cheat',
-        'r6ms/faq',
+        {
+          type: 'category',
+          label: 'Voyager',
+          link: {type: 'doc', id: 'r6ms/voyager_home'},
+          items: [
+            'r6ms/voyager_eula', 'r6ms/data_collect',
+          ],
+        },
         {
           type: 'category',
           label: '更新日志',
