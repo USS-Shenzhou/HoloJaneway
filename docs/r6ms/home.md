@@ -70,7 +70,7 @@ export const Banner = ({children}) => (
 
 **你需要先查看[常见问题解答](r6ms/faq)，然后了解[跨服务器数据服务](r6ms/cross_server)。**
 
-**你还需要阅读[Voyager的有关介绍](r6ms/voyag)。**
+**你还需要阅读[Voyager的有关介绍](r6ms/voyager_home)。**
 
 - 如果你是一名玩家，你需要阅读[玩家游玩指南](r6ms/player)及其子章节。
 - 如果你是服务器管理员或服主，你还需要阅读[服务器管理员指南](r6ms/op)。
