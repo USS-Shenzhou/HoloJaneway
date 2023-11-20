@@ -6,9 +6,9 @@ hide_table_of_contents: false
 
 # 云上跨服务器数据同步服务
 
-Voyager能够把你拥有的武器涂装、对战场次记录、作弊情况在不同的Minecraft多人游戏服务器之间同步。
+云上跨服务器数据同步服务，代号Voyager，能够把你拥有的武器涂装、对战场次记录、作弊情况等数据在不同的Minecraft多人游戏服务器之间同步。
 
-**如果要使用Voyager，请阅读[最终用户许可协议](voyager_eula)和[个人与统计信息收集政策](data_collect)，并在初次进入连接了Voyager的Minecraft多人游戏服务器时进行确认。**
+**如果要使用Voyager，请阅读[最终用户许可协议](voyager_eula)和[个人与统计信息收集政策](data_collect)，并在初次进入连接了Voyager的Minecraft多人游戏服务器时进行确认。** 有关个人信息跨境转移的内容也需要您同时确认。
 
 ## 工作原理
 
@@ -29,9 +29,9 @@ Voyager并不是在所有服务器默认可用。需要服务器管理员主动�
 - 如果服务器使用了*authlib-injector*，则Voyager可能不适用。
 - 如果服务器使用了*MultiLogin*，则Voyager仅向在Mojang验证服务器上拥有对应用户名和UUID的玩家提供。
 
-Voyager仅向拥有并使用正版账号的玩家提供。
+Voyager仅向拥有并使用正版账号的玩家提供。**Voyager仅向使用未经修改的R6MS jar的玩家和服务器提供。**
 
-**Voyager仅向使用未经修改的R6MS jar的玩家和服务器提供。**有关更详细的说明，请查看[最终用户许可协议](voyager_eula)。
+有关更详细的说明，请查看[最终用户许可协议](voyager_eula)。
 
 ## 问题追踪、意见或建议
 
