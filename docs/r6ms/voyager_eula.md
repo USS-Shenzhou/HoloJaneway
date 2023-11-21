@@ -59,21 +59,21 @@ hide_table_of_contents: false
 1. 违反[Minecraft最终用户许可协议](https://www.minecraft.net/en-us/eula)、[Minecraft使用指南](https://www.minecraft.net/en-us/usage-guidelines)、其他Mojang政策或Microsoft政策，违反任何地区、国家或国际上的法律法规及规定；
 2. 侵犯或侵害他人权益，包括但不限于隐私权或知识产权，以及从事、鼓动、协助或允许他人进行任何违法、非法、侵权、有害或欺诈行为；
 3. 攻击、干扰、扰乱或不利影响Voyager服务、硬件、软件、系统、网站或网络，包括但不限于使用大量自动化手段访问或攻击，以及违反或不利影响Voyager服务、硬件、软件、系统、网站或网络的安全性或完整性；
-4. 未经授权访问Voyager服务、账户或系统的任何部分, 或试图进行上述行为；
+4. 未经授权访问Voyager服务、账户或系统的任何部分，包括但不限于Voyager中间件或数据库，或试图进行上述行为；
 5. 冒充我们或我们的工作人员，无论是出于何种目的；
-6. 干扰、劫持或修改《我的六号》模组与Voyager的网络通讯。
+6. 干扰、劫持或修改《我的六号》模组与Voyager的网络通讯；
+7. 从内存中获取、修改《我的六号》模组从Voayger获取到的信息；
+8. 使用经过修改的模组文件或第三方程序间接或直接地访问Voyager，未经修改的模组文件以[CurseForge](https://www.curseforge.com/minecraft/mc-mods/rainbow6/files)上的版本为准。
 
 作为玩家，您也不能：
 
 1. 在多人游戏中使用作弊辅助工具、模组，或其他有害对战公平性的行为；
-2. 使用经过修改的模组文件或第三方程序间接或直接地访问Voyager。未经修改的模组文件以[CurseForge](https://www.curseforge.com/minecraft/mc-mods/rainbow6/files)上的版本为准。
 
 
 作为服务器经营者，您也不能：
 
 1. 分发、传播或发送未经请求的电子邮件、群发电子邮件或其他消息、促销、广告或招揽；
 2. 欺骗性地提供商品或服务，或任何含有虚假、欺骗或误导性陈述的广告、促销或其他材料；
-3. 使用经过修改的模组文件或第三方程序直接或间接地访问Voyager；
 4. 使用其他模组、插件等方法阻止特定玩家访问Voyager，例如为访问Voyager设置充值门槛；
 5. 恶意滥用反作弊功能，包括但不限于滥用监视工具、恶意为玩家添加作弊记录；
 
@@ -86,7 +86,7 @@ hide_table_of_contents: false
 （二）在下列情况下，我们可能会暂停您使用服务的权利：
 
 1. 出于防止对您数据进行未授权访问的合理需要；
-2. 您违反了***您不能做的事情***一节中的内容、[Minecraft最终用户许可协议](https://www.minecraft.net/en-us/eula)、[Minecraft使用指南](https://www.minecraft.net/en-us/usage-guidelines)、其他Mojang政策、Microsoft政策和适用的法律法规；
+2. 您违反了***您不能做的事情***一节中的内容或适用的法律法规；
 3. 您违反了您的付款义务；
 4. 您的访问和对服务的使用可能会对服务、我们或第三方造成安全风险；
 5. 您的访问和使用服务可能会对服务的功能、可用性或操作产生不利影响；
