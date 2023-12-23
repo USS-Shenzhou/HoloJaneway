@@ -104,7 +104,7 @@ expireThen (madParticle command)//粒子消失时产生新粒子
 
 :::
 
-`alwaysRender`决定粒子是否无视最大生成距离和游戏选项中的粒子等级。MC原版的最大生成距离为32格。在[Extinguish](https://www.curseforge.com/minecraft/mc-mods/extinguish-by-uss_shenzhou)中，此值被改为了64格。更多信息请查看[粒子最大生成距离](config#最大粒子生成距离)。
+`alwaysRender`决定粒子是否无视最大生成距离和游戏选项中的粒子等级。MC原版的最大生成距离为32格。在[Extinguish](https://www.curseforge.com/minecraft/mc-mods/extinguish-by-uss_shenzhou)中，此值被改为了64格。更多信息请查看[粒子最大生成距离](config#始终限制最大生成距离)。
 
 :::info 作为参考
 
@@ -275,9 +275,13 @@ vx, vy, vz指定粒子生成时在各个轴上的初速度。斜向粒子可能�
 
 :::info 作为参考
 
-如果你不熟悉时此项，建议选择`PARTICLE_SHEET_TRANSLUCENT`，这将允许粒子拥有半透明度。`PARTICLE_SHEET_OPAQUE`则将忽略粒子的半透明度。
+如果你不熟悉时此项，有三个建议选择：
 
-MP的renderType有一些特殊的改动，以在一些情况下允许更广的颜色设置范围（参考下文）。我们已经针对常见的渲染/优化模组作了改动，但仍然可能存在潜在的兼容性问题，如遇到问题请及时进行反馈。
+1. `INSTANCED`或`实例化`，渲染效率极高，不支持Shimmer联动泛光，不支持使用光影，允许粒子拥有半透明度；
+2. `PARTICLE_SHEET_TRANSLUCENT`或`半透明`，支持Shimmer联动泛光，在使用光影时自动降级至原版无泛光，允许粒子拥有半透明度；
+3. `PARTICLE_SHEET_OPAQUE`或`不透明`，支持Shimmer联动泛光，在使用光影时自动降级至原版无泛光，不允许粒子半透明；
+
+后两者有一些特殊的改动，以在一些情况下允许更广的颜色设置范围（参考下文）。我们已经针对常见的渲染/优化模组作了改动，但仍然可能存在潜在的兼容性问题，如遇到问题请及时进行反馈。
 
 :::
 

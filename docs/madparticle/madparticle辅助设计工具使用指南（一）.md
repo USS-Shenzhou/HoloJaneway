@@ -6,7 +6,7 @@ hide_table_of_contents: false
 
 # Designer GUI指南
 
-在这里，我将向您介绍`MadParticle Designer GUI辅助设计工具`的使用方法
+在这里，我将向您介绍`MadParticle Designer GUI`辅助设计工具的使用方法
 
 :::info
 
