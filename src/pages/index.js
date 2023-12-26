@@ -13,7 +13,7 @@ function HomepageHeader() {
     return (
         <header className={clsx('hero hero--primary', styles.heroBanner)}>
             <div className="container">
-                <h1 className="hero__title">HoloJaneway</h1>
+                <h1 className="hero__title">欢迎</h1>
                 <text style={{
                     "font-size": "1.5rem"
                 }}>
