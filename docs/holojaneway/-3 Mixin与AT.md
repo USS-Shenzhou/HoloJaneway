@@ -27,13 +27,15 @@ Mixin是一个非常强大的工具，它基于[ASM](https://asm.ow2.io/)，帮�
 
 :::caution
 
-Mixin的作用范围仅限于MC本身和其他mod，不能对其他依赖进行修改。比如说，`net.minecraft.commands.arguments.coordinates.Vec3Argument`是一个有效的Mixin目标，而`com.mojang.brigadier.arguments.DoubleArgumentType`则不行。
+在Minecraft模组编写时，Mixin的作用范围仅限于MC本身和其他mod，不能对其他依赖进行修改。比如说，`net.minecraft.commands.arguments.coordinates.Vec3Argument`是一个有效的Mixin目标，而`com.mojang.brigadier.arguments.DoubleArgumentType`则不行。
 
 如果你确实需要对`DoubleArgumentType`这样的第三方类进行修改，那不妨考虑继承后再@Override等其他方法。
 
+> Mixin在理论上确实可以用于其他非Minecraft项目。
+
 :::
 
-:::tip
+:::caution
 
 所有的Mixin类应该放且仅放在mixin包中。mixin包中也不应该包含普通类，比如你的方块或者实体什么的。
 
@@ -43,15 +45,28 @@ Mixin的作用范围仅限于MC本身和其他mod，不能对其他依赖进行�
 
 Mixin通过各式各样的注解和背后的注解处理器来完成大多数工作。以下先介绍一些常用或者常见的注解说明。
 
-- `@Mixin`标记这是一个Mixin类，并在参数中指定会被Mixin的类（即目标类）是什么。
+- `@Mixin`标记这是一个Mixin类，并在参数中指定目标类。
 
-- `@Inject`标记这是一个回调方法，这个方法所含的内容将会被注入指定的位置。一般而言这是最常用的注解。
+:::info
+
+关于`Mixin类`、`目标类`、`父类`、`目标方法`的澄清：
+
+假设你现在需要修改`Zombie`类中的`foo()`方法中的某一行，那么
+
+- `Mixin类`：你写出来的进行修改的代码存在的地方，即`ZombieMixin`；
+- `目标类`：被修改的类，即`Zombie`；
+- `父类`：目标类的父类，即`Monster`；
+- `目标方法`：被修改的方法，即`Zombie.foo()`。
+
+:::
+
+- `@Inject`标记这是一个`回调方法`，这个方法所含的内容将会被注入指定的位置。这大概是最常用的了。
 
 - `@At`写在`@Inject`和其他注解内，标记具体的作用位置。
 
-- `@Redirect`标记这是一个重定向方法，指定的方法调用将会被重定向到此方法。
+- `@Redirect`标记这是一个`重定向方法`，指定的方法调用将会被重定向到此方法。
 
-- `@Overwrite`标记这是一个覆盖方法，指定的方法将会被覆盖为此方法。
+- `@Overwrite`标记这是一个`覆盖方法`，在目标类中的对应方法将会被完全替换为此方法。
 
 :::danger
 
@@ -61,27 +76,27 @@ Mixin通过各式各样的注解和背后的注解处理器来完成大多数工
 
 - `@Shadow`标记一个占位字段或方法，真实的字段或方法存在于目标类中。
 
-- `@Accessor`标记一个访问器方法，允许你访问指定的字段。
+- `@Accessor`标记一个`访问器`方法，允许你访问指定的字段。
 
-- `@Invoker`标记一个调用器方法，允许你调用指定的方法。
+- `@Invoker`标记一个`调用器`方法，允许你调用指定的方法。
 
-- `@Modify...`标记对某种量的更改，可以是参数、变量或常量。
+- `@Modify...`标记对某种量的修改，可以是参数、变量或常量。
 
 :::info
 
-你可以在[Mixin的JavaDoc](https://jenkins.liteloader.com/view/Other/job/Mixin/javadoc/index.html)找到更详细的说明，[Mixin的GitHub wiki](https://github.com/SpongePowered/Mixin/wiki)对Mixin的工作原理和使用有详细的解释，[mouse0w0的博客](https://mouse0w0.github.io/tags/Mixin/)有翻译版本。
+关于Mixin的工作原理，你可以在[Mixin的JavaDoc](https://jenkins.liteloader.com/view/Other/job/Mixin/javadoc/index.html)找到更详细的说明，[Mixin的GitHub wiki](https://github.com/SpongePowered/Mixin/wiki)对Mixin的工作原理和使用有详细的解释，[mouse0w0的博客](https://mouse0w0.github.io/tags/Mixin/)有翻译版本。本章不探讨Mixin的工作原理，只讲如何使用之。
 
-> 为什么Forge开发者常常要看Fabric Wiki？好怪！
+:::
+
+:::tip
 
 [Fabric Wiki](https://fabricmc.net/wiki/zh_cn:tutorial:mixin_introduction)对Mixin的使用有详细的介绍。Mixin并不是Forge或者Fabric的一部分，故与Mixin有关的内容在大多数情况下可以通用。
 
 :::
 
----
+下面，我们将以一些场景为例，向你讲述如何使用Mixin修改原版内容。你可以只看你需要用到的情况所对应的例子，也不必看具体的修改内容，只关注文字提到的有关内容。你也可以选择先跳过这些示例，继续看后面的内容。
 
-### 示例-修改
-
-下面，我们将以一些场景为例，向你讲述如何使用Mixin修改原版内容。你可以只看你需要用到的情况所对应的例子，也不必看具体的修改内容，只关注文字提到的有关内容。
+### 示例：修改
 
 :::info
 
@@ -223,7 +238,7 @@ Particle particle = ((ParticleEngineAccessor) Minecraft.getInstance().particleEn
 
 ---
 
-###  示例-增加
+###  示例：增加
 
 #### 为原版类添加新方法 - 在R6MS中，我们需要在适当的时候将摄像机改为正交视图
 
@@ -316,7 +331,7 @@ public interface LevelRendererProxy {
 
 ---
 
-### 示例-捕获局部变量
+### 示例：捕获局部变量
 
 #### 在T88中，我们需要传递局部变量guigraphics
 
@@ -408,21 +423,21 @@ mixin在注入过程中或者注入之后很有可能产生错误或不符合预
 
 另一方面，你可能注意到日志中多出了一些关于Mixin的内容——这对你的错误排查可能也会有帮助。
 
----
+## MixinExtras
 
-### 与Optifine的兼容
+MixinExtras是一个有用的Mixin附属，提供了一些方便的新功能。1.20.4的NeoForge默认附带。
 
-如果你Mixin了一些与渲染相关的东西，其他玩家在安装了Optifine时再加载你的模组就有可能出现冲突，导致游戏加载失败。
+项目地址在，你可以查看其wiki页面以学习如何使用。
 
-这里有几种你可能会遇到的冲突形式：
+## ________的Optifine
 
-#### 混淆冲突
+*在空白处填入适当的词汇。*
 
-TODO
+如果你的Mixin涉及到了一些渲染相关的内容，那在其他玩家安装了Optifine时再运行游戏就很有可能出现兼容性问题。Optifine对Minecraft通过patch的更改是破坏性的，不像元素周期表一家子那样有着良好的兼容性。
 
-#### 局部变量更改
+### 局部变量更改
 
-Optifine对目标方法进行了修改，使得原有的局部变量顺序或存在被影响。
+最常见的一种情况是，Optifine对原本的目标方法进行了修改，使得原有的局部变量顺序或存在被影响，导致需要捕获局部变量的Mixin方法的形参不再匹配，使得游戏炸掉。
 
 这是上面`示例-捕获局部变量：在T88中，我们需要传递局部变量guigraphics`一节中所写的Mixin在Optifine环境下启动的结果：
 
@@ -434,27 +449,35 @@ Available: [I, I, Lcom/mojang/blaze3d/platform/Window;, F, Lorg/joml/Matrix4f;, 
 
 ```
 
-如上所示，多出了两个`float`，为此我们需要重新填写`afterGameRendererRenderedT88`方法的形参。
+如上所示，多出了两个`float`，为此我们需要写出新的`afterGameRendererRenderedT88`方法用于捕获被Optifine修改过的局部变量。
 
 :::tip
 
-日志里已经提供了类型，我们又不需要那个参数做什么事——那就不去翻Optifine在做什么，随便命个名就好了。
+日志里已经提供了类型，我们又不需要那些参数做什么事——那就不去翻Optifine在做什么，随便命个名就好了。
 
 :::
 
 > 等等，要是按这些问题改了写法，那玩家没装Optifine的时候又要怎么办？这样岂不是原版需要一套Mixin，Optifine安装后需要另一套Mixin？
 
-通常有两种方式来解决这个问题：
+通常有三种方式可以让两个方法并存，以此解决这个问题：
 
-- 第一种方式是借助各个注解中的`require`字段。
+开始之前，假设我们为Vanilla/Optifine分别写出了两个只有形参不同的方法，`mixinMethod`和`mixinMethodForOptifine`，它们的`@Inject`注解、方法内容完全一样。
 
-`require`的含义是规定注入点的最低次数，要是没达到就崩游戏。默认为-1，即指所有注入都必须要成功。
+1. 借助各个注解中的`require`字段。`require`的含义是规定注入点的最低次数，要是没达到就崩游戏。默认为-1，即指所有注入都必须要成功。
 
-我们可以为Vanilla/OPtifine分别写出两个方法，`mixinMethod`和`mixinMethodForOptifine`，然后在注解中写上`require = 0`，表示失败了也无所谓——总是有且只有一个方法被成功注入。
+   对于`mixinMethod`和`mixinMethodForOptifine`，只需要在`@Inject`中加上`require = 0`，表示全失败了也无所谓——总是有且只有一个方法被成功注入。
 
-- 第二种方式是借助`IMixinConfigPlugin`来控制。
+2. 另一个方法是使用`@Surrogate`注解。`@Surrogate`的含义是指定某个Mixin方法的“代理方法”，当Mixin方法对不上时，通知Mixin用这个代理方法试试看。
 
-TODO
+   你需要先统一两个方法的名称，比如这里让它们都叫`mixinMethod`，然后找出形参个数更多的那个方法作为主要的Mixin方法，剩下那个作为代理方法。删去代理方法的`@Inject`，加上`@Surrogate`即可。
+
+3. 第二种方式是借助`IMixinConfigPlugin`来控制，由于与前两种方法相比比较笨重，故此处不再讨论。
+
+#### 更坏的情况
+
+有些时候你可能会遇到更坏的情况：Optifine把某个类型为`BlockPos`的局部变量改成了它自己的`BlockPosM`。显然反射也不能让你在没有Optifine源代码的情况下写出`BlockPosM`作为形参，但要是形参类型填成Object以供在方法内部再行处理，Mixin又只会认得Object这个类本身，导致游戏爆炸。
+
+Mixin贴心地提供了一个注解`@Coerce`，作用于形参上，让我们告诉Mixin“虽然我想要Object但你也不要那么严格啦有什么来什么吧”。随后你就可以在方法内，通过强制类型转换或者反射，来处理这个被糟蹋过的参数。
 
 
 ---
@@ -506,6 +529,26 @@ public net.minecraft.client.gui.components.EditBox m_94135_(IIII)V # renderHighl
 在源代码中右键方法名，`Get SRG Name`也可以得到这个名称。
 
 :::
+
+<div style={{
+    backgroundColor: 'transparent',
+    border: '2px solid #3c91ff',
+    borderRadius: '0.5em',
+    padding: '1em',
+  }}>
+<Tabs groupId="mc-version">
+<TabItem value="1204" label="1.20.4">
+### Moj in everywhere
+1.20.4的NeoForge彻底取消了SRG作为中间名的存在，实行`moj in everywhere`的政策。
+
+直接填写你看到的名称，即Moj名即可。
+</TabItem>
+</Tabs>
+
+<p></p>
+</div>
+
+<p></p>
 
 ---
 

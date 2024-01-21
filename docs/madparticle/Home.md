@@ -24,6 +24,12 @@ MadParticle的设计哲学基于以下几条原则：
 
 `/madparticle`命令是这个模组中最重要的部分。作为最基础的内容，你应该先完整阅读`/madparticle 命令指南`，随后在`Designer GUI指南`中学习对辅助设计工具的使用，并阅读剩下的章节。
 
+:::tip
+
+请注意，MadParticle的主要设计功能是如上所述为游戏增加更多粒子，其优化功能仅为附带。
+
+:::
+
 :::info
 
 [杂项](madparticle/misc)一章包含许多有用的内容：
@@ -48,4 +54,4 @@ MadParticle的设计哲学基于以下几条原则：
 
 ![JetBrains Logo (Main) logo](https://resources.jetbrains.com/storage/products/company/brand/logos/jb_beam.svg)
 
-感谢JetBrains的支持。
+感谢JetBrains提供的产品订阅。
