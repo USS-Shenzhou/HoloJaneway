@@ -184,7 +184,7 @@ const config = {
       prism: {
         theme: lightTheme,
         darkTheme: darkTheme,
-        additionalLanguages: ['java','toml','gradle','json'],
+        additionalLanguages: ['java','toml','gradle','json','cmake','powershell'],
       },
     }),
     markdown:{
