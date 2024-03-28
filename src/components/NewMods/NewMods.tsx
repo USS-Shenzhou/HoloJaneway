@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import styles from './styles.module.css';
+import Translate from '@docusaurus/Translate'
 
 const Mod = ({modUrl, buttons}) => {
     const [modData, setModData] = useState(null);
@@ -69,11 +70,12 @@ const NewMods: React.FC = () => {
     const brighter = 'brighter-block-light';
     const r6 = 'rainbow6';
     const extinguish = 'extinguish-by-uss_shenzhou';
+    const hotbar = '983846';
 
     return (
         <section className={styles.container}>
-            <h1>我的模组</h1>
-            <h2>更新中</h2>
+            <h1><Translate>我的模组</Translate></h1>
+            <h2><Translate>更新中</Translate></h2>
             <Mod modUrl={baseAPIUrl + mp} buttons={[
                 {text: 'All downloads', url: baseCFUrl + mp + '/files'},
                 {text: 'Demo', url: 'https://www.bilibili.com/video/BV1Ao4y1t7XC'},
@@ -84,17 +86,21 @@ const NewMods: React.FC = () => {
                 {text: 'All downloads', url: baseCFUrl + t88 + '/files'},
                 {text: 'MCMod', url: 'https://www.mcmod.cn/class/7410.html'},
             ]}/>
+            <Mod modUrl={baseAPIUrl + hotbar} buttons={[
+                {text: 'All downloads', url: baseCFUrl + hotbar + '/files'},
+                {text: 'MCMod', url: 'https://www.mcmod.cn/class/14032.html'},
+                ]}/>
             <Mod modUrl={baseAPIUrl + brighter} buttons={[
                 {text: 'All downloads', url: baseCFUrl + brighter + '/files'},
                 {text: 'Demo', url: 'https://www.bilibili.com/video/BV17Q4y1e7Ri'},
                 {text: 'MCMod', url: 'https://www.mcmod.cn/class/5215.html'},
             ]}/>
-            <h2>制作中</h2>
+            <h2><Translate>制作中</Translate></h2>
             <Mod modUrl={baseAPIUrl + r6} buttons={[
                 //{text: 'All downloads', url: baseCFUrl + r6 + '/files'},
                 //{text: 'MCMod', url: 'https://www.mcmod.cn/class/4799.html'},
             ]}/>
-            <h2>停止更新</h2>
+            <h2><Translate>停止更新</Translate></h2>
             <Mod modUrl={baseAPIUrl + extinguish} buttons={[
                 {text: 'All downloads', url: baseCFUrl + extinguish + '/files'},
                 {text: 'Demo', url: 'https://www.bilibili.com/video/BV1aG411H7kQ'},

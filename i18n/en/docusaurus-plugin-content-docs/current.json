@@ -18,5 +18,33 @@
   "sidebar.madparticle.category./madparticle 命令指南": {
     "message": "Command Guideline",
     "description": "The label for category Command Guideline in sidebar madparticle"
+  },
+  "sidebar.holojaneway.category.3 方块实体": {
+    "message": "3 方块实体",
+    "description": "The label for category 3 方块实体 in sidebar holojaneway"
+  },
+  "sidebar.holojaneway.category.i T88使用文档": {
+    "message": "i T88使用文档",
+    "description": "The label for category i T88使用文档 in sidebar holojaneway"
+  },
+  "sidebar.madparticle.category.Mad Particle指南": {
+    "message": "Mad Particle指南",
+    "description": "The label for category Mad Particle指南 in sidebar madparticle"
+  },
+  "sidebar.madparticle.category.Rawinbow6 Minesiege指南": {
+    "message": "Rawinbow6 Minesiege指南",
+    "description": "The label for category Rawinbow6 Minesiege指南 in sidebar madparticle"
+  },
+  "sidebar.madparticle.category.玩家游玩指南": {
+    "message": "玩家游玩指南",
+    "description": "The label for category 玩家游玩指南 in sidebar madparticle"
+  },
+  "sidebar.madparticle.category.Voyager": {
+    "message": "Voyager",
+    "description": "The label for category Voyager in sidebar madparticle"
+  },
+  "sidebar.madparticle.category.更新日志": {
+    "message": "更新日志",
+    "description": "The label for category 更新日志 in sidebar madparticle"
   }
 }

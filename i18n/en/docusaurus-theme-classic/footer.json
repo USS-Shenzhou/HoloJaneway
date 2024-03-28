@@ -12,7 +12,15 @@
     "description": "The label of footer link with label=GitHub linking to https://github.com/USS-Shenzhou"
   },
   "copyright": {
-    "message": "<font size=\"2\">\n        Copyright © 2023 Holo Janeway, USS_Shenzhou. Built with <a href=\"https://docusaurus.io/\" target=\"_blank\">Docusaurus</a>.\n         | <a href=\"https://beian.miit.gov.cn\" target=\"_blank\">蜀ICP备2023001090号-1</a>\n        </br>Holo Janeway网站使用<a href=\"https://github.com/USS-Shenzhou/HoloJaneway/blob/main/LICENSE\" target=\"_blank\">MIT协议</a>授权。\n         | The Holo Janeway website is licensed under <a href=\"https://github.com/USS-Shenzhou/HoloJaneway/blob/main/LICENSE\" target=\"_blank\">MIT License</a>.\n        </br>《Holo Janeway mod开发教程》使用<a href=\"https://holojaneway.uss-shenzhou.cn/holojaneway/0.1\" target=\"_self\">CC BY-NC 4.0协议，BSD-3-Clause协议和GPLv3协议</a>授权。\n         | The Holo Janeway Mod Developing Tutorial is licensed under <a href=\"https://holojaneway.uss-shenzhou.cn/holojaneway/0.1\" target=\"_self\">CC BY-NC 4.0，BSD-3-Clause and GPLv3 License</a>.\n        </br>USS_Shenzhou 对《MadParticle 指南》和《R6MS 指南》保留所有权利。\n         | All rights reserved for the MadParticle Guidelines and the R6MS Guidelines.\n         </font>\n        ",
+    "message": "<font size=\"2\">\n        Copyright © 2024 HoloJaneway, USS_Shenzhou. Built with <a href=\"https://docusaurus.io/\" target=\"_blank\">Docusaurus</a>.\n         | <a href=\"https://beian.miit.gov.cn\" target=\"_blank\">蜀ICP备2023001090号-1</a>\n        </br>HoloJaneway网站使用<a href=\"https://github.com/USS-Shenzhou/HoloJaneway/blob/main/LICENSE\" target=\"_blank\">MIT</a>许可证。\n         | The HoloJaneway website is licensed under <a href=\"https://github.com/USS-Shenzhou/HoloJaneway/blob/main/LICENSE\" target=\"_blank\">MIT License</a>.\n        </br>《HoloJaneway Mod开发教程》使用<a href=\"https://holojaneway.uss-shenzhou.cn/holojaneway/0.1\" target=\"_self\">CC BY-NC 4.0，BSD-3-Clause和GPLv3</a>许可证。\n         | The HoloJaneway Mod Developing Tutorial is licensed under <a href=\"https://holojaneway.uss-shenzhou.cn/holojaneway/0.1\" target=\"_self\">CC BY-NC 4.0，BSD-3-Clause and GPLv3 License</a>.\n        </br>USS_Shenzhou 对《Mod使用指南》中的所有内容保留所有权利。\n         | All rights reserved for the Mod Usage Guidelines.\n         </font>\n        ",
     "description": "The footer copyright"
+  },
+  "link.item.label.CurseForge": {
+    "message": "CurseForge",
+    "description": "The label of footer link with label=CurseForge linking to https://legacy.curseforge.com/members/uss_shenzhou/projects"
+  },
+  "link.item.label.Modrinth": {
+    "message": "Modrinth",
+    "description": "The label of footer link with label=Modrinth linking to https://modrinth.com/user/USS-Shenzhou"
   }
 }

@@ -269,5 +269,55 @@
   "theme.tags.tagsPageTitle": {
     "message": "Tags",
     "description": "The title of the tag list page"
+  },
+  "theme.admonition.warning": {
+    "message": "warning",
+    "description": "The default label used for the Warning admonition (:::warning)"
+  },
+  "theme.DocSidebarItem.expandCategoryAriaLabel": {
+    "message": "Expand sidebar category '{label}'",
+    "description": "The ARIA label to expand the sidebar category"
+  },
+  "theme.DocSidebarItem.collapseCategoryAriaLabel": {
+    "message": "Collapse sidebar category '{label}'",
+    "description": "The ARIA label to collapse the sidebar category"
+  },
+  "theme.unlistedContent.title": {
+    "message": "Unlisted page",
+    "description": "The unlisted content banner title"
+  },
+  "theme.unlistedContent.message": {
+    "message": "This page is unlisted. Search engines will not index it, and only users having a direct link can access it.",
+    "description": "The unlisted content banner message"
+  },
+  "欢迎": {
+    "message": "欢迎"
+  },
+  "在上方导航栏选择想要查看的项目。": {
+    "message": "在上方导航栏选择想要查看的项目。"
+  },
+  "你好！我是": {
+    "message": "你好！我是"
+  },
+  "，你也可以叫我神舟。": {
+    "message": "，你也可以叫我神舟。"
+  },
+  "我主要使用Forge/NeoForge为Minecraft Java Edition编写模组。": {
+    "message": "我主要使用Forge/NeoForge为Minecraft Java Edition编写模组。"
+  },
+  "你可以在页面底端找到我的其他赛博刷新点。": {
+    "message": "你可以在页面底端找到我的其他赛博刷新点。"
+  },
+  "我的模组": {
+    "message": "我的模组"
+  },
+  "更新中": {
+    "message": "更新中"
+  },
+  "制作中": {
+    "message": "制作中"
+  },
+  "停止更新": {
+    "message": "停止更新"
   }
 }

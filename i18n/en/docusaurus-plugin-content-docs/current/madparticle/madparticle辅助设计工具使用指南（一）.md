@@ -1,33 +1,20 @@
 ---
 id: designer
-title: Designer GUI Guidline
+title: Designer GUI指南
 hide_table_of_contents: false
 ---
 
 # Designer GUI指南
 
-在这里，我将向您介绍`MadParticle Designer GUI辅助设计工具`（以下简称辅助工具）的使用方法
+在这里，我将向您介绍`MadParticle Designer GUI`辅助设计工具的使用方法
 
 :::info
 
-为保障GUI界面紧凑，英文界面使用了大量的缩写。为此，当在英文设定下打开Designer GUI时，一些输入框会有特定的Tooltip提示，而中文环境则不存在。
+为保障GUI界面紧凑，以及防止字符显示重叠，英文界面使用了大量的缩写。为此，当在英文设定下打开Designer GUI时，一些输入框会有特定的Tooltip提示，而中文环境则不存在。
 
-To ensure a compact GUI, the English version of the interface uses a large number of abbreviations. Therefore, when the Designer GUI is opened under the English setting, certain widgets will have tooltips, which do not exist under the Chinese setting.
+`MadParticle Designer GUI`与[Modern UI](https://www.curseforge.com/minecraft/mc-mods/modern-ui)兼容良好。你可以借助其来改进使用体验。
 
 :::
-
-<div style={{
-    backgroundColor: 'transparent',
-    border: '3px solid #f07020',
-    borderRadius: '1rem',
-    padding: '1rem',
-    color: '#f07020'
-  }}>
-<div>
-
-在**TeaCon 2023**中，，Designer GUI中临时增加了一个名为`TeaCon`的模式。此模式中的输入框受到和`/mp_demo`指令相同的限制，生成的指令也以`/mp_demo`开头。你可以在其中设计你自己的`/mp_demo`指令以供体验。
-</div>
-</div>
 
 ---
 
@@ -95,6 +82,16 @@ To ensure a compact GUI, the English version of the interface uses a large numbe
 
 ---
 
+## 元指令区
+
+自`0.4`版本起，你可能会注意到在参数面板的底部增加了一个元指令区。你可以利用`+`和对应的`-`按钮，增加或删去相应的键值对。
+
+要使用它很简单：在一对两个输入框中，左侧填写键，右侧填写值。Designer GUI会在你填写/更改键时，自动地改变值输入框的参数检测规则。
+
+有关更多元指令的信息，请查看[元指令参数指南](meta)。
+
+---
+
 ## 喷花筒
 
 喷花筒模式可以帮助您制作一个能够喷出指定粒子的喷花筒物品.
@@ -112,19 +109,6 @@ To ensure a compact GUI, the English version of the interface uses a large numbe
 ### 制作喷花筒
 
 在完成编辑后，你只需要点击`制作喷花筒`，服务器会发放一个对应的喷花筒到你的物品栏中。请注意，制作喷花筒需要2级权限。
-
-<div style={{
-    backgroundColor: 'transparent',
-    border: '3px solid #f07020',
-    borderRadius: '1rem',
-    padding: '1rem',
-    color: '#f07020'
-  }}>
-<div>
-
-在**TeaCon 2023**中，你可以在编写完指令后，手动地将上方输入框内指令前缀从`mp`改为`mp_demo`。这样可以使得制作喷花筒不再需要2级权限，但也使得参数会受到相应的限制。
-</div>
-</div>
 
 ### 再次编辑
 
