@@ -2,8 +2,7 @@ import React, {useEffect, useState} from 'react';
 import clsx from 'clsx';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
-//import HomepageFeatures from '@site/src/components/HomepageFeatures';
-import NewMods from "@site/src/components/NewMods/NewMods";
+import ModList from "@site/src/components/ModList/ModList";
 import styles from './index.module.css';
 import Translate from '@docusaurus/Translate'
 
@@ -20,6 +19,12 @@ function HomepageHeader() {
                 <br/>
                 <Translate>在上方导航栏选择想要查看的项目。</Translate>
             </text>
+            <text style={{
+                      "font-size": "1.3rem"
+                }}>
+                    <br/>
+                    English translations may not cover all pages.
+                </text>
         </div>
     </header>);
 }
@@ -43,7 +48,7 @@ export default function Home() {
                     <br/><Translate>你可以在页面底端找到我的其他赛博刷新点。</Translate>
                 </text>
             </div>
-            <NewMods></NewMods>
+            <ModList></ModList>
         </main>
     </Layout>);
 }

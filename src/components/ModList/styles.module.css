@@ -2,10 +2,39 @@
     border: 2px solid #3c91ff;
     border-radius: 1rem;
     width: 60%;
-    margin-top: 0.5rem;
-    margin-bottom: 1.5rem;
+    margin-top: 0.25rem;
+    margin-bottom: 0.25rem;
     display: flex;
     align-items: center;
+}
+
+.biliModAllContainer {
+    width: 60%;
+    margin-top: 0.25rem;
+    margin-bottom: 1.5rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1rem;
+}
+
+.biliMod {
+    border: 2px solid #3c91ff;
+    border-radius: 1rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.biliThumbnail {
+    width: 14rem;
+    height: 8rem;
+    object-fit: cover;
+    margin: 2% 2% 3% 2%;
+    border-radius: 0.5rem;
+}
+
+.h2Margin{
+    margin: 1rem 0 0.5rem;
 }
 
 .thumbnail {
@@ -64,7 +93,7 @@
 }
 
 .container {
-    margin-top: -1rem;
+    margin-top: -2rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -78,5 +107,13 @@
 
     .modContainer {
         width: 95%;
+    }
+    
+    .biliModAllContainer {
+        width: 95%;
+    }
+    
+    .biliModAllContainer {
+        grid-template-columns: 1fr;
     }
 }
