@@ -117,8 +117,8 @@ const config = {
             href: 'https://modrinth.com/user/USS-Shenzhou'
           },
           {
-            label: 'KOOK',
-            href:'https://kook.top/Bu1WLb'
+            label: 'Discord',
+            href:'https://discord.gg/kNbGdDXpSA'
           },
           {
             label: 'Bilibili',
