@@ -174,6 +174,11 @@ const ModList: React.FC = () => {
                         description={'NIyma\'is the Klingon word for "phantom" or "apparition" -- something that seems to appear, but isn\'t really there. Is it possible to create a 1000-player convention?'}
                         buttons={[]}
             />
+            <WorkingMod img={"question.png"}
+                        title ={'安布罗斯乐事'}
+                        description={'安布罗斯餐厅Minecraft分店现在在数据层开张了！位于全维度销量最高的游戏之中，用各色菜肴填饱你的下层叙事角色！'}
+                        buttons={[]}
+            />
             <h2 className={styles.h2Margin}><Translate>停止更新</Translate></h2>
             <CFMod modUrl={baseAPIUrl + extinguish} buttons={[
                 {text: 'All downloads', url: baseCFUrl + extinguish + '/files'},
