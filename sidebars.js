@@ -80,6 +80,7 @@ const sidebars = {
         'madparticle/config',
         'madparticle/misc',
         'madparticle/faq',
+        'madparticle/dev'
       ],
     },
     {
