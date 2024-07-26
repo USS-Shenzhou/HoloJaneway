@@ -83,7 +83,7 @@ const sidebars = {
         'madparticle/dev'
       ],
     },
-    {
+    /*{
       type: 'category',
       label: 'Rawinbow6 Minesiege指南',
       link: {type: 'doc', id: 'r6ms/home'},
@@ -119,13 +119,13 @@ const sidebars = {
           ],
         }
         ],
-    },
+    },*/
     {
       type: 'category',
       label: 'Tell Me Where指南',
       link: {type: 'doc', id: 'tellmewhere/home'},
       items: [
-        
+        'tellmewhere/signblock'
         ],
     },
   ],
