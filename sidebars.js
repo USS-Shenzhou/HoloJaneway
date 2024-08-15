@@ -64,7 +64,8 @@ const sidebars = {
         'holojaneway/1.3i',
         'holojaneway/1.4i',
         'holojaneway/1.5i',
-        'holojaneway/1.6i'
+        'holojaneway/1.6i',
+        'holojaneway/1.7i'
         ],
     }
   ],
