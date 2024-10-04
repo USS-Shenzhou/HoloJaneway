@@ -56,7 +56,7 @@ horizontalInteractFactor, verticalInteractFactor (double) //水平扰动系数�
 //显示相关
 renderType (renderType) //渲染模式
 r, g, b (double > float) //颜色
-bloomFactor (float) //泛光强度
+bloomFactor (float) //泛光强度 已更名为 额外亮度
 beginAlpha, endAlpha (float) //初始/结束不透明度
 alphaMode (MadParticle.ChangeMode) //不透明度变化模式（线性|指数|正弦）
 beginScale, endScale (float) //初始/结束缩放
@@ -307,27 +307,27 @@ vx, vy, vz指定粒子生成时在各个轴上的初速度。斜向粒子可能�
 
 
 
-## bloomFactor
+## ~~bloomFactor~~ ExtraLightness
 
-决定粒子的泛光会被作何修正。
+:::info
 
-:::info 作为参考
-
-这是一个联动项，需要安装***[Shimmer](https://github.com/Low-Drag-MC/Shimmer)***才能起作用。值为0或1。0表示无泛光，1表示正常泛光。
+在MadParticle 0.8.0+，此条目的含义发生了变化，不再是 ***[Shimmer](https://github.com/Low-Drag-MC/Shimmer)*** 联动项。
 
 :::
 
-:::caution 注意
+决定粒子的额外亮度倍数。允许在原版的0~15亮度等级之外额外增加亮度。
 
-***Shimmer***与***Optifine不兼容***。
+在不使用光影包时，粒子的亮度提升会出现一个明显的上限，且不带有其他效果；在使用光影包时，此选项能够兼容光影包的`Bloom`泛光选项，使粒子从视觉上看起来更亮。对HDR效果的影响暂不明确。
 
-如果你安装了Iris或Oculus并打开光影，为保证兼容性，粒子渲染会自动降级处理。在开启光影前生成的粒子不会被渲染。
+:::info 作为参考
 
-同时泛光也不生效，这意味着在任意平台开启光影时均无法启用泛光。
+取值范围为1~255。1表示仅使用原版亮度，其余数值表示亮度倍数。
 
-类似地，r，g，b的系数上限为1。填写超过1的值无效。这意味着您可能不能任意地对贴图颜色进行想要的变化。
+:::
 
-Shimmer暂时没有1.19.4版本。
+:::tip
+
+不同客户端可能会因为光影包不同或参数不同而产生不同的视觉效果。
 
 :::
 
