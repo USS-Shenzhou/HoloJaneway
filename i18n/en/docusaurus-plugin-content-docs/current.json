@@ -3,40 +3,24 @@
     "message": "Next",
     "description": "The label for version current"
   },
-  "sidebar.holojaneway.category.-1 附件": {
-    "message": "-1 附件",
-    "description": "The label for category -1 附件 in sidebar holojaneway"
-  },
-  "sidebar.holojaneway.category.0 绪论": {
-    "message": "0 绪论",
-    "description": "The label for category 0 绪论 in sidebar holojaneway"
-  },
   "sidebar.r6ms.category.更新日志": {
-    "message": "更新日志",
+    "message": "Update Logs",
     "description": "The label for category 更新日志 in sidebar r6ms"
   },
   "sidebar.madparticle.category./madparticle 命令指南": {
-    "message": "Command Guideline",
+    "message": "Command Guide",
     "description": "The label for category Command Guideline in sidebar madparticle"
   },
-  "sidebar.holojaneway.category.3 方块实体": {
-    "message": "3 方块实体",
-    "description": "The label for category 3 方块实体 in sidebar holojaneway"
-  },
-  "sidebar.holojaneway.category.i T88使用文档": {
-    "message": "i T88使用文档",
-    "description": "The label for category i T88使用文档 in sidebar holojaneway"
-  },
   "sidebar.madparticle.category.Mad Particle指南": {
-    "message": "Mad Particle指南",
+    "message": "MadParticle Guide",
     "description": "The label for category Mad Particle指南 in sidebar madparticle"
   },
   "sidebar.madparticle.category.Rawinbow6 Minesiege指南": {
-    "message": "Rawinbow6 Minesiege指南",
+    "message": "Rawinbow6 Minesiege Guide",
     "description": "The label for category Rawinbow6 Minesiege指南 in sidebar madparticle"
   },
   "sidebar.madparticle.category.玩家游玩指南": {
-    "message": "玩家游玩指南",
+    "message": "Player Gameplay Guide",
     "description": "The label for category 玩家游玩指南 in sidebar madparticle"
   },
   "sidebar.madparticle.category.Voyager": {
@@ -44,7 +28,11 @@
     "description": "The label for category Voyager in sidebar madparticle"
   },
   "sidebar.madparticle.category.更新日志": {
-    "message": "更新日志",
+    "message": "Update Logs",
     "description": "The label for category 更新日志 in sidebar madparticle"
+  },
+  "sidebar.madparticle.category.Tell Me Where指南": {
+    "message": "Guide Me To Guide",
+    "description": "The label for category Tell Me Where指南 in sidebar madparticle"
   }
 }

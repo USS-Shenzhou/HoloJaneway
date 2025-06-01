@@ -1,62 +1,57 @@
 ---
 id: home
-title: Home
+title: MadParticle Home
 hide_table_of_contents: false
 sidebar_position: 100
 slug: /madparticle
 ---
 
-# MadParticle GuideLines
+# MadParticle Guide
 
-<img src={require('./assets/madparticle.png').default} alt="madparticle" style={{zoom:0.3}} />
+:::caution
 
-Welcome to the MadParticle Guidelines!
-
-As the most important part, you should check the `/madParticle Command Guideline` first, then learn using auxiliary design tool in `Designer GUI Guidline` . I'm sorry, it is currently only available in Chinese. You can use browser translation instead.
-
-<div style={{
-    backgroundColor: 'transparent',
-    border: '3px solid #f07020',
-    borderRadius: '1rem',
-    padding: '1rem',
-    color: '#f07020',
-    fontWeight: 'bold',
-    fontSize: '22px',
-    textAlign: 'center',
-  }}>
-<div>
-
-
-Check out the orange boxes on each page to learn about the unique content provided by MadParticle during *TeaCon 2023!*
-
-</div>
-</div>
-
----
-
-MadParticle was inspired by [Extinguish](https://www.curseforge.com/minecraft/mc-mods/extinguish-by-uss_shenzhou)'s performance at [Teacon 2022](https://www.teacon.cn/2022/index). It is a mod primarily designed for multiplayer games and datapacks. Instead of adding new particles and textures, MadParticle relies on the reuse of vanilla particle textures, providing almost infinite particles for creating various scenes.
-
-The `/madparticle` command is the most important part of this mod. As the foundational content, you should read the `Command Guideline` thoroughly first. Then, learn to use the auxiliary design tool in the `Designer GUI` and read the remaining chapters.
-
-:::info
-
-Please note that the [Misc](/madparticle/misc) chapter contains many useful contents, including:
-
-- Fully customizable particles
-- Using MadParticle in Fabric
-- Using MadParticle in servers
-- Using MadParticle in ReplayMod
-- Using MadParticle in shader packs
+Some content on this page may have been translated by AI. The translated pages may be behind the latest version.
 
 :::
 
-**The content of the guidelines will be updated as the mod is planned and developed, so please be aware that it may contain unreleased mod content.**
+<img src={require('./assets/madparticle.png').default} alt="madparticle" style={{zoom:0.3}} />
 
-**Please note that this English translation may be behind the original Chinese content.**
+Welcome to the MadParticle Guide!
+
+---
+
+Inspired by [Extinguish](https://www.curseforge.com/minecraft/mc-mods/extinguish-by-uss_shenzhou)'s showcase at [Teacon 2022](https://www.teacon.cn/2022/index), MadParticle is a mod primarily intended for multiplayer games and data packs. By creatively reusing existing particle textures rather than adding new ones, it provides nearly unlimited possibilities for particle effects in various scenarios.
+
+MadParticle's design philosophy is based on the following principles:
+
+- Maximizing the utilization of Minecraft's native command system for compatibility across versions or platforms, persistence, and ease of transfer.
+- Avoiding the introduction of new artistic assets unless required for cross-platform needs.
+- Maintaining a visual style that closely aligns with vanilla Minecraft.
+
+The `/madparticle` command is the most essential feature of this mod. As foundational content, you should first thoroughly read the `/madparticle Command Guide`, then explore the use of the auxiliary design tools in the `Designer GUI Guide`, and finally review the remaining chapters.
+
+:::tip
+
+Please note that MadParticle's primary purpose is to enhance particle effects in the game, with optimization features included as supplementary benefits.
+
+:::
 
 :::info
 
-If you have any questions or suggestions, you can find our KOOK server address at the bottom of the page.
+The [Misc](madparticle/misc) section contains several useful topics:
 
-Sorry, we currently don't have the resources to maintain a Discord server.
+- Fully custom particles
+- Using MadParticle in Fabric
+- Using MadParticle on servers
+- Using MadParticle with ReplayMod
+- Using MadParticle with shader packs
+
+:::
+
+**This guide is updated alongside the planning and development of the mod, so be aware that it might include unreleased mod content.**
+
+:::info
+
+If you have any questions or suggestions, you can find our KOOK server address at the bottom of this page.
+
 :::

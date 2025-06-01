@@ -33,7 +33,7 @@
     border-radius: 0.5rem;
 }
 
-.h2Margin{
+.h2Margin {
     margin: 1rem 0 0.5rem;
 }
 
@@ -58,7 +58,8 @@
 .summary {
     font-size: 1rem;
     width: 100%;
-    border-bottom: 2px solid #ccc;
+    border-bottom: 2px solid;
+    border-bottom-color: rgba(100, 100, 100, 100);
     margin: 0.25rem 0;
 }
 

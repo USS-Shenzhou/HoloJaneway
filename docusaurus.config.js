@@ -171,7 +171,7 @@ const config = {
         //copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
         copyright: `<font size="2">
         Copyright © ${new Date().getFullYear()} HoloJaneway, USS_Shenzhou. Built with <a href="https://docusaurus.io/" target="_blank">Docusaurus</a>.
-        </br><img src="https://beian.mps.gov.cn/web/assets/logo01.6189a29f.png" class="w-full" style="width: 1rem;"><a href="https://beian.mps.gov.cn/#/query/webSearch" target="_blank">川公网安备51112302000191号</a>
+        </br><img src="https://beian.mps.gov.cn/web/assets/logo01.6189a29f.png" class="w-full"><a href="https://beian.mps.gov.cn/#/query/webSearch" target="_blank">川公网安备51112302000191号</a>
          | <a href="https://beian.miit.gov.cn" target="_blank">蜀ICP备2023001090号-1</a>
         </br>HoloJaneway网站使用<a href="https://github.com/USS-Shenzhou/HoloJaneway/blob/main/LICENSE" target="_blank">MIT</a>许可证。
          | The HoloJaneway website is licensed under <a href="https://github.com/USS-Shenzhou/HoloJaneway/blob/main/LICENSE" target="_blank">MIT License</a>.

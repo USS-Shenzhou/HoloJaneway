@@ -24,15 +24,15 @@
     "description": "Navbar item with label GitHub"
   },
   "item.label.Mod开发教程": {
-    "message": "Mod开发教程",
+    "message": "Mod Development Tutorial",
     "description": "Navbar item with label Mod开发教程"
   },
   "item.label.Mod使用指南": {
-    "message": "Mod使用指南",
+    "message": "Mod Usage Guide",
     "description": "Navbar item with label Mod使用指南"
   },
   "item.label.点个Star吧！": {
-    "message": "点个Star吧！",
+    "message": "Give me a Star!",
     "description": "Navbar item with label 点个Star吧！"
   }
 }

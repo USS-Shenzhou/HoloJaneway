@@ -22,5 +22,9 @@
   "link.item.label.Modrinth": {
     "message": "Modrinth",
     "description": "The label of footer link with label=Modrinth linking to https://modrinth.com/user/USS-Shenzhou"
+  },
+  "link.item.label.Discord": {
+    "message": "Discord",
+    "description": "The label of footer link with label=Discord linking to https://discord.gg/kNbGdDXpSA"
   }
 }

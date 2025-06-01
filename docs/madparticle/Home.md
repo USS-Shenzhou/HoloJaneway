@@ -49,9 +49,3 @@ MadParticle的设计哲学基于以下几条原则：
 如果有任何疑问或建议，您可以在页面最下方找到我们的KOOK服务器地址。
 
 :::
-
----
-
-![JetBrains Logo (Main) logo](https://resources.jetbrains.com/storage/products/company/brand/logos/jb_beam.svg)
-
-感谢JetBrains提供的产品订阅。
