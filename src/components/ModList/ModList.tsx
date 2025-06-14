@@ -6,15 +6,28 @@ import Translate from '@docusaurus/Translate'
 
 const CFMod = ({modUrl, buttons}) => {
     const [modData, setModData] = useState(null);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         fetch(modUrl)
             .then((response) => response.json())
             .then((data) => setModData(data))
-            .catch((error) => console.error(error));
+            .catch((error) => console.error(error))
+            .finally(() => setLoading(false));
     }, [modUrl]);
 
     const latest = 'Latest: ';
+
+    if (loading) {
+        return (
+            <div className={styles.modContainer}
+                 style={{
+                     justifyContent: "center",
+                 }}>
+                <div className={styles.spinner}/>
+            </div>
+        );
+    }
 
     return (
         <div className={styles.modContainer}>
@@ -32,7 +45,7 @@ const CFMod = ({modUrl, buttons}) => {
                             </a>
                         </h2>
                         <p className={styles.summary}>{modData.summary}</p>
-                        <p className={styles.latestVersion}>
+                        {modData.download?.url && modData.download?.display && (<p className={styles.latestVersion}>
                             {latest}
                             <a
                                 href={modData.download.url}
@@ -41,7 +54,7 @@ const CFMod = ({modUrl, buttons}) => {
                             >
                                 {modData.download.display}
                             </a>
-                        </p>
+                        </p>)}
                         <div className={styles.buttonContainer}>
                             {buttons.map((button, index) => (
                                 <a
@@ -67,12 +80,14 @@ const baseMrUrl = 'https://modrinth.com/mod/';
 const MRMod = ({slug, buttons}) => {
     const [modData, setModData] = useState(null);
     const [verData, setVerData] = useState(null);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         fetch(mrApiUrl + 'project/' + slug)
             .then((response) => response.json())
             .then((data) => setModData(data))
-            .catch((error) => console.error(error));
+            .catch((error) => console.error(error))
+            .finally(() => setLoading(false));
     }, [slug]);
 
     useEffect(() => {
@@ -86,6 +101,17 @@ const MRMod = ({slug, buttons}) => {
     }, [modData?.versions?.[0]]);
 
     const latest = 'Latest: ';
+
+    if (loading) {
+        return (
+            <div className={styles.modContainer}
+                 style={{
+                     justifyContent: "center",
+                 }}>
+                <div className={styles.spinner}/>
+            </div>
+        );
+    }
 
     return (
         <div className={styles.modContainer}>
@@ -253,13 +279,13 @@ const ModList: React.FC = () => {
             ]}/>
             <h2 className={styles.h2Margin}><Translate>停止更新</Translate></h2>
             <CFMod modUrl={cfApiUrl + brighter} buttons={[
-                {text: 'Demo', url: 'https://www.bilibili.com/video/BV17Q4y1e7Ri'},
+                {text: 'Demo Video', url: 'https://www.bilibili.com/video/BV17Q4y1e7Ri'},
                 {text: 'CurseForge', url: baseCfUrl + brighter + '/files'},
                 {text: 'MCMod', url: 'https://www.mcmod.cn/class/5215.html'},
             ]}/>
             <CFMod modUrl={cfApiUrl + extinguish} buttons={[
-                {text: 'All downloads', url: baseCfUrl + extinguish + '/files'},
-                {text: 'Demo', url: 'https://www.bilibili.com/video/BV1aG411H7kQ'},
+                {text: 'Demo Video', url: 'https://www.bilibili.com/video/BV1aG411H7kQ'},
+                {text: 'CurseForge', url: baseCfUrl + extinguish + '/files'},
                 {text: 'MCMod', url: 'https://www.mcmod.cn/class/6752.html'},
             ]}/>
 
