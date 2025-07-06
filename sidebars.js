@@ -24,7 +24,10 @@ const sidebars = {
       type: 'category',
       label: '-2 杂项',
       link: {type: 'doc', id: 'holojaneway/-2'},
-      items: ['holojaneway/-2.1'],
+      items: [
+        'holojaneway/-2.1',
+        'holojaneway/-2.2'
+      ],
     },
     {
       type: 'category',
