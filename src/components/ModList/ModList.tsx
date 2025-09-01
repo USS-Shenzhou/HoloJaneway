@@ -161,7 +161,7 @@ const MRMod = ({slug, buttons}) => {
     );
 };
 
-const WorkingMod = ({img, title, description, buttons}) => {
+const PlainMod = ({img, title, description, buttons}) => {
     return (
         <div className={styles.modContainer}>
             {(
@@ -256,27 +256,43 @@ const ModList: React.FC = () => {
                 {text: 'CurseForge', url: baseCfUrl + hotbar + '/files'},
                 {text: 'MCMod', url: 'https://www.mcmod.cn/class/14032.html'},
             ]}/>
-            <MRMod slug={anomalysDelight} buttons={[
-                {text: 'Demo Video', url: 'https://www.bilibili.com/video/BV1iJrkYsEb1/'},
-                {text: 'Modrinth', url: 'https://modrinth.com/mod/anomalys-delight'},
-            ]}/>
             <CFMod modUrl={cfApiUrl + section31} buttons={[
                 {text: 'Demo Video', url: 'https://www.bilibili.com/video/BV1tt9UY4E8x/'},
                 {text: 'CurseForge', url: baseCfUrl + section31 + '/files'},
                 {text: 'MCMod', url: 'https://www.mcmod.cn/class/18765.html'},
             ]}/>
-            <WorkingMod img={"up.png"}
-                        title={'Guide Me To'}
-                        description={'Flexible signs designed for an online conventions.'}
-                        buttons={[]}
+
+            <h2 className={styles.h2Margin}><Translate>制作中</Translate></h2>
+            <PlainMod img={"neb_icon_500.png"}
+                      title={'Not Enough Bandwidth'}
+                      description={'Save your server network flow more than 70%.'}
+                      buttons={[]}
+            />
+            <PlainMod img={"chl_icon_500.png"}
+                      title={'Channel'}
+                      description={'An open source in-game talking mod.'}
+                      buttons={[]}
             />
 
-            <h2 className={styles.h2Margin}><Translate>制作中/计划中</Translate></h2>
+            <h2 className={styles.h2Margin}><Translate>计划中</Translate></h2>
 
-            <CFMod modUrl={cfApiUrl + r6} buttons={[
-                //{text: 'All downloads', url: baseCFUrl + r6 + '/files'},
-                //{text: 'MCMod', url: 'https://www.mcmod.cn/class/4799.html'},
-            ]}/>
+            <PlainMod img={"question.png"}
+                      title={'PowerGrid'}
+                      description={'Multi-thread in time.'}
+                      buttons={[]}
+            />
+
+            <PlainMod img={"ares_logo_500.png"}
+                      title={'Ares'}
+                      description={'The best unified first-person pvp experience.'}
+                      buttons={[]}
+            />
+
+            {/*<CFMod modUrl={cfApiUrl + r6} buttons={[*/}
+            {/*    //{text: 'All downloads', url: baseCFUrl + r6 + '/files'},*/}
+            {/*    //{text: 'MCMod', url: 'https://www.mcmod.cn/class/4799.html'},*/}
+            {/*]}/>*/}
+
             <h2 className={styles.h2Margin}><Translate>停止更新</Translate></h2>
             <CFMod modUrl={cfApiUrl + brighter} buttons={[
                 {text: 'Demo Video', url: 'https://www.bilibili.com/video/BV17Q4y1e7Ri'},
@@ -288,8 +304,18 @@ const ModList: React.FC = () => {
                 {text: 'CurseForge', url: baseCfUrl + extinguish + '/files'},
                 {text: 'MCMod', url: 'https://www.mcmod.cn/class/6752.html'},
             ]}/>
+            <MRMod slug={anomalysDelight} buttons={[
+                {text: 'Demo Video', url: 'https://www.bilibili.com/video/BV1iJrkYsEb1/'},
+                {text: 'Modrinth', url: 'https://modrinth.com/mod/anomalys-delight'},
+            ]}/>
 
             <h2 className={styles.h2Margin}><Translate>非发布</Translate></h2>
+
+            <PlainMod img={"up.png"}
+                      title={'Guide Me To'}
+                      description={'Flexible signs designed for an online conventions.'}
+                      buttons={[]}
+            />
 
             <div className={styles.biliModAllContainer}>
                 <BiliMod img={'kamu1.jpg'}

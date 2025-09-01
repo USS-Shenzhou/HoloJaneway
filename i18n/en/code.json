@@ -312,16 +312,19 @@
     "message": "My Mods"
   },
   "更新中": {
-    "message": "Updating"
+    "message": "Published/Updating"
   },
-  "制作中/计划中": {
-    "message": "In Development/Planned"
+  "制作中": {
+    "message": "Announced/In Development"
+  },
+  "计划中": {
+    "message": "Planned"
   },
   "停止更新": {
     "message": "Discontinued"
   },
   "非发布": {
-    "message": "Unreleased/Private"
+    "message": "Not For Release/Private"
   },
   "theme.colorToggle.ariaLabel.mode.system": {
     "message": "system mode",
