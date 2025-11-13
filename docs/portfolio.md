@@ -13,7 +13,7 @@ slug: /portfolio
 
 This page contains two core classes from my proudest Minecraft mod, ***[MadParticle](https://modrinth.com/mod/mad-particle)*** : `NeoInstancedRenderManager` and `MultiThreadedEqualObjectLinkedOpenHashSetQueue`.
 
-MadParticle was originally designed as a decorative particle mod for Minecraft, allowing players to create visually rich in-game scenes through a large number of configurable parameters. Unlike particle systems in Unreal or Unity, Minecraft’s particles are comparatively heavy, which function more like client-side actors than VFX effects.
+MadParticle was originally designed as a decorative particle mod for Minecraft, allowing players to create visually rich in-game scenes through a large number of configurable parameters. Unlike particle systems in Unreal or Unity, Minecraft’s particles are relatively heavier, which function more like client-side actors/entities than VFX effects.
 
 ### In-game demo
 
@@ -33,7 +33,7 @@ Later, in response to player feedback, I began optimizing the vanilla particle s
 
 ### Structure evolvement
 
-The MadParticle project has been under active development for three years, and the version shown here represents its latest version.
+The MadParticle project has been under active development for three years, and the version shown below represents the latest version.
 
 <img src={require('./assets/portfolio_2.png').default} alt="MadParticle structure evolvement"/>
 
