@@ -13,18 +13,32 @@ slug: /portfolio
 
 This page contains two core classes from my proudest Minecraft mod, ***[MadParticle](https://modrinth.com/mod/mad-particle)*** : `NeoInstancedRenderManager` and `MultiThreadedEqualObjectLinkedOpenHashSetQueue`.
 
-MadParticle was originally designed as a decorative particle mod for Minecraft, allowing players to create visually rich in-game scenes through a large number of configurable parameters. Unlike particle systems in Unreal or Unity, Minecraft’s particles are relatively heavier, which function more like client-side actors/entities than VFX effects.
+*MadParticle* was originally designed as a decorative particle mod for Minecraft, allowing players to create visually rich in-game scenes through a large number of configurable parameters. Unlike particle systems in Unreal or Unity, Minecraft’s particles are relatively heavier, which function more like client-side actors/entities than VFX effects.
 
-### In-game demo
+:::info
 
-<img src={require('./assets/portfolio_0.png').default} alt="MadParticle in game demo"/>
+Additionally, there are several demonstration videos of *MadParticle* available:
+
+- Initial announcation video on [***Youtube***](https://www.youtube.com/watch?v=M-PhAlBLZAU)
+- 0.5 version update on [***Youtube***](https://www.youtube.com/watch?v=pzR447A-hjg)
+- 0.5 performance comparison on [***Bilibili***](https://www.bilibili.com/video/BV1k64y1w76j) (not translated yet)
+- 0.8 version update on [***Bilibili***](https://www.bilibili.com/video/BV1btqVYQEZf) (not translated yet)
+- Third anniversary/1.0 version update on [***Bilibili***](https://www.bilibili.com/video/BV1sbe6zsEMK) (not translated yet)
+
+And there is a list of my other projects on the [Home page](/).
+
+:::
+
+### In-game screenshot
+
+<img src={require('./assets/portfolio_0.png').default} alt="MadParticle in-game screenshot"/>
 
 > This image shows the in-game command editing interface of MadParticle, which renders an Arabic numeral “3” to celebrate the third anniversary of the mod.
 On the right side, you can see that a single command has more than 30 adjustable parameters.
 
 ### Performance comparison
 
-Later, in response to player feedback, I began optimizing the vanilla particle system. The current version of MadParticle now achieves a 10–20x performance improvement over the vanilla Minecraft implementation.
+Later, in response to player and other developers' feedback, I began optimizing the vanilla particle system. The current version of MadParticle now achieves a 10–20x performance improvement over the vanilla Minecraft implementation.
 
 <img src={require('./assets/portfolio_1.png').default} alt="MadParticle performance comparison"/>
 

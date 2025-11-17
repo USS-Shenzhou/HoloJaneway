@@ -82,6 +82,12 @@ const config = {
             position: 'left',
             label: 'Mod使用指南',
           },
+          {
+            type: 'doc',
+            docId: 'portfolio',
+            position: 'left',
+            label: 'Portfolio',
+          },
           /*{
             type: 'doc',
             docId: 'r6ms/home',
