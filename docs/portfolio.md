@@ -15,9 +15,15 @@ This page contains two core classes from my proudest Minecraft mod, ***[MadParti
 
 *MadParticle* was originally designed as a decorative particle mod for Minecraft, allowing players to create visually rich in-game scenes through a large number of configurable parameters. Unlike particle systems in Unreal or Unity, Minecraft’s particles are relatively heavier, which function more like client-side actors/entities than VFX effects.
 
+### Demonstration video
+
+<video controls width="960">
+  <source src="https://us-shenzhou.oss-us-west-1.aliyuncs.com/export.mp4" type="video/mp4" />
+</video>
+
 :::info
 
-Additionally, there are several demonstration videos of *MadParticle* available:
+This short video showcases several highlights of MadParticle. Additionally, a few historical videos of MadParticle are provided below:
 
 - Initial announcation video on [***Youtube***](https://www.youtube.com/watch?v=M-PhAlBLZAU)
 - 0.5 version update on [***Youtube***](https://www.youtube.com/watch?v=pzR447A-hjg)
@@ -28,13 +34,6 @@ Additionally, there are several demonstration videos of *MadParticle* available:
 And there is a list of my other projects on the [Home page](/).
 
 :::
-
-### In-game screenshot
-
-<img src={require('./assets/portfolio_0.png').default} alt="MadParticle in-game screenshot"/>
-
-> This image shows the in-game command editing interface of MadParticle, which renders an Arabic numeral “3” to celebrate the third anniversary of the mod.
-On the right side, you can see that a single command has more than 30 adjustable parameters.
 
 ### Performance comparison
 
@@ -53,13 +52,13 @@ The MadParticle project has been under active development for three years, and t
 
 > This image illustrates a major recent architectural overhaul of MadParticle compared to the vanilla system — shifting from a mainly main-thread architecture to an almost fully multithreaded one.
 
+## *NeoInstancedRenderManager.java*
+
 :::info
 
 If intersted, the complete source code of the project is available at https://github.com/USS-Shenzhou/MadParticle (My online alias is USS_Shenzhou).
 
 :::
-
-## *NeoInstancedRenderManager.java*
 
 `NeoInstancedRenderManager` is a highly optimized particle rendering system primarily based on instanced rendering, with some specializations tailored to the Minecraft rendering pipeline.
 
