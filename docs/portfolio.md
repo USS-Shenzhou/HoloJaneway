@@ -9,11 +9,19 @@ slug: /portfolio
 
 > By Kexing Yu
 
-## Introduction
+This page includes two personal projects, ***[MadParticle](https://modrinth.com/mod/mad-particle)*** and ***NotEnoughBandwidth*** (still in active developing), both are Minecraft Java Edition mods. I am the lead creator of these projects, responsible for planning, design, programming, publication, and maintenance. Both projects are still under active development.
 
-This page contains two core classes from my proudest Minecraft mod, ***[MadParticle](https://modrinth.com/mod/mad-particle)*** : `NeoInstancedRenderManager` and `MultiThreadedEqualObjectLinkedOpenHashSetQueue`.
+## MadParticle
 
-*MadParticle* was originally designed as a decorative particle mod for Minecraft, allowing players to create visually rich in-game scenes through a large number of configurable parameters. Unlike particle systems in Unreal or Unity, Minecraft’s particles are relatively heavier, which function more like client-side actors/entities than VFX effects.
+MadParticle was originally designed as a decorative particle mod for Minecraft, allowing players to create visually rich in-game scenes through a large number of configurable parameters.
+
+Unlike particle systems in Unreal or Unity, Minecraft's particles are relatively heavier, which function more like client-side actors/entities than VFX effects. Therefore, MadParticle also provides a highly optimized particle system that replaces the vanilla particle rendering and computation, delivering a 15–20x performance improvement.
+
+:::info
+
+If intersted, the complete source code of the project is available at https://github.com/USS-Shenzhou/MadParticle (My online alias is USS_Shenzhou).
+
+:::
 
 ### Demonstration video
 
@@ -37,7 +45,7 @@ And there is a list of my other projects on the [Home page](/).
 
 ### Performance comparison
 
-Later, in response to player and other developers' feedback, I began optimizing the vanilla particle system. The current version of MadParticle now achieves a 10–20x performance improvement over the vanilla Minecraft implementation.
+In response to player and other developers' feedback, I began optimizing the vanilla particle system. The current version of MadParticle now achieves a 10–20x performance improvement over the vanilla Minecraft implementation.
 
 <img src={require('./assets/portfolio_1.png').default} alt="MadParticle performance comparison"/>
 
@@ -52,19 +60,16 @@ The MadParticle project has been under active development for three years, and t
 
 > This image illustrates a major recent architectural overhaul of MadParticle compared to the vanilla system — shifting from a mainly main-thread architecture to an almost fully multithreaded one.
 
-## *NeoInstancedRenderManager.java*
-
-:::info
-
-If intersted, the complete source code of the project is available at https://github.com/USS-Shenzhou/MadParticle (My online alias is USS_Shenzhou).
-
-:::
+### *NeoInstancedRenderManager*
 
 `NeoInstancedRenderManager` is a highly optimized particle rendering system primarily based on instanced rendering, with some specializations tailored to the Minecraft rendering pipeline.
 
 Although instanced rendering significantly reduces the overall rendering time, filling the VBO still consumes substantial processing resources. To address this, parallel VBOs were introduced, where each thread is preassigned a starting address and a task of roughly equal size (see `MultiThreadedEqualObjectLinkedOpenHashSetQueue` below).
 
 Additionally, a ring-based OpenGL `PersistentMappedBuffer` is employed to eliminate blocking during data uploads. Through these designs, this class maximizes hardware utilization (excluding hyper-threading considerations) and achieves performance far exceeding that of vanilla Minecraft.
+
+<details>
+<summary>NeoInstancedRenderManager.java</summary>
 
 ```java
 // The import statements at the beginning of classes have been omitted.
@@ -385,7 +390,9 @@ public class NeoInstancedRenderManager {
 }
 ```
 
-## *MultiThreadedEqualObjectLinkedOpenHashSetQueue.java*
+</details>
+
+### *MultiThreadedEqualObjectLinkedOpenHashSetQueue*
 
 `MultiThreadedEqualObjectLinkedOpenHashSetQueue` is a multithreaded container, essentially composed of an array of `ObjectLinkedOpenHashSet`.
 
@@ -398,6 +405,9 @@ Specifically:
 - The traditional `ForkJoinPool` mechanism incurs significant overhead when handling large amount of small tasks. By preallocating elements on insertion through an array structure, this issue can be avoided. Given that the array size is typically close to the number of processor cores, the slightly increased lookup/removal/insertion time compared to a single Set is acceptable.
 
 Building on these features, the container class described below was created to meet MadParticle’s high-performance processing needs.
+
+<details>
+<summary>NeoInstancedRenderManager.java</summary>
 
 ```java
 // The import statements at the beginning of classes have been omitted.
@@ -635,3 +645,183 @@ public class MultiThreadedEqualObjectLinkedOpenHashSetQueue<E> implements Queue<
     }
 }
 ```
+
+</details>
+
+
+## NotEnoughBandwidth
+
+NotEnoughBandwidth (NEB) is a project focused on optimizing network traffic. In vanilla Minecraft, most packets carry less than 10 bytes of actual payload, while a large portion of bandwidth is wasted on TCP headers and application-layer headers. In areas where bandwidth is costly, the vanilla networking mechanism creates significant financial pressure for Minecraft server owners.
+
+NEB aggregates game packets in short intervals, removes redundant headers, replaces string-based packet identifiers with integer indexes, and introduces improved ZSTD compression. These approaches greatly reduce the network bandwidth usage of Minecraft servers.
+
+In the test dataset, NEB can reduce packet bandwidth consumption to 4.4% of vanilla Minecraft; even when compared with vanilla’s built-in gzip compression, it still uses only 11% of the original bandwidth.
+
+| method                           | C2S(byte) | S2C(byte)   | compress ratio (to raw) | compress ratio (to gzip) |
+|----------------------------------|-----------|-------------|-------------------------|--------------------------|
+| uncompressed                     | 1,202,270 | 526,080,229 | 100.00%                 |                          |
+| vanilla  (gzip)                  | 1,187,810 | 209,674,132 | 39.99%                  | 100.00%                  |
+| ZSTD+packing                     | 938,366   | 44,497,817  | 8.62%                   | 21.55%                   |
+| aggregation+packing+ZSTD         | 828,416   | 22,371,107  | 4.40%                   | 11.00%                   |
+|                                  |           |             |                         |                          |
+| net  package amount              | 36,880    | 2,027,018   | 100.00%                 |                          |
+| net  package amount (aggregated) | 28,484    | 38,949      | 3.27%                   |                          |
+
+NEB has undergone multiple rounds of testing on real multiplayer servers. In production environments, the measured compression ratio typically fluctuates between 14% and 18%, fully achieving its intended design goals.
+
+<p style={{textAlign:"center"}}>
+    <img src={require('./assets/neb0.png').default} alt="NEB raw data" style={{zoom:0.8}} />
+</p>
+
+<img src={require('./assets/neb1.png').default} alt="NEB log"/>
+
+### *PacketAggregationPacket*
+
+`PacketAggregationPacket.java` is one of the core components of NEB. By introducing a new type of network packet and implementing most relevant logic within it, NEB can perform network optimizations transparently with almost no impact on the behavior of other mods.
+
+
+<details>
+<summary>PacketAggregationPacket.java</summary>
+
+```java
+/**
+ * @author USS_Shenzhou
+ */
+@MethodsReturnNonnullByDefault
+public class PacketAggregationPacket implements CustomPacketPayload {
+    public static final Type<PacketAggregationPacket> TYPE = new Type<>(ResourceLocation.fromNamespaceAndPath(ModConstants.MOD_ID, "packet_aggregation_packet"));
+
+    @Override
+    public Type<? extends CustomPacketPayload> type() {
+        return TYPE;
+    }
+
+    private final Map<ResourceLocation, ArrayList<Packet<?>>> packets;
+    private final FriendlyByteBuf buf;
+    // only used for encode
+    private ProtocolInfo<?> protocolInfo;
+
+    public PacketAggregationPacket(Map<ResourceLocation, ArrayList<Packet<?>>> packets, ProtocolInfo<?> protocolInfo) {
+        this.packets = packets;
+        this.buf = new FriendlyByteBuf(Unpooled.buffer());
+        this.protocolInfo = protocolInfo;
+    }
+
+    /**
+     * <pre>
+     * ┌---┬---┬---┬---┬----┬----┬----┬----┬-...-┬---┬---┬---┬----┬----┬----┬----┐
+     * │ S │ b │ t │ n │ s0 │ d0 │ s1 │ d1 │ ... │ b │ t │ n │ s0 │ d0 │ s1 │ d1 │
+     * └---┴---┴---┴---┴----┴----┴----┴----┴-...-┴---┴---┴---┴----┴----┴----┴----┘
+     *     └--------all packets of type A--------┘└-----all packets of type B----┘
+     *     └------------------------------compressed-----------------------------┘
+     *
+     * S = varint, size of compressed buf
+     * b = bool, whether using indexed type
+     * t = medium or ResLoc, type
+     * n = varint, subpacket amount of this type
+     * s = varint, size of this subpacket
+     * d = bytes, data of this subpacket
+     * </pre>
+     */
+    public void encode(FriendlyByteBuf buffer) {
+        FriendlyByteBuf rawBuf = new FriendlyByteBuf(ByteBufAllocator.DEFAULT.buffer());
+        packets.forEach((tag, packets) -> {
+            encodePackets(rawBuf, tag, packets);
+        });
+        var compressedBuf = new FriendlyByteBuf(ByteBufHelper.compress(rawBuf));
+        logCompressRatio(rawBuf, compressedBuf);
+        // S
+        buffer.writeVarInt(rawBuf.readableBytes());
+        buffer.writeBytes(compressedBuf);
+
+        rawBuf.release();
+        compressedBuf.release();
+    }
+
+    private static void logCompressRatio(FriendlyByteBuf rawBuf, FriendlyByteBuf compressedBuf) {
+        if (ConfigHelper.getConfigRead(NotEnoughBandwidthConfig.class).debugLog) {
+            LogUtils.getLogger().debug("Packet aggregation compressed: {} bytes-> {} bytes ( {} %).",
+                    rawBuf.readableBytes(),
+                    compressedBuf.readableBytes(),
+                    String.format("%.2f", 100f * compressedBuf.readableBytes() / rawBuf.readableBytes())
+            );
+        } else {
+            LogUtils.getLogger().trace("Packet aggregation compressed: {} bytes-> {} bytes ( {} %).",
+                    rawBuf.readableBytes(),
+                    compressedBuf.readableBytes(),
+                    String.format("%.2f", 100f * compressedBuf.readableBytes() / rawBuf.readableBytes())
+            );
+        }
+    }
+
+    private void encodePackets(FriendlyByteBuf raw, ResourceLocation type, Collection<Packet<?>> packets) {
+        int nebIndex = NamespaceIndexManager.getNebIndexNotTight(type);
+        // b, t
+        if (nebIndex != 0) {
+            raw.writeBoolean(true);
+            raw.writeMedium(nebIndex);
+        } else {
+            raw.writeBoolean(false);
+            raw.writeResourceLocation(type);
+        }
+        // n
+        raw.writeVarInt(packets.size());
+        for (var packet : packets) {
+            encodePacket(raw, packet);
+        }
+    }
+
+    @SuppressWarnings({"unchecked", "rawtypes"})
+    private void encodePacket(FriendlyByteBuf raw, Packet<?> packet) {
+        var b = Unpooled.buffer();
+        protocolInfo.codec().encode(b, (Packet) packet);
+        // s
+        raw.writeVarInt(b.readableBytes());
+        // d
+        raw.writeBytes(b);
+        b.release();
+    }
+
+    public PacketAggregationPacket(FriendlyByteBuf buffer) {
+        this.protocolInfo = null;
+        this.packets = new HashMap<>();
+        // S
+        int size = buffer.readVarInt();
+        this.buf = new FriendlyByteBuf(ByteBufHelper.decompress(buffer.retainedDuplicate(), size));
+        buffer.readerIndex(buffer.writerIndex());
+    }
+
+    public void handler(IPayloadContext context) {
+        this.protocolInfo = context.connection().getInboundProtocol();
+        while (this.buf.readableBytes() > 0) {
+            decodePackets(this.buf, context.listener());
+        }
+        this.buf.release();
+    }
+
+    private void decodePackets(FriendlyByteBuf buf, ICommonPacketListener listener) {
+        // b, t
+        var type = buf.readBoolean()
+                ? NamespaceIndexManager.getResourceLocation(buf.readUnsignedMedium() & 0x00ffffff, false)
+                : buf.readResourceLocation();
+        // n
+        var amount = buf.readVarInt();
+        for (var i = 0; i < amount; i++) {
+            decodePacket(buf, listener);
+        }
+    }
+
+    @SuppressWarnings("unchecked")
+    private void decodePacket(FriendlyByteBuf buf, ICommonPacketListener listener) {
+        // s
+        var size = buf.readVarInt();
+        // d
+        var data = buf.readRetainedSlice(size);
+        var packet = (Packet<ICommonPacketListener>) protocolInfo.codec().decode(data);
+        packet.handle(listener);
+        data.release();
+    }
+}
+```
+
+</details>
