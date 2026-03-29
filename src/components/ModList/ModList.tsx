@@ -308,13 +308,13 @@ const ModList: React.FC = () => {
                 {text: 'CurseForge', url: baseCfUrl + section31 + '/files'},
                 {text: 'MCMod', url: 'https://www.mcmod.cn/class/18765.html'},
             ]}/>
-            <MRMod slug={"not-enough-bandwidth"} buttons={[
+            <CFMod modUrl={cfApiUrl + '1495070'} buttons={[
                 {text: 'Demo Video', url: 'https://www.bilibili.com/video/BV1M6XsBmEbb/'},
                 {text: 'Modrinth', url: 'https://modrinth.com/mod/not-enough-bandwidth'},
                 {text: 'CurseForge', url: 'https://www.curseforge.com/minecraft/mc-mods/not-enough-bandwidth'},
                 {text: 'MCMod', url: 'https://www.mcmod.cn/class/25120.html'}
             ]}/>
-            <MRMod slug={"channel"} buttons={[
+            <CFMod modUrl={cfApiUrl + '1495775'} buttons={[
                 {text: 'Demo Video 0', url: 'https://www.bilibili.com/video/BV1qfiMBrEvi/'},
                 {text: 'Modrinth', url: 'https://modrinth.com/mod/channel'},
                 {text: 'CurseForge', url: 'https://www.curseforge.com/minecraft/mc-mods/channel'},
