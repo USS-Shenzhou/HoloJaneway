@@ -90,21 +90,42 @@
 .button {
     display: block;
     text-align: center;
-    background-color: #3c91ff;
-    border: 2px solid #3c91ff;
-    color: #fff;
     border-radius: 0.5rem;
     padding: 0.25rem 0.7rem;
     text-decoration: none;
     font-size: 14px;
     margin-right: 0.5rem;
     margin-top: 0.5rem;
+
+    border: 2px solid transparent;
+    background: var(--btn-bg, #3c91ff);
+    background-origin: border-box;
+    background-clip: border-box;
+    color: #fff;
 }
 
 .button:hover {
-    background-color: transparent;
-    color: #3c91ff;
+    background:
+        linear-gradient(var(--ifm-background-color, #fff), var(--ifm-background-color, #fff)) padding-box,
+        var(--btn-bg, #3c91ff) border-box;
+    background-origin: border-box;
     text-decoration: none;
+}
+
+.btnText, .mcText, .modText {
+    color: #fff;
+}
+
+.button:hover .btnText {
+    color: var(--btn-hover-color, #3c91ff);
+}
+
+.button:hover .btnText .mcText {
+    color: #9ac15d;
+}
+
+.button:hover .btnText .modText {
+    color: #7cb6d7;
 }
 
 .container {

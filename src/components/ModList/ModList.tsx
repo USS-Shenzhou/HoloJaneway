@@ -4,8 +4,36 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import styles from './styles.module.css';
 import Translate from '@docusaurus/Translate'
 
-const CFMod = ({modUrl, buttons}) => {
-    const [modData, setModData] = useState(null);
+const getButtonStyle = (text: string, url: string): React.CSSProperties => {
+    const t = text.toLowerCase();
+    const u = url.toLowerCase();
+
+    let color = '#3c91ff';
+
+    if (t.includes('video')) {
+        if (u.includes('bilibili')) {
+            color = '#df7298';
+        } else if (u.includes('youtube')) {
+            color = '#dc0032';
+        }
+    } else if (t.includes('morrinth') || t.includes('modrinth')) {
+        color = '#7dd971';
+    } else if (t.includes('curseforge')) {
+        color = '#d56439';
+    } else if (t.includes('mcmod')) {
+        return {
+            '--btn-bg': 'linear-gradient(135deg, #9ac15d 50%, #7cb6d7 50%)'
+        } as React.CSSProperties;
+    }
+
+    return {
+        '--btn-bg': color,
+        '--btn-hover-color': color
+    } as React.CSSProperties;
+};
+
+const CFMod = ({modUrl, buttons}: { modUrl: string, buttons: any[] }) => {
+    const [modData, setModData] = useState<any>(null);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
@@ -61,10 +89,18 @@ const CFMod = ({modUrl, buttons}) => {
                                     key={index}
                                     href={button.url}
                                     className={styles.button}
+                                    style={getButtonStyle(button.text, button.url)}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >
-                                    {button.text}
+                                    {button.text.toLowerCase() === 'mcmod' ? (
+                                        <span className={styles.btnText}>
+                                            <span className={styles.mcText}>MC</span>
+                                            <span className={styles.modText}>Mod</span>
+                                        </span>
+                                    ) : (
+                                        <span className={styles.btnText}>{button.text}</span>
+                                    )}
                                 </a>
                             ))}
                         </div>
@@ -147,10 +183,18 @@ const MRMod = ({slug, buttons}) => {
                                     key={index}
                                     href={button.url}
                                     className={styles.button}
+                                    style={getButtonStyle(button.text, button.url)}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >
-                                    {button.text}
+                                    {button.text.toLowerCase() === 'mcmod' ? (
+                                        <span className={styles.btnText}>
+                                            <span className={styles.mcText}>MC</span>
+                                            <span className={styles.modText}>Mod</span>
+                                        </span>
+                                    ) : (
+                                        <span className={styles.btnText}>{button.text}</span>
+                                    )}
                                 </a>
                             ))}
                         </div>
@@ -243,50 +287,64 @@ const ModList: React.FC = () => {
 
             <CFMod modUrl={cfApiUrl + mp} buttons={[
                 {text: 'Demo Video', url: 'https://www.bilibili.com/video/BV1Ao4y1t7XC/'},
-                {text: 'CurseForge', url: baseCfUrl + mp + '/files'},
                 {text: 'Modrinth', url: 'https://modrinth.com/mod/mad-particle'},
+                {text: 'CurseForge', url: baseCfUrl + mp + '/files'},
                 {text: 'MCMod', url: 'https://www.mcmod.cn/class/7482.html'},
             ]}/>
             <CFMod modUrl={cfApiUrl + t88} buttons={[
+                {text: 'Modrinth', url: 'https://modrinth.com/mod/t88'},
                 {text: 'CurseForge', url: baseCfUrl + t88 + '/files'},
                 {text: 'MCMod', url: 'https://www.mcmod.cn/class/7410.html'},
             ]}/>
             <CFMod modUrl={cfApiUrl + hotbar} buttons={[
                 {text: 'Demo Video', url: 'https://www.bilibili.com/video/BV1DCx4eUEQR/'},
-                {text: 'CurseForge', url: baseCfUrl + hotbar + '/files'},
+                {text: 'Modrinth', url: 'https://modrinth.com/mod/hotbaaaar'},
+                {text: 'CurseForge', url: 'https://www.curseforge.com/minecraft/mc-mods/hotbaaaar'},
                 {text: 'MCMod', url: 'https://www.mcmod.cn/class/14032.html'},
             ]}/>
             <CFMod modUrl={cfApiUrl + section31} buttons={[
                 {text: 'Demo Video', url: 'https://www.bilibili.com/video/BV1tt9UY4E8x/'},
+                {text: 'Modrinth', url: 'https://modrinth.com/mod/section-31'},
                 {text: 'CurseForge', url: baseCfUrl + section31 + '/files'},
                 {text: 'MCMod', url: 'https://www.mcmod.cn/class/18765.html'},
             ]}/>
+            <MRMod slug={"not-enough-bandwidth"} buttons={[
+                {text: 'Demo Video', url: 'https://www.bilibili.com/video/BV1M6XsBmEbb/'},
+                {text: 'Modrinth', url: 'https://modrinth.com/mod/not-enough-bandwidth'},
+                {text: 'CurseForge', url: 'https://www.curseforge.com/minecraft/mc-mods/not-enough-bandwidth'},
+                {text: 'MCMod', url: 'https://www.mcmod.cn/class/25120.html'}
+            ]}/>
+            <MRMod slug={"channel"} buttons={[
+                {text: 'Demo Video 0', url: 'https://www.bilibili.com/video/BV1qfiMBrEvi/'},
+                {text: 'Modrinth', url: 'https://modrinth.com/mod/channel'},
+                {text: 'CurseForge', url: 'https://www.curseforge.com/minecraft/mc-mods/channel'},
+            ]}/>
 
-            <h2 className={styles.h2Margin}><Translate>制作中</Translate></h2>
-            <PlainMod img={"neb_icon_500.png"}
-                      title={'Not Enough Bandwidth'}
-                      description={'Save your server network flow more than 70%.'}
-                      buttons={[]}
-            />
-            <PlainMod img={"chl_icon_500.png"}
-                      title={'Channel'}
-                      description={'An open source in-game talking mod.'}
-                      buttons={[]}
-            />
+            {/*<h2 className={styles.h2Margin}><Translate>制作中</Translate></h2>*/}
+            {/*<PlainMod img={"neb_icon_500.png"}*/}
+            {/*          title={'Not Enough Bandwidth'}*/}
+            {/*          description={'Save your server network flow more than 70%.'}*/}
+            {/*          buttons={[]}*/}
+            {/*/>*/}
+            {/*<PlainMod img={"chl_icon_500.png"}*/}
+            {/*          title={'Channel'}*/}
+            {/*          description={'An open source in-game talking mod.'}*/}
+            {/*          buttons={[]}*/}
+            {/*/>*/}
 
-            <h2 className={styles.h2Margin}><Translate>计划中</Translate></h2>
+            {/*<h2 className={styles.h2Margin}><Translate>计划中</Translate></h2>*/}
 
-            <PlainMod img={"question.png"}
-                      title={'PowerGrid'}
-                      description={'Multi-thread in time.'}
-                      buttons={[]}
-            />
+            {/*<PlainMod img={"question.png"}*/}
+            {/*          title={'PowerGrid'}*/}
+            {/*          description={'Multi-thread in time.'}*/}
+            {/*          buttons={[]}*/}
+            {/*/>*/}
 
-            <PlainMod img={"ares_logo_500.png"}
-                      title={'Ares'}
-                      description={'The best unified first-person pvp experience.'}
-                      buttons={[]}
-            />
+            {/*<PlainMod img={"ares_logo_500.png"}*/}
+            {/*          title={'Ares'}*/}
+            {/*          description={'The best unified first-person pvp experience.'}*/}
+            {/*          buttons={[]}*/}
+            {/*/>*/}
 
             {/*<CFMod modUrl={cfApiUrl + r6} buttons={[*/}
             {/*    //{text: 'All downloads', url: baseCFUrl + r6 + '/files'},*/}
